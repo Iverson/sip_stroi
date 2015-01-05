@@ -1,0 +1,10 @@
+<h1>Root#index</h1>
+<p>Find me in app/views/root/index.html.erb</p>
+
+<% @projects.each do |project| %>
+	<p><%= project.name %> <%= project.price %></p>
+<% end %>
+
+<% if @projects.blank? %>
+	Проектов нет.
+<% end %>
