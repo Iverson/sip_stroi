@@ -1,47 +1,59 @@
-# -*- encoding : utf-8 -*-
-# siphomebuild - Поменять на ваш логин в панели управления
-# sip-stroy - Поменять на имя вашего проекта
-# sulfur - Поменять на имя вашего сервера (Указано на вкладке "FTP и SSH" вашей панели управления)
-# set :repository - Установить расположение вашего репозитория
-# У вас должна быть настроена авторизация ssh по сертификатам
+require 'bundler/capistrano'
 
-require "bundler/capistrano"
-set :stages, %w(staging production)
-set :default_stage, "staging"
-require 'capistrano/ext/multistage'
+## Чтобы не хранить database.yml в системе контроля версий, поместите
+## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
+## следующие строки.
 
-set :application, "sip_stroy"
-set :repository,  "https://github.com/Iverson/sip_stroi.git"
-set :branch, "develop"
+# after "deploy:update_code", :copy_database_config
+# task :copy_database_config, roles => :app do
+#   db_config = "#{shared_path}/database.yml"
+#   run "cp #{db_config} #{release_path}/config/database.yml"
+# end
 
-dpath = "/home/hosting_siphomebuild/projects/sip-stroy"
+# Если вы не используете авторизацию SSH по ключам И ssh-agent,
+# закомментируйте эту опцию.
+ssh_options[:forward_agent] = true
 
-set :user, "hosting_siphomebuild"
-set :use_sudo, false
-set :deploy_to, dpath
+# Имя вашего проекта в панели управления.
+# Не меняйте это значение без необходимости, оно используется дальше.
+set :application,     "sip-stroy"
 
-set :scm, :git
+# Сервер размещения проекта.
+set :deploy_server,   "sulfur.locum.ru"
 
-role :web, "sulfur.locum.ru"                          # Your HTTP server, Apache/etc
-role :app, "sulfur.locum.ru"                          # This may be the same as your `Web` server
-role :db,  "sulfur.locum.ru", :primary => true # This is where Rails migrations will run
+# Не включать в поставку разработческие инструменты и пакеты тестирования.
+set :bundle_without,  [:development, :test]
 
-after "deploy:update_code", :copy_database_config
+set :user,            "hosting_siphomebuild"
+set :login,           "siphomebuild"
+set :use_sudo,        false
+set :deploy_to,       "/home/#{user}/projects/#{application}"
+set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
+set :unicorn_pid,     "/var/run/unicorn/#{user}/#{application}.#{login}.pid"
+set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
+role :web,            deploy_server
+role :app,            deploy_server
+role :db,             deploy_server, :primary => true
 
-task :copy_database_config, roles => :app do
-  db_config = "#{shared_path}/database.yml"
-  run "cp #{db_config} #{release_path}/config/database.yml"
+set :rvm_ruby_string, "2.1.5"
+set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
+set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
+
+set :scm,             :git
+set :repository,      "https://github.com/Iverson/sip_stroi.git"
+
+before 'deploy:finalize_update', 'set_current_release'
+task :set_current_release, :roles => :app do
+    set :current_release, latest_release
 end
 
-set :unicorn_rails, "/var/lib/gems/1.8/bin/unicorn_rails"
-set :unicorn_conf, "/etc/unicorn/sip-stroy.siphomebuild.rb"
-set :unicorn_pid, "/var/run/unicorn/sip-stroy.siphomebuild.pid"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
 
 # - for unicorn - #
 namespace :deploy do
   desc "Start application"
   task :start, :roles => :app do
-    run "#{unicorn_rails} -Dc #{unicorn_conf}"
+    run unicorn_start_cmd
   end
 
   desc "Stop application"
@@ -51,6 +63,6 @@ namespace :deploy do
 
   desc "Restart Application"
   task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_rails} -Dc #{unicorn_conf}"
+    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
   end
 end
