@@ -1,5 +1,5 @@
 dpath = "/home/hosting_siphomebuild/projects/sip-stroy"
-set :deploy_to, "#{dpath}-stage"
+set :deploy_to, "#{dpath}"
 # My Rails app uses RJB, so it needs to know where Java lives
 # set :domain, "62.76.186.158"
 set :rails_env, "staging"

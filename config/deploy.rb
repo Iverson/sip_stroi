@@ -5,9 +5,14 @@
 # set :repository - Установить расположение вашего репозитория
 # У вас должна быть настроена авторизация ssh по сертификатам
 
+require "bundler/capistrano"
+set :stages, %w(staging production)
+set :default_stage, "staging"
+require 'capistrano/ext/multistage'
+
 set :application, "sip_stroy"
-set :repository,  "git@github.com:Iverson/sip_stroi.git"
-set :branch, "master"
+set :repository,  "https://github.com/Iverson/sip_stroi.git"
+set :branch, "develop"
 
 dpath = "/home/hosting_siphomebuild/projects/sip-stroy"
 
