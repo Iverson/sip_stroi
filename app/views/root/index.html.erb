@@ -3,6 +3,11 @@
 
 <% @projects.each do |project| %>
 	<p><%= project.name %> <%= project.price %></p>
+	<ul>
+		<% project.project_pictures.each do |picture| %>
+		<li><%= image_tag picture.image.url(:thumb) %></li>
+		<% end %>
+	</ul>
 <% end %>
 
 <% if @projects.blank? %>

@@ -1,4 +1,8 @@
 ActiveAdmin.register AdminUser do
+  menu :label => proc{ I18n.t("active_admin.admin_users") }, :parent => I18n.t("active_admin.site_configuration")
+  
+  actions :all, :except => [:show]
+  
   permit_params :email, :password, :password_confirmation
 
   index do

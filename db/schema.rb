@@ -49,20 +49,17 @@ ActiveRecord::Schema.define(version: 20150105134842) do
   add_index "admin_users", ["email"], name: "index_admin_users_on_email", unique: true, using: :btree
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
-  create_table "pictures", force: :cascade do |t|
+  create_table "project_pictures", force: :cascade do |t|
     t.string   "name"
+    t.integer  "project_id"
     t.string   "image_file_name"
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
     t.text     "description"
-    t.integer  "imageable_id"
-    t.string   "imageable_type"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
-
-  add_index "pictures", ["imageable_type", "imageable_id"], name: "index_pictures_on_imageable_type_and_imageable_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",        null: false

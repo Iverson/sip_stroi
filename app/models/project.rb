@@ -1,7 +1,7 @@
 class Project < ActiveRecord::Base
-	has_many :pictures, as: :imageable, dependent: :destroy
+	has_many :project_pictures, :dependent => :destroy
 
-	accepts_nested_attributes_for :pictures
+	accepts_nested_attributes_for :project_pictures
 
 	validates :name, presence: true
 	validates :price, presence: true

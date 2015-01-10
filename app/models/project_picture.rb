@@ -1,5 +1,5 @@
-class Picture < ActiveRecord::Base
-	belongs_to :imageable, polymorphic: true
+class ProjectPicture < ActiveRecord::Base
+	belongs_to :project
 	
 	has_attached_file :image, :styles => { :large => "800x600>", :medium => "500x500>", :thumb => "175x120>" }, :default_url => "/images/:style/missing.png"
 
