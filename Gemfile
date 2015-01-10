@@ -29,6 +29,7 @@ gem 'activeadmin', github: 'activeadmin'
 gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
 gem "paperclip", "~> 4.2"
 gem 'russian'
+gem 'airbrake'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
