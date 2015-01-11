@@ -48,6 +48,9 @@ task :set_current_release, :roles => :app do
     set :current_release, latest_release
 end
 
+after "deploy:update_code", "deploy:migrate"
+after "deploy", "deploy:cleanup"
+
 set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -Dc #{unicorn_conf})"
 
 # - for unicorn - #
