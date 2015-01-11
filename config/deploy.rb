@@ -41,13 +41,14 @@ set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
 set :scm,             :git
 set :repository,      "https://github.com/Iverson/sip_stroi.git"
+set :branch, "develop"
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
     set :current_release, latest_release
 end
 
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn_rails -Dc #{unicorn_conf})"
+set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -Dc #{unicorn_conf})"
 
 # - for unicorn - #
 namespace :deploy do
