@@ -1,5 +1,10 @@
 ActiveAdmin.register AdminUser do
-  menu :label => proc{ I18n.t("active_admin.admin_users") }, :parent => I18n.t("active_admin.site_configuration")
+  title = I18n.t("active_admin.admin_users")
+  menu :label => title, :parent => I18n.t("active_admin.site_configuration")
+
+  controller do
+    before_filter { @page_title = title }
+  end
   
   actions :all, :except => [:show]
   

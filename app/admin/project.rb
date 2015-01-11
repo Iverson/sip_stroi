@@ -1,9 +1,12 @@
 ActiveAdmin.register Project do
-  menu :priority => 5, :label => proc{ I18n.t("active_admin.projects") }
+  title = I18n.t("active_admin.projects")
+  menu :priority => 5, :label => title
 
   permit_params :name, :price, :area, :description, project_pictures_attributes: [:id, :image, :name, :description, :_destroy]
 
   controller do
+    before_filter { @page_title = title }
+
     def update
       update! do |format|
         format.html { redirect_to edit_admin_project_path }

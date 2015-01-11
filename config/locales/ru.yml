@@ -66,6 +66,7 @@ ru:
           attributes:
             # Overrides model and default messages.
     active_admin:
+        clients: "Клиенты"
         projects: "Проекты"
         pages: "Страницы"
         statistics: "Отчеты"
