@@ -1,0 +1,13 @@
+{
+  "name": "froogler",
+  "version": "0.1.0",
+
+  "author": "Alexey Krasman",
+  "license": "BSD-2-Clause",
+  "dependencies": {},
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "node-spritesheet": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3"
+  }
+}

@@ -2,13 +2,75 @@
 <html>
 <head>
   <title>SipStroi</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="l-page">
+        <header class="b-header">
+          <div class="l-center">
+            <a href="#" class="b-logo">СИПМОНТАЖСТРОЙ</a>
+            <nav class="b-mainmenu">
+              <a class="b-mainmenu__item" href="#">О компании</a>
+              <a class="b-mainmenu__item" href="#">Проекты</a>
+              <a class="b-mainmenu__item" href="#">Каталог панелей</a>
+              <a class="b-mainmenu__item" href="#">Отзывы</a>
+            </nav>
 
-<%= yield %>
+            <div class="b-header__contacts">
+              <i class="b-icon i-callcenter"></i>
+              <span class="phone"><span class="orange">8 800</span> 775-47-58</span>
 
+              <a href="#" class="b-btn b-btn_orange">написать нам</a>
+            </div>
+          </div>
+        </header>
+
+        <%= yield %>
+
+        <footer class="b-footer">
+            <div class="l-center">
+                <div class="b-footer__left">
+                    <p class="b-footer__company">С∙М∙С <span class="green">Сип∙Монтаж∙Строй</span></p>
+
+                    <p class="b-footer__phone">
+                        <i class="b-icon i-callcenter-green"></i>
+                        <span class="va-middle"><span class="green">8 800</span> 775-47-58</span>
+                    </p>
+                    <p>Режим работы — пн.–пт.: с 9:00 до 21:00; сб., вс.:
+экскурсии на объектах (предварительная запись по телефону)</p>
+
+                    <p class="b-footer__copyright">
+                        © 2014  ООО «СИПМОНТАЖСТРОЙ» <br />
+                        Дома. Проектирование и строительство  SIP домов по всей России.
+                    </p>
+
+                </div>
+                <div class="b-footer__right">
+                    <div class="b-form">
+                        <div class="b-input">
+                            <label for="ff1">Имя</label>
+                            <input id="ff1" type="text" />
+                        </div>
+                        <div class="b-input">
+                            <label for="ff2">Телефон</label>
+                            <input id="ff2" type="text" />
+                        </div>
+                        <div class="b-input">
+                            <label for="ff3">Комментарий</label>
+                            <textarea id="ff3"></textarea>
+                        </div>
+
+                        <div class="b-form__actions">
+                            <a href="#" type="submit" class="b-btn b-btn_medium">отправить заявку</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearer"></div>
+            </div>
+        </footer>
+    </div>
 </body>
 </html>

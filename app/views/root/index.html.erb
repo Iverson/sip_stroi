@@ -1,15 +1,352 @@
-<h1>Root#index</h1>
-<p>Projects list.</p>
+        <div class="b-promo">
+            <div class="b-promo__l">
+                <p class="b-promo__t">Свой загородный дом всего за 441 000 рублей</p>
+                <a class="b-btn b-btn_big b-btn_orange" href="#">отправить заявку</a>
+            </div>
+        </div>
 
-<% @projects.each do |project| %>
-	<p><%= project.name %> <%= project.price %></p>
-	<ul>
-		<% project.project_pictures.each do |picture| %>
-		<li><%= image_tag picture.image.url(:thumb) %></li>
-		<% end %>
-	</ul>
-<% end %>
+        <div class="b-projects-gallery">
+            <h2 class="h2 light h2_center">Типовые проекты</h2>
 
-<% if @projects.blank? %>
-	Проектов нет.
-<% end %>
+            <div class="l-center b-carousel">
+                <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+                <div class="b-carousel__overflow">
+                    <div class="b-carousel__slider">
+                        <div class="b-project-thumb">
+                            <span class="b-project-thumb__label akcia">Акция</span>
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/1.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Ньютек</a>»</span> 440 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                        <div class="b-project-thumb">
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/2.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Скандинавия</a>»</span> 590 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                        <div class="b-project-thumb">
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/3.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Эстетик</a>»</span> 580 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                        <div class="b-project-thumb">
+                            <span class="b-project-thumb__label akcia">&minus;30%</span>
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/2.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Хайтек</a>»</span> 510 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                        <div class="b-project-thumb">
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/3.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Прованс</a>»</span> 790 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                        <div class="b-project-thumb">
+                            <a href="#"><img src="/assets/tmp/projects/thumbs/1.jpg" class="b-project-thumb__pic"></a>
+                            <p class="b-project-thumb__t">
+                                <span class="price">«<a href="#">Классик</a>»</span> 620 000. –
+                            </p>
+                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-sip-tech">
+            <div class="b-sip-tech__h">Почему  SIP технология?</div>
+
+            <div class="l-center b-carousel">
+                <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                <div class="b-carousel__overflow">
+                    <div class="b-carousel__slider">
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center">Быстро</h2>
+
+                            <img class="b-sip-tech__slide__pic" src="/assets/sip/quick.jpg" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                Темпы строительства как минимум в 20 раз выше, чем у традиционных технологий. Согласно общепринятой нормой, каменщик кладет 1 м2 стены в течение почти часа, а для возведения 1 м2 стены из SIP панелей работнику требуется 2 минуты! <br /><br />
+
+Быстрый и простой монтаж стеновых панелей достигается с использованием блокировки соединений "шип-паз”. Бригада из 3-4 человек способна собрать дом 100 - 150 м2 в течение 1-2 недель.
+                            </div>
+                        </div>
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center">Экологично</h2>
+
+                            <img class="b-sip-tech__slide__pic" src="/assets/sip/eco.jpg" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                В основе технологии СИП панелей лежит использование двух основных материалов: Вспененного пенополистирола и плоско-прессованных плит с ориентированной древесной щепой (OSB). Вспененный пенополистирол имеет ячеистую структуру, состоящую на 98 % из воздуха и на 2 % из полистирола. Данный материал гипоалергенен и абсолютно безвреден для человека, значительный объем мирового производства пенополистирола идет на изготовление пищевой упаковки и посуды.
+                            </div>
+                        </div>
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center">Технологично</h2>
+
+                            <img class="b-sip-tech__slide__pic" src="/assets/sip/techno.jpg" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                SIP — Structural insulated panel структурная теплоизоляционная панель, она же КТП — Конструкционная Теплоизоляционная Панель, она же сэндвич-панель sandwich-panel это уникальный строительный материал обладающий большой механической прочностью, очень большой теплозащитой, абсолютной экологичностью при невысокой стоимости.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="b-sip-tech__tabs" rel="tabs">
+                    <a href="#">Быстро</a>
+                    <a href="#">Экологично</a>
+                    <a href="#">Технологично</a>
+                </div>
+            </div>
+
+            <ul class="b-sip-tech__features">
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-termo-protect"></i></span>
+                    термоизоляция
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-water-protect"></i></span>
+                    влагоустойчивость
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-fire-protect"></i></span>
+                    огнестойкость
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-long-life"></i></span>
+                    долговечность
+                </li>
+            </ul>
+        </div>
+
+        <div class="b-personal-project">
+            <div class="l-center">
+                <p class="b-personal-project__watermark">
+                    сипмонтажстрой
+                    <i class="b-icon i-company"></i>
+                </p>
+
+                <p class="b-personal-project__t">Хотите индивидуальный проект?</p>
+                <p class="b-personal-project__text">
+                    Мы готовы специально для вас создать индивидуальный бесплатный проект для строительства SIP-дома. Просто отправьте заявку:
+                </p>
+                <a href="#" class="b-btn b-btn_big">Отправить заявку</a>
+            </div>
+        </div>
+
+        <div class="b-volumes">
+            <div class="l-center">
+                <h2 class="h2">Почему СипМонтажСтрой?</h2>
+
+                <dl class="b-volumes__item">
+                    <dt>8</dt>
+                    <dd>лет на рынке</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>1 000</dt>
+                    <dd>и более <br> довольных клиентов</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>6 000</dt>
+                    <dd>SIP-панелей в месяц производит наш завод</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>2 000</dt>
+                    <dd>м<sup>2</sup><br /> площадь завода</dd>
+                </dl>
+
+                <div class="b-volumes__text">
+                    Коллектив производственно-строительной компании «СипМонтажСтрой» не новичок на рынке строительства качественного жилья! Более 8 лет мы успешно производим и продаём СИП-панели по всей России и уже более 6 лет активно занимаемся застройкой по каркасно-панельной технологии (SIP) в Москве, а также в Московской и прилегающих областях.
+                </div>
+            </div>
+        </div>
+
+        <div class="b-buy-panels">
+            <div class="l-center">
+                <p class="b-buy-panels__watermark">
+                    сипмонтажстрой
+                    <i class="b-icon i-panels"></i>
+                </p>
+
+                <p class="b-buy-panels__text">
+                    На нашем сайте вы можете заказть панели разного размера в&nbsp;любом количестве, отправив запрос.
+                </p>
+                <a href="#" class="b-btn b-btn_big b-btn_gray">Скачать прайс лист</a>
+                <a href="#" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
+            </div>
+        </div>
+
+        <div class="b-reviews">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Отзывы</h2>
+
+                <div class="b-carousel">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__slider">
+                            <div class="b-reviews__thumb">
+                                <img src="/assets/tmp/reviews/thumbs/1.jpg" alt="" class="b-reviews__thumb__pic" />
+
+                                <p class="b-reviews__thubm__text">
+                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
+                                </p>
+
+                                <div class="b-reviews__thumb__author">
+                                    <img src="/assets/tmp/clients/1.jpg" alt="" class="pic" />
+                                    <p class="name">Антон</p>
+                                    <p class="city">г. Челябинск</p>
+                                </div>
+                            </div>
+                            <div class="b-reviews__thumb">
+                                <img src="/assets/tmp/reviews/thumbs/2.jpg" alt="" class="b-reviews__thumb__pic" />
+
+                                <p class="b-reviews__thubm__text">
+                                    Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
+ Наблюдать за их работой было одно удовольствие: быстро, слажено, красиво. Большое спасибо им.
+                                </p>
+
+                                <div class="b-reviews__thumb__author">
+                                    <img src="/assets/tmp/clients/2.jpg" alt="" class="pic" />
+                                    <p class="name">Антон</p>
+                                    <p class="city">г. Челябинск</p>
+                                </div>
+                            </div>
+                            <div class="b-reviews__thumb">
+                                <img src="/assets/tmp/reviews/thumbs/3.jpg" alt="" class="b-reviews__thumb__pic" />
+
+                                <p class="b-reviews__thubm__text">
+                                    Очень хочется поделиться впечатлениями о работе Домостроя Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
+за месяц на нашем пустом участке ребята вдвоем построили два замечательных дома.
+                                </p>
+
+                                <div class="b-reviews__thumb__author">
+                                    <img src="/assets/tmp/clients/3.jpg" alt="" class="pic" />
+                                    <p class="name">Антон</p>
+                                    <p class="city">г. Челябинск</p>
+                                </div>
+                            </div>
+                            <div class="b-reviews__thumb">
+                                <img src="/assets/tmp/reviews/thumbs/1.jpg" alt="" class="b-reviews__thumb__pic" />
+
+                                <p class="b-reviews__thubm__text">
+                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
+                                </p>
+
+                                <div class="b-reviews__thumb__author">
+                                    <img src="/assets/tmp/clients/1.jpg" alt="" class="pic" />
+                                    <p class="name">Антон</p>
+                                    <p class="city">г. Челябинск</p>
+                                </div>
+                            </div>
+                            <div class="b-reviews__thumb">
+                                <img src="/assets/tmp/reviews/thumbs/1.jpg" alt="" class="b-reviews__thumb__pic" />
+
+                                <p class="b-reviews__thubm__text">
+                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
+                                </p>
+
+                                <div class="b-reviews__thumb__author">
+                                    <img src="/assets/tmp/clients/1.jpg" alt="" class="pic" />
+                                    <p class="name">Антон</p>
+                                    <p class="city">г. Челябинск</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="b-carousel__paginator"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-actions">
+            <div class="l-center b-carousel">
+                <h2 class="h2 h2_center">Наши акции</h2>
+
+                <div class="b-carousel__overflow">
+                    <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                    <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                    <div class="b-carousel__slider">
+                        <div class="b-actions__thumb">
+                            <img src="/assets/tmp/actions/1.jpg" class="b-actions__thumb__pic" height="120" width="175" alt="">
+                            <div class="b-actions__thumb__text">
+                                <p class="t">Акция «Зима-Лето 2015»</p>
+
+                                Компания ЕвроСИП, замораживает цены до конца лета 2015 года , при оплате 60% домокомплекта до 31 декабря 2014 года, Вы можете назначить любую дату начала строительства до августа 2015 года, сохранив сегодняшнюю цену на домокомплект.
+                            </div>
+                        </div>
+                        <div class="b-actions__thumb">
+                            <img src="/assets/tmp/actions/2.jpg" class="b-actions__thumb__pic" height="120" width="175" alt="">
+                            <div class="b-actions__thumb__text">
+                                <p class="t">Дом за полцены!</p>
+
+                                Компания ЕвроСИП, замораживает цены до конца лета 2015 года , при оплате 60% домокомплекта до 31 декабря 2014 года, Вы можете назначить любую дату начала строительства до августа 2015 года, сохранив сегодняшнюю цену на домокомплект.
+                            </div>
+                        </div>
+                        <div class="b-actions__thumb">
+                            <img src="/assets/tmp/actions/1.jpg" class="b-actions__thumb__pic" height="120" width="175" alt="">
+                            <div class="b-actions__thumb__text">
+                                <p class="t">Акция «Зима-Лето 2015»</p>
+
+                                Компания ЕвроСИП, замораживает цены до конца лета 2015 года , при оплате 60% домокомплекта до 31 декабря 2014 года, Вы можете назначить любую дату начала строительства до августа 2015 года, сохранив сегодняшнюю цену на домокомплект.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="b-carousel__paginator"></div>
+            </div>
+        </div>
+
+        <div class="b-any-questions">
+            <div class="l-center">
+                <p class="b-any-questions__watermark">
+                    сипмонтажстрой
+                    <span class="b-icon b-any-questions__pic">?</span>
+                </p>
+
+                <p class="b-any-questions__text">
+                    У вас остались вопросы? Мы всегда готовые ответить на них!
+                </p>
+
+                <span class="b-phone">
+                    <i class="b-icon i-callcenter"></i>
+                    <span class="b-phone__number"><span class="orange">8 800</span> 775-47-58</span>
+                </span>
+                <a href="#" class="b-btn b-btn_big b-btn_orange">&nbsp;&nbsp; Напишите нам &nbsp;&nbsp;</a>
+            </div>
+        </div>
+
+        <div class="b-photogallery">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Фотогалерея</h2>
+
+                <div class="b-carousel" scroll-thumbs="3">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                        <div class="b-carousel__slider">
+                            <a href="/assets/tmp/photogallery/thumbs/0.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/0.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/1.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/1.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/2.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/2.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/3.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/3.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/4.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/4.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/0.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/0.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/1.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/1.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/2.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/2.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/3.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/3.jpg" alt="" class="pic" /></a>
+                            <a href="/assets/tmp/photogallery/thumbs/4.jpg" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="/assets/tmp/photogallery/thumbs/4.jpg" alt="" class="pic" /></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
