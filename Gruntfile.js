@@ -12,8 +12,8 @@ module.exports = function(grunt) {
     	desktop: {
     		options: {
 	            outputImage: 'app/assets/images/sprite.png',
-	            outputCss: 'app/assets/stylesheets/sprite.css',
-              httpImagePath: '/assets/sprite.png',
+	            outputCss: 'app/assets/stylesheets/sprite.scss',
+              httpImagePath: 'sprite.png',
 	            selector: '.b-icon',
               pngcrush: true
 	        },

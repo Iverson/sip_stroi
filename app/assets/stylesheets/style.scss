@@ -142,6 +142,7 @@ button:focus {
 .b-icon {
 	display: inline-block;
 	vertical-align:middle;
+  background-image: image-url('sprite.png') !important;
 }
 
 /* -------- */
@@ -170,7 +171,7 @@ button:focus {
 	top: 100%;
 	left: 50%;
 	margin-left: -83px;
-	background: url(/assets/header_tail.png);
+	background: image-url('header_tail.png');
 	content: "";
 }
 
@@ -311,7 +312,7 @@ button:focus {
 
 .b-promo {
 	height: 350px;
-	background: url(/assets/main_header.jpg) center 0 no-repeat;
+	background: image-url('main_header.jpg') center 0 no-repeat;
 }
 
 	.b-promo__l {
@@ -359,7 +360,7 @@ button:focus {
 		left: 50%;
 		margin-left: -497px;
 		content: "";
-		background: url(/assets/sip_tech_tail.png);
+		background: image-url('sip_tech_tail.png');
 	}
 
 	.b-sip-tech__slide {
@@ -594,7 +595,7 @@ button:focus {
 
 .b-actions {
 	padding: 54px 0 49px 0;
-	background: #ca350d url(/assets/actions_back.jpg) center 0 no-repeat;
+	background: #ca350d image-url('actions_back.jpg') center 0 no-repeat;
 	-webkit-box-shadow: inset 0 5px 0 rgba(0, 0, 0, 0.1);
 	box-shadow: inset 0 5px 0 rgba(0, 0, 0, 0.1);
 }
@@ -673,7 +674,7 @@ button:focus {
 		content: "";
 		width: 32px;
 		height: 20px;
-		background: url(/assets/review_tail.png);
+		background: image-url('review_tail.png');
 	}
 
 		.b-reviews__thumb__pic {
@@ -941,7 +942,7 @@ button:focus {
 	top: 100%;
 	left: -3px;
 	content: "";
-	background: url(/assets/project_tail.png);
+	background: image-url('project_tail.png');
 	-webkit-transition: opacity 0.2s;
 	-o-transition: opacity 0.2s;
 	transition: opacity 0.2s;
@@ -980,7 +981,7 @@ button:focus {
 	}
 
 	.b-project-thumb__label.akcia:after {
-		background: url(/assets/label_tail.png);
+		background: image-url('label_tail.png');
 	}
 
 	.b-project-thumb__label.akcia {
