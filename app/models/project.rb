@@ -9,10 +9,18 @@ class Project < ActiveRecord::Base
 	validates :area, presence: true
 
 	def cover(type = :thumb)
-		pictures.first.image.url(type)
+		if pictures.first
+			pictures.first.image.url(type)
+		else
+			"/images/project_nophoto.png"
+		end
 	end
 
 	def thumb_price
-		instances.first.price.round(0) || 0
+		if instances.first
+			instances.first.price.round(0)
+		else
+			0
+		end
 	end
 end
