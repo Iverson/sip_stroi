@@ -69,14 +69,21 @@ ru:
             # Overrides model and default messages.
     active_admin:
         title: "Заголовок"
+        name: "Название"
+        price: "Цена"
+        description: "Описание"
+        image: "Картинка"
         text: "Текст"
         clients: "Клиенты"
         projects:
           title: "Проекты"
           instances:
-            label: "Виды комплектации"
+            label: "Варианты комплектации"
             type: "Комплектация"
           pictures: "Фотографии"
+          form:
+            floors: "Колличество этажей"
+            area: "Площадь"
         pages:
           title: "Страницы"
           index: "Главная"

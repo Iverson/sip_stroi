@@ -338,6 +338,13 @@ button:focus {
 		margin-top: -41px;
 	}
 
+	.b-carousel__empty {
+		text-align: center;
+		font-size: 16px;
+		line-height: 1.4em;
+		width: 1000px;
+	}
+
 	.b-sip-tech__h {
 		height: 145px;
 		background: #75b312;
@@ -1002,7 +1009,7 @@ button:focus {
 	}
 
 	.b-project-thumb__pic {
-		width: 265px;
+		// width: 265px;
 		height: 144px;
 		display: block;
 		margin: 20px auto 0 auto;

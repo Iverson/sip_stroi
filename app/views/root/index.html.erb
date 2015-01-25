@@ -13,7 +13,7 @@
                 <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
                 <div class="b-carousel__overflow">
                     <div class="b-carousel__slider">
-                        <%= render partial: "shared/project_thumb", collection: @projects, as: :project %>
+                        <%= render(partial: "shared/project_thumb", collection: @projects, as: :project) || content_tag(:div, "В каталоге нет ни одного проекта.", class: "b-carousel__empty") %>
                     </div>
                 </div>
             </div>
@@ -89,10 +89,10 @@
                     <i class="b-icon i-company"></i>
                 </p>
 
-                <p class="b-personal-project__t"><%= c('index.individual.title') %></p>
-                <p class="b-personal-project__text">
+                <div class="b-personal-project__t"><%= c('index.individual.title') %></div>
+                <div class="b-personal-project__text">
                     <%= c('index.individual.text', :text) %>
-                </p>
+                </div>
                 <a href="#" class="b-btn b-btn_big">Отправить заявку</a>
             </div>
         </div>
@@ -215,9 +215,9 @@
                     <i class="b-icon i-panels"></i>
                 </p>
 
-                <p class="b-buy-panels__text">
+                <div class="b-buy-panels__text">
                     <%= c('index.panels.text') %>
-                </p>
+                </div>
                 <a href="#" class="b-btn b-btn_big b-btn_gray">Скачать прайс лист</a>
                 <a href="#" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
             </div>
@@ -270,9 +270,9 @@
                     <span class="b-icon b-any-questions__pic">?</span>
                 </p>
 
-                <p class="b-any-questions__text">
+                <div class="b-any-questions__text">
                     <%= c('index.questions.text') %>
-                </p>
+                </div>
 
                 <span class="b-phone">
                     <i class="b-icon i-callcenter"></i>

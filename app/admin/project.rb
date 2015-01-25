@@ -14,21 +14,35 @@ ActiveAdmin.register Project do
     end
   end
 
+  index do
+    selectable_column
+    column t('active_admin.image') do |p|
+      link_to(image_tag(p.cover, height: 50), edit_admin_project_path(p))
+    end
+    column t('active_admin.name'), :name do |p|
+      link_to p.name, edit_admin_project_path(p)
+    end
+    column t('active_admin.projects.form.area'), :area
+    column t('active_admin.projects.form.floors'), :floors
+
+    actions
+  end
+
   form do |f|
     f.semantic_errors *f.object.errors.keys
-    inputs 'Details' do
-      input :name
-      input :floors
-      input :area
+    inputs do
+      input :name, label: t('active_admin.name')
+      input :floors, label: t('active_admin.projects.form.floors')
+      input :area, label: t('active_admin.projects.form.area')
       # require 'pry'; binding.pry
       if f.object.new_record? && f.object.errors.empty?
         f.object.instances.build()
       end
 
-      f.has_many :instances, heading: I18n.t("active_admin.projects.instances.label"), allow_destroy: true do |p|
-        p.input :instance_type, label: I18n.t("active_admin.projects.instances.type")
-        p.input :price
-        p.input :description
+      f.has_many :instances, heading: t("active_admin.projects.instances.label"), allow_destroy: true do |p|
+        p.input :instance_type, label: t("active_admin.projects.instances.type")
+        p.input :price, label: t('active_admin.price')
+        p.input :description, label: t('active_admin.description')
       end
 
     end
@@ -37,13 +51,12 @@ ActiveAdmin.register Project do
       f.object.pictures.build()
     end
 
-    panel I18n.t("active_admin.projects.pictures") do
+    panel t("active_admin.projects.pictures") do
     	f.has_many :pictures, heading: '', allow_destroy: true do |p|
-    		p.input :image, :as => :file, :label => "Image",:hint => p.object.image.nil? ? p.template.content_tag(:span, "No Image Yet") : p.template.image_tag(p.object.image.url(:thumb))
+    		p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.nil? ? p.template.content_tag(:span, "No Image Yet") : p.template.image_tag(p.object.image.url(:thumb))
     	end 
     end
 
-    inputs 'Content', :description
     actions
   end
 
