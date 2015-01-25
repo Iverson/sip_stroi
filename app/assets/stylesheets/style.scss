@@ -558,6 +558,14 @@ button:focus {
 			cursor: default;
 		}
 
+		.b-carousel__paginator_white .item {
+			border-color: #fff;
+		}
+
+		.b-carousel__paginator_white .active {
+			background-color: #fff;
+		}
+
 .b-volumes {
 	padding: 77px 0 94px 0;
 	border-top: 6px solid #dbd9da;
@@ -787,12 +795,11 @@ button:focus {
 	}
 
 	.b-any-questions__pic {
-		background: none;
 		font-size: 65px;
 		font-weight: bold;
 		color: #fff;
 		text-align: center;
-		background: #75b312;
+		background: #75b312 !important;
 		width: 79px;
 		height: 79px;
 		line-height: 80px;
@@ -1070,3 +1077,31 @@ button:focus {
 	.b-footer__copyright {
 		padding-top: 124px;
 	}
+
+/* vendor */
+
+.fancybox-overlay {
+	background: asset-url('fancybox/source/fancybox_overlay.png');
+}
+
+#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+	background-image: asset-url('fancybox/source/fancybox_sprite.png');
+}
+
+#fancybox-loading div {
+	background: asset-urlurl('fancybox/source/fancybox_loading.gif') center center no-repeat;
+}
+
+/*Retina graphics!*/
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+	   only screen and (min--moz-device-pixel-ratio: 1.5),
+	   only screen and (min-device-pixel-ratio: 1.5){
+
+	#fancybox-loading, .fancybox-close, .fancybox-prev span, .fancybox-next span {
+		background-image: asset-url('fancybox/source/fancybox_sprite@2x.png');
+	}
+
+	#fancybox-loading div {
+		background-image: asset-url('fancybox/source/fancybox_loading@2x.gif');
+	}
+}
