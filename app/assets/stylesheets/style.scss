@@ -259,6 +259,10 @@ button:focus {
 	box-shadow: 0 5px 0 rgba(0, 0, 0, 0.1), inset 0 -5px 0 rgba(0, 0, 0, 0.2);
 }
 
+button.b-btn_medium, input.b-btn_medium {
+	padding-bottom: 4px;
+}
+
 .b-btn_orange {
 	background-image: -webkit-linear-gradient(#ffb71a, #de7110);
 	background-image: -o-linear-gradient(#ffb71a, #de7110);
@@ -308,6 +312,15 @@ button:focus {
 
 	.b-form .b-input {
 		margin-bottom: 16px;
+	}
+
+	.b-form__error {
+		margin-bottom: 15px;
+		color: #CA350D;
+	}
+
+	.b-form__success {
+		margin-bottom: 15px;
 	}
 
 .b-promo {

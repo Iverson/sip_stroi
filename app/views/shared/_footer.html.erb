@@ -1,0 +1,52 @@
+<footer class="b-footer">
+    <div class="l-center">
+        <div class="b-footer__left">
+            <p class="b-footer__company">С∙М∙С <span class="green">Сип∙Монтаж∙Строй</span></p>
+
+            <p class="b-footer__phone">
+                <i class="b-icon i-callcenter-green"></i>
+                <span class="va-middle"><%= phone(settings[:phone], "green") %></span>
+            </p>
+            <p>Режим работы — пн.–пт.: с 9:00 до 21:00; сб., вс.:
+экскурсии на объектах (предварительная запись по телефону)</p>
+
+            <p class="b-footer__copyright">
+                © 2014  ООО «СИПМОНТАЖСТРОЙ» <br />
+                Дома. Проектирование и строительство  SIP домов по всей России.
+            </p>
+
+        </div>
+        <div class="b-footer__right">
+            <%= form_for @feedback do |f| %>
+            
+            <div id="feedback" class="b-form">
+                <% if flash[:feedback_error] %>
+                <p class="b-form__error"><%= flash[:feedback_error] %></p>
+                <% end %>
+
+                <% if flash[:feedback_success] %>
+                <p class="b-form__success green"><%= flash[:feedback_success] %></p>
+                <% end %>
+
+                <div class="b-input">
+                    <%= f.label :name %>
+                    <%= f.text_field :name %>
+                </div>
+                <div class="b-input">
+                    <%= f.label :phone %>
+                    <%= f.text_field :phone %>
+                </div>
+                <div class="b-input">
+                    <%= f.label :message %>
+                    <%= f.text_area :message %>
+                </div>
+
+                <div class="b-form__actions">
+                    <button type="submit" class="b-btn b-btn_medium">отправить заявку</button>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="clearer"></div>
+    </div>
+</footer>

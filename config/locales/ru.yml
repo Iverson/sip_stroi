@@ -1,4 +1,5 @@
 # Sample localization file for English. Add more files in this directory for other locales.
+# Sample localization file for English. Add more files in this directory for other locales.
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
@@ -13,6 +14,15 @@ ru:
         profile: "Профиль"
         cart: "Корзина"
     activerecord:
+      flash:
+        feedback_success: "Спасибо за сообщение, мы с вами свяжемся в ближайшее время."
+        feedback_error: "Необходимо заполнить все поля"
+      attributes:
+        feedback:
+          name: "Имя"
+          phone: "Телефон"
+          message: "Комментарий"
+
       state_machines:
         order:
           state:
@@ -75,6 +85,8 @@ ru:
         image: "Картинка"
         text: "Текст"
         clients: "Клиенты"
+        feedback:
+          title: "Обратная связь"
         projects:
           title: "Проекты"
           instances:
