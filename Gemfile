@@ -26,10 +26,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-gem 'inherited_resources', github: 'josevalim/inherited_resources', branch: 'rails-4-2'
+gem 'inherited_resources', github: 'josevalim/inherited_resources'
 gem "paperclip", "~> 4.2"
 gem 'russian'
 gem 'airbrake'
+gem "rails-settings-cached", "0.4.1"
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -45,6 +46,7 @@ group :development do
   gem 'capistrano-ext'
   gem "rvm-capistrano"
   gem "letter_opener"
+  gem "pry"
 end
 
 group :development, :test do

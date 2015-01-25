@@ -2,6 +2,8 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+    index:
+      individual:
     will_paginate:
         previous_label: "&#8592; Назад"
         next_label: "Вперед &#8594;"
@@ -66,10 +68,20 @@ ru:
           attributes:
             # Overrides model and default messages.
     active_admin:
+        title: "Заголовок"
+        text: "Текст"
         clients: "Клиенты"
-        projects: "Проекты"
-        pages: "Страницы"
+        projects:
+          title: "Проекты"
+          instances:
+            label: "Виды комплектации"
+            type: "Комплектация"
+          pictures: "Фотографии"
+        pages:
+          title: "Страницы"
+          index: "Главная"
         statistics: "Отчеты"
+        settings: "Настройки"
         brands: "Бренды"
         products: "Товары"
         sections: "Категории"
@@ -77,12 +89,16 @@ ru:
         orders: "Заказы"
         users: "Заказчики"
         promo: "Акции"
-        site_configuration: "Настройки"
+        site_configuration: "Настройки сайта"
         admin_users: "Администраторы"
         view_site: "На сайт"
         index:
-            column1: "Заказы"
-            column2: "Доставка"
+            header: "Шапка"
+            title: "Заголовок"
+            individual: "Индивидуальный проект"
+            panels: "Панели"
+            features: "Почему  SIP?"
+            questions: "Вопросы?"
         dashboard_title: "Доска"
         dashboard_welcome:
           welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."
@@ -102,7 +118,7 @@ ru:
         previous: "Пред."
         next: "След."
         download: "Загрузка:"
-        has_many_new: "Добавить %{model}"
+        has_many_new: "Добавить"
         has_many_delete: "Удалить"
         filter: "Фильтровать"
         clear_filters: "Очистить"

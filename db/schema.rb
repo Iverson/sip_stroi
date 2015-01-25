@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150111102342) do
+ActiveRecord::Schema.define(version: 20150125143814) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,25 @@ ActiveRecord::Schema.define(version: 20150111102342) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "project_instance_types", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "project_instances", force: :cascade do |t|
+    t.string   "name"
+    t.float    "price"
+    t.text     "description"
+    t.integer  "project_id"
+    t.integer  "instance_type_id"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "project_instances", ["instance_type_id"], name: "index_project_instances_on_instance_type_id", using: :btree
+  add_index "project_instances", ["project_id"], name: "index_project_instances_on_project_id", using: :btree
+
   create_table "project_pictures", force: :cascade do |t|
     t.string   "name"
     t.integer  "project_id"
@@ -73,11 +92,22 @@ ActiveRecord::Schema.define(version: 20150111102342) do
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",        null: false
-    t.integer  "price",       null: false
     t.float    "area",        null: false
     t.text     "description"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
+    t.integer  "floors"
   end
+
+  create_table "settings", force: :cascade do |t|
+    t.string   "var",                   null: false
+    t.text     "value"
+    t.integer  "thing_id"
+    t.string   "thing_type", limit: 30
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
 
 end

@@ -1,6 +1,6 @@
 ActiveAdmin.register AdminUser do
   title = I18n.t("active_admin.admin_users")
-  menu :label => title, :parent => I18n.t("active_admin.site_configuration")
+  menu :label => title, :parent => I18n.t("active_admin.settings")
 
   controller do
     before_filter { @page_title = title }

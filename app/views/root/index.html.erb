@@ -1,6 +1,6 @@
         <div class="b-promo">
             <div class="b-promo__l">
-                <p class="b-promo__t">Свой загородный дом всего за 441 000 рублей</p>
+                <p class="b-promo__t"><%= c('index.title') %></p>
                 <a class="b-btn b-btn_big b-btn_orange" href="#">отправить заявку</a>
             </div>
         </div>
@@ -13,50 +13,7 @@
                 <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
                 <div class="b-carousel__overflow">
                     <div class="b-carousel__slider">
-                        <div class="b-project-thumb">
-                            <span class="b-project-thumb__label akcia">Акция</span>
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/2.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Ньютек</a>»</span> 440 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
-                        <div class="b-project-thumb">
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/2.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Скандинавия</a>»</span> 590 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
-                        <div class="b-project-thumb">
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/3.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Эстетик</a>»</span> 580 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
-                        <div class="b-project-thumb">
-                            <span class="b-project-thumb__label akcia">&minus;30%</span>
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/2.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Хайтек</a>»</span> 510 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
-                        <div class="b-project-thumb">
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/3.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Прованс</a>»</span> 790 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
-                        <div class="b-project-thumb">
-                            <a href="#"><img src="<%= asset_path('tmp/projects/thumbs/1.jpg') %>" class="b-project-thumb__pic"></a>
-                            <p class="b-project-thumb__t">
-                                <span class="price">«<a href="#">Классик</a>»</span> 620 000. –
-                            </p>
-                            <a class="b-project-thumb__details-link" href="#">посмотреть</a>
-                        </div>
+                        <%= render partial: "shared/project_thumb", collection: @projects, as: :project %>
                     </div>
                 </div>
             </div>
@@ -72,38 +29,36 @@
                 <div class="b-carousel__overflow">
                     <div class="b-carousel__slider">
                         <div class="b-sip-tech__slide">
-                            <h2 class="h2 h2_center">Быстро</h2>
+                            <h2 class="h2 h2_center"><%= c('index.features.fast.title') %></h2>
 
                             <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/quick.jpg') %>" alt="" />
                             <div class="b-sip-tech__slide__right">
-                                Темпы строительства как минимум в 20 раз выше, чем у традиционных технологий. Согласно общепринятой нормой, каменщик кладет 1 м2 стены в течение почти часа, а для возведения 1 м2 стены из SIP панелей работнику требуется 2 минуты! <br /><br />
-
-Быстрый и простой монтаж стеновых панелей достигается с использованием блокировки соединений "шип-паз”. Бригада из 3-4 человек способна собрать дом 100 - 150 м2 в течение 1-2 недель.
+                                <%= c('index.features.fast.text', :text) %>
                             </div>
                         </div>
                         <div class="b-sip-tech__slide">
-                            <h2 class="h2 h2_center">Экологично</h2>
+                            <h2 class="h2 h2_center"><%= c('index.features.eco.title') %></h2>
 
                             <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/eco.jpg') %>" alt="" />
                             <div class="b-sip-tech__slide__right">
-                                В основе технологии СИП панелей лежит использование двух основных материалов: Вспененного пенополистирола и плоско-прессованных плит с ориентированной древесной щепой (OSB). Вспененный пенополистирол имеет ячеистую структуру, состоящую на 98 % из воздуха и на 2 % из полистирола. Данный материал гипоалергенен и абсолютно безвреден для человека, значительный объем мирового производства пенополистирола идет на изготовление пищевой упаковки и посуды.
+                                <%= c('index.features.eco.text', :text) %>
                             </div>
                         </div>
                         <div class="b-sip-tech__slide">
-                            <h2 class="h2 h2_center">Технологично</h2>
+                            <h2 class="h2 h2_center"><%= c('index.features.tech.title') %></h2>
 
                             <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/techno.jpg') %>" alt="" />
                             <div class="b-sip-tech__slide__right">
-                                SIP — Structural insulated panel структурная теплоизоляционная панель, она же КТП — Конструкционная Теплоизоляционная Панель, она же сэндвич-панель sandwich-panel это уникальный строительный материал обладающий большой механической прочностью, очень большой теплозащитой, абсолютной экологичностью при невысокой стоимости.
+                                <%= c('index.features.tech.text', :text) %>
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div class="b-sip-tech__tabs" rel="tabs">
-                    <a href="#">Быстро</a>
-                    <a href="#">Экологично</a>
-                    <a href="#">Технологично</a>
+                    <a href="#"><%= c('index.features.fast.title') %></a>
+                    <a href="#"><%= c('index.features.eco.title') %></a>
+                    <a href="#"><%= c('index.features.tech.title') %></a>
                 </div>
             </div>
 
@@ -134,9 +89,9 @@
                     <i class="b-icon i-company"></i>
                 </p>
 
-                <p class="b-personal-project__t">Хотите индивидуальный проект?</p>
+                <p class="b-personal-project__t"><%= c('index.individual.title') %></p>
                 <p class="b-personal-project__text">
-                    Мы готовы специально для вас создать индивидуальный бесплатный проект для строительства SIP-дома. Просто отправьте заявку:
+                    <%= c('index.individual.text', :text) %>
                 </p>
                 <a href="#" class="b-btn b-btn_big">Отправить заявку</a>
             </div>
@@ -261,7 +216,7 @@
                 </p>
 
                 <p class="b-buy-panels__text">
-                    На нашем сайте вы можете заказть панели разного размера в&nbsp;любом количестве, отправив запрос.
+                    <%= c('index.panels.text') %>
                 </p>
                 <a href="#" class="b-btn b-btn_big b-btn_gray">Скачать прайс лист</a>
                 <a href="#" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
@@ -316,12 +271,12 @@
                 </p>
 
                 <p class="b-any-questions__text">
-                    У вас остались вопросы? Мы всегда готовые ответить на них!
+                    <%= c('index.questions.text') %>
                 </p>
 
                 <span class="b-phone">
                     <i class="b-icon i-callcenter"></i>
-                    <span class="b-phone__number"><span class="orange">8 800</span> 775-47-58</span>
+                    <span class="b-phone__number"><%= phone(settings[:phone], "orange") %></span>
                 </span>
                 <a href="#" class="b-btn b-btn_big b-btn_orange">&nbsp;&nbsp; Напишите нам &nbsp;&nbsp;</a>
             </div>

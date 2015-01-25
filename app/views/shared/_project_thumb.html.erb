@@ -1,0 +1,10 @@
+<div class="b-project-thumb">
+	<%# <span class="b-project-thumb__label akcia">Акция</span> %>
+	<%= link_to project do %>
+		<%= image_tag project.cover, class: "b-project-thumb__pic" %>
+	<% end %>
+	<p class="b-project-thumb__t">
+		<span class="price">«<%= link_to project.name, project %>»</span> <%= number_with_delimiter(project.thumb_price) %>. –
+	</p>
+	<%= link_to "посмотреть", project, class: "b-project-thumb__details-link" %>
+</div>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>SipStroi</title>
+  <title><%= settings[:site_title] %></title>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
@@ -21,7 +21,7 @@
 
             <div class="b-header__contacts">
               <i class="b-icon i-callcenter"></i>
-              <span class="phone"><span class="orange">8 800</span> 775-47-58</span>
+              <span class="phone"><%= phone(settings[:phone]) %></span>
 
               <a href="#" class="b-btn b-btn_orange">написать нам</a>
             </div>
@@ -37,7 +37,7 @@
 
                     <p class="b-footer__phone">
                         <i class="b-icon i-callcenter-green"></i>
-                        <span class="va-middle"><span class="green">8 800</span> 775-47-58</span>
+                        <span class="va-middle"><%= phone(settings[:phone], "green") %></span>
                     </p>
                     <p>Режим работы — пн.–пт.: с 9:00 до 21:00; сб., вс.:
 экскурсии на объектах (предварительная запись по телефону)</p>
