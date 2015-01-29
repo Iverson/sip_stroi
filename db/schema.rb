@@ -11,11 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150125211638) do
+ActiveRecord::Schema.define(version: 20150129204848) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-  enable_extension "plperl"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -100,12 +99,16 @@ ActiveRecord::Schema.define(version: 20150125211638) do
   end
 
   create_table "projects", force: :cascade do |t|
-    t.string   "name",        null: false
-    t.float    "area",        null: false
+    t.string   "name",                     null: false
+    t.float    "area",                     null: false
     t.text     "description"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.integer  "floors"
+    t.string   "cover_image_file_name"
+    t.string   "cover_image_content_type"
+    t.integer  "cover_image_file_size"
+    t.datetime "cover_image_updated_at"
   end
 
   create_table "settings", force: :cascade do |t|

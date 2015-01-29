@@ -2,7 +2,7 @@ ActiveAdmin.register Project do
   title = I18n.t("active_admin.projects.title")
   menu :priority => 5, :label => title
 
-  permit_params :name, :floors, :area, :description, pictures_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :instance_type_id, :price, :description, :_destroy]
+  permit_params :name, :floors, :area, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :instance_type_id, :price, :description, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -34,7 +34,8 @@ ActiveAdmin.register Project do
       input :name, label: t('active_admin.name')
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
-      # require 'pry'; binding.pry
+      input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.new_record? ? '' : image_tag(object.cover_image.url(:medium))
+
       if f.object.new_record? && f.object.errors.empty?
         f.object.instances.build()
       end

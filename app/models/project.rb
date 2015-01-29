@@ -5,12 +5,15 @@ class Project < ActiveRecord::Base
 	accepts_nested_attributes_for :pictures, :allow_destroy => true
 	accepts_nested_attributes_for :instances, :allow_destroy => true
 
+	has_attached_file :cover_image, :styles => { :medium => "240x154#" }
+
 	validates :name, presence: true
 	validates :area, presence: true
+	validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
-	def cover(type = :thumb)
-		if pictures.first
-			pictures.first.image.url(type)
+	def cover
+		if cover_image?
+			cover_image.url(:medium)
 		else
 			"/images/project_nophoto.png"
 		end
