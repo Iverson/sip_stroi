@@ -79,12 +79,26 @@ ru:
             # Overrides model and default messages.
     active_admin:
         title: "Заголовок"
+        phone: "Телефон"
+        city: "Город"
+        email: "Email"
         name: "Название"
         price: "Цена"
         description: "Описание"
         image: "Картинка"
         text: "Текст"
-        clients: "Клиенты"
+        clients: 
+          title: "Клиенты"
+          form:
+            name: "ФИО"
+            first_name: "Имя"
+            last_name: "Фамилия"
+        reviews: 
+          title: "Отзывы"
+          form:
+            client: "Клиент"
+            image: "Фото"
+            text: "Текст"
         feedback:
           title: "Обратная связь"
         projects:

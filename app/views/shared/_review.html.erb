@@ -1,0 +1,13 @@
+<div class="b-reviews__thumb">
+	<%= image_tag review.image.url(:medium), class: "b-reviews__thumb__pic" %>
+
+	<p class="b-reviews__thubm__text">
+		<%= review.text %>
+	</p>
+
+	<div class="b-reviews__thumb__author">
+		<%= image_tag review.client.photo.url(:small), class: "pic" %>
+		<p class="name"><%= review.client.first_name %></p>
+		<p class="city">г. <%= review.client.city %></p>
+	</div>
+</div>

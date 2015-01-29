@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129204848) do
+ActiveRecord::Schema.define(version: 20150129214841) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -50,13 +50,17 @@ ActiveRecord::Schema.define(version: 20150129204848) do
   add_index "admin_users", ["reset_password_token"], name: "index_admin_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "clients", force: :cascade do |t|
-    t.string   "first_name", null: false
+    t.string   "first_name",         null: false
     t.string   "last_name"
-    t.string   "email",      null: false
-    t.string   "phone",      null: false
-    t.integer  "city_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "email",              null: false
+    t.string   "phone",              null: false
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+    t.string   "photo_file_name"
+    t.string   "photo_content_type"
+    t.integer  "photo_file_size"
+    t.datetime "photo_updated_at"
+    t.string   "city"
   end
 
   create_table "feedbacks", force: :cascade do |t|
@@ -110,6 +114,19 @@ ActiveRecord::Schema.define(version: 20150129204848) do
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
   end
+
+  create_table "reviews", force: :cascade do |t|
+    t.text     "text"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "client_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "reviews", ["client_id"], name: "index_reviews_on_client_id", using: :btree
 
   create_table "settings", force: :cascade do |t|
     t.string   "var",                   null: false

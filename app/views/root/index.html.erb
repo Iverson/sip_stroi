@@ -125,7 +125,7 @@
         </div> -->
 
         
-
+        <% unless @reviews.empty? %>
         <div class="b-reviews">
             <div class="l-center">
                 <h2 class="h2 h2_center">Отзывы</h2>
@@ -133,73 +133,7 @@
                 <div class="b-carousel">
                     <div class="b-carousel__overflow">
                         <div class="b-carousel__slider">
-                            <div class="b-reviews__thumb">
-                                <img src="<%= asset_path('tmp/reviews/thumbs/1.jpg') %>" alt="" class="b-reviews__thumb__pic" />
-
-                                <p class="b-reviews__thubm__text">
-                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
-                                </p>
-
-                                <div class="b-reviews__thumb__author">
-                                    <img src="<%= asset_path('tmp/clients/1.jpg') %>" alt="" class="pic" />
-                                    <p class="name">Антон</p>
-                                    <p class="city">г. Челябинск</p>
-                                </div>
-                            </div>
-                            <div class="b-reviews__thumb">
-                                <img src="<%= asset_path('tmp/reviews/thumbs/2.jpg') %>" alt="" class="b-reviews__thumb__pic" />
-
-                                <p class="b-reviews__thubm__text">
-                                    Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
- Наблюдать за их работой было одно удовольствие: быстро, слажено, красиво. Большое спасибо им.
-                                </p>
-
-                                <div class="b-reviews__thumb__author">
-                                    <img src="<%= asset_path('tmp/clients/2.jpg') %>" alt="" class="pic" />
-                                    <p class="name">Антон</p>
-                                    <p class="city">г. Челябинск</p>
-                                </div>
-                            </div>
-                            <div class="b-reviews__thumb">
-                                <img src="<%= asset_path('tmp/reviews/thumbs/3.jpg') %>" alt="" class="b-reviews__thumb__pic" />
-
-                                <p class="b-reviews__thubm__text">
-                                    Очень хочется поделиться впечатлениями о работе Домостроя Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
-за месяц на нашем пустом участке ребята вдвоем построили два замечательных дома.
-                                </p>
-
-                                <div class="b-reviews__thumb__author">
-                                    <img src="<%= asset_path('tmp/clients/3.jpg') %>" alt="" class="pic" />
-                                    <p class="name">Антон</p>
-                                    <p class="city">г. Челябинск</p>
-                                </div>
-                            </div>
-                            <div class="b-reviews__thumb">
-                                <img src="<%= asset_path('tmp/reviews/thumbs/1.jpg') %>" alt="" class="b-reviews__thumb__pic" />
-
-                                <p class="b-reviews__thubm__text">
-                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
-                                </p>
-
-                                <div class="b-reviews__thumb__author">
-                                    <img src="<%= asset_path('tmp/clients/1.jpg') %>" alt="" class="pic" />
-                                    <p class="name">Антон</p>
-                                    <p class="city">г. Челябинск</p>
-                                </div>
-                            </div>
-                            <div class="b-reviews__thumb">
-                                <img src="<%= asset_path('tmp/reviews/thumbs/1.jpg') %>" alt="" class="b-reviews__thumb__pic" />
-
-                                <p class="b-reviews__thubm__text">
-                                    Очень хочется поделиться впечатлениями о работе. Это просто здорово. Мы живем далеко от города Пестово, поэтому было нелегко решиться на заказ, но результат превзошел наши ожидания,
-                                </p>
-
-                                <div class="b-reviews__thumb__author">
-                                    <img src="<%= asset_path('tmp/clients/1.jpg') %>" alt="" class="pic" />
-                                    <p class="name">Антон</p>
-                                    <p class="city">г. Челябинск</p>
-                                </div>
-                            </div>
+                            <%= render(partial: "shared/review", collection: @reviews, as: :review) %>
                         </div>
                     </div>
 
@@ -207,6 +141,7 @@
                 </div>
             </div>
         </div>
+        <% end %>
 
         <div class="b-buy-panels">
             <div class="l-center">
