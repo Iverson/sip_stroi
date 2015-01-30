@@ -1,10 +1,10 @@
 class Client < ActiveRecord::Base
-	has_attached_file :photo, :styles => { :small => "58x58#", :medium => "150x150#" }
+  has_attached_file :photo, :styles => { :small => "58x58#", :medium => "150x150#" }
 
-	validates :first_name, presence: true
-	validates :email, presence: true
-	validates :phone, presence: true
-	validates :city, presence: true
+  validates :first_name, presence: true
+  validates :email, presence: true
+  validates :phone, presence: true
+  validates :city, presence: true
 
   validates_attachment_content_type :photo, :content_type => /\Aimage\/.*\Z/
 

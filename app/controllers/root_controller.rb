@@ -1,6 +1,6 @@
 class RootController < ApplicationController
   def index
-  	@projects = Project.all
-  	@reviews  = Review.all
+    @projects = Project.all
+    @reviews  = Review.all
   end
 end

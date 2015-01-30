@@ -1,8 +1,8 @@
 class FeedbacksController < ApplicationController
   def create
-  	@feedback = Feedback.new(feedback_params)
+    @feedback = Feedback.new(feedback_params)
 
-  	respond_to do |format|
+    respond_to do |format|
       if @feedback.save
         format.html { redirect_to(request.referer + '#feedback', :flash => {:feedback_success => t('activerecord.flash.feedback_success')}) }
       else
