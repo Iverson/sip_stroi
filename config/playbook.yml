@@ -1,0 +1,7 @@
+–––
+- name: setup server configuration for rails app
+  hosts: webservers
+  user: root
+  tasks:
+    - name: install rvm
+      apt: name=curl state=present
