@@ -11,7 +11,7 @@
 # 	{name: 'Скандинавия', area: 69, description: 'Крыльцо и террасы обсуждаются и рассчитываются отдельно по согласованию с заказчиком'}
 # 	])
 
-if ProjectInstanceType.all.empty?
+if ProjectInstanceType.count.zero?
 	ProjectInstanceType.create([
 		{name: 'Панели'},
 		{name: 'Домокомплект'},
