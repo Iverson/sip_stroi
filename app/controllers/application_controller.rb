@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
   before_filter :init_feedback
 
   def init_feedback
-  	@feedback = Feedback.new
+  	@feedback = ::Feedback.new
   end
 
   def require_http_basic_auth

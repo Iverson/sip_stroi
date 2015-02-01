@@ -45,7 +45,7 @@ Carousel.prototype = {
   },
 
   renderPaginator: function() {
-    if (!this._paginator.length) {
+    if (!this._paginator.length || this.state.slides_count < 2) {
       return;
     }
 
