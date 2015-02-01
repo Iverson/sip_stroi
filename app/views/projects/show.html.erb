@@ -1,0 +1,62 @@
+<h1 class="h2 h2_center"><%= @project.name %></h1>
+
+<table>
+	<tr>
+		<td width="500">
+			<% @project.pictures.each_with_index do |picture, index| %>
+				<%= link_to picture.image.url(:large), class: "js-fancybox", rel: "project-pictures" do %>
+					<%= image_tag picture.image.url(:medium) if index == 0 %>
+				<% end %>
+			<% end %>
+		</td>
+		<td width="30"></td>
+		<td width="190">
+			<p>Общая площадь</p>
+			<p><%= @project.area %>м2</p><br>
+
+			<p>Этажей</p>
+			<p><%= @project.floors %></p>
+		</td>
+		<td>
+			<p>Стоимость проекта:</p>
+			<p><%= number_with_delimiter(@project.default_price) %></p>
+		</td>
+	</tr>
+</table>
+<br><br>
+
+<h3 class="h3">Комплектация</h3><br>
+
+<table class="b-table js-projectComplectation">
+	<tr>
+		<th width="50"></th>
+		<th width="200">Наименование этапа</th>
+		<th>Описание</th>
+		<th width="100">Стимость</th>
+	</tr>
+
+	<% @project.instances.each do |instance| %>
+	<tr>
+		<td class=""><%= check_box_tag "instance[#{instance.id}].default", 1, instance.default, 'data-type' => 'isInstanceDefault', 'data-price' => instance.price %></td>
+		<td><%= instance.name %></td>
+		<td><%= instance.description %></td>
+		<td><%= number_with_delimiter(instance.price.to_i) %></td>
+	</tr>
+	<% end %>
+
+	<tr>
+		<td colspan="2"></td>
+		<td class="ta-right"><b>Итого: &nbsp;&nbsp;</b></td>
+		<td rel="sum"><%= number_with_delimiter(@project.default_price) %></td>
+	</tr>
+</table>
+
+<p><%= c('project_details.individual') %></p><br>
+
+<h3 class="h3">Планировка</h3><br>
+
+<% @project.plans.each do |plan| %>
+	<%= link_to plan.image.url, class: "js-fancybox", rel: "project-plans" do %>
+		<%= image_tag plan.image.url(:medium) %> &nbsp;&nbsp;&nbsp;&nbsp;
+	<% end %>
+<% end %>

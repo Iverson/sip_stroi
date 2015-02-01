@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150129214841) do
+ActiveRecord::Schema.define(version: 20150201140205) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -71,23 +71,16 @@ ActiveRecord::Schema.define(version: 20150129214841) do
     t.datetime "updated_at", null: false
   end
 
-  create_table "project_instance_types", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "project_instances", force: :cascade do |t|
     t.string   "name"
     t.float    "price"
     t.text     "description"
+    t.boolean  "default",     default: true
     t.integer  "project_id"
-    t.integer  "instance_type_id"
-    t.datetime "created_at",       null: false
-    t.datetime "updated_at",       null: false
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
   end
 
-  add_index "project_instances", ["instance_type_id"], name: "index_project_instances_on_instance_type_id", using: :btree
   add_index "project_instances", ["project_id"], name: "index_project_instances_on_project_id", using: :btree
 
   create_table "project_pictures", force: :cascade do |t|
@@ -101,6 +94,18 @@ ActiveRecord::Schema.define(version: 20150129214841) do
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
   end
+
+  create_table "project_plans", force: :cascade do |t|
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.integer  "project_id"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
+
+  add_index "project_plans", ["project_id"], name: "index_project_plans_on_project_id", using: :btree
 
   create_table "projects", force: :cascade do |t|
     t.string   "name",                     null: false

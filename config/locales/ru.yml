@@ -106,7 +106,9 @@ ru:
           instances:
             label: "Варианты комплектации"
             type: "Комплектация"
+            default: "Входит в базовую цену проекта"
           pictures: "Фотографии"
+          plans: "Планировка"
           form:
             floors: "Колличество этажей"
             area: "Площадь"
@@ -114,6 +116,7 @@ ru:
         pages:
           title: "Страницы"
           index: "Главная"
+          project_details: "Страница проекта"
         statistics: "Отчеты"
         settings: "Настройки"
         brands: "Бренды"
@@ -127,12 +130,14 @@ ru:
         admin_users: "Администраторы"
         view_site: "На сайт"
         index:
-            header: "Шапка"
-            title: "Заголовок"
-            individual: "Индивидуальный проект"
-            panels: "Панели"
-            features: "Почему  SIP?"
-            questions: "Вопросы?"
+          header: "Шапка"
+          title: "Заголовок"
+          individual: "Индивидуальный проект"
+          panels: "Панели"
+          features: "Почему  SIP?"
+          questions: "Вопросы?"
+        project_details:
+          individual: "Индивидуальный расчет"
         dashboard_title: "Доска"
         dashboard_welcome:
           welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."

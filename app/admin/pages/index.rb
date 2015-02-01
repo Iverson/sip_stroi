@@ -111,7 +111,7 @@ ActiveAdmin.register_page "Index" do
         end
       end
 
-      f.input :type => 'submit', :value => 'Save'
+      f.input :type => 'submit', :value => 'Сохранить'
     end
   end
 

@@ -150,10 +150,14 @@ button:focus {
 .l-page {
 }
 
-.l-center {
+.l-center, .b-content {
 	width: 1000px;
 	margin: 0 auto;
 	position: relative;
+}
+
+.b-content {
+	padding: 60px 0;
 }
 
 .b-header {
@@ -695,8 +699,12 @@ button.b-btn_medium, input.b-btn_medium {
 		border: 1px solid #e9e9e9;
 		-webkit-box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
 		box-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
-		margin-bottom: 128px;
+		margin-bottom: 178px;
 		position: relative;
+	}
+
+	.b-reviews .b-reviews__thumb {
+		margin-bottom: 128px;
 	}
 
 	.b-reviews__thumb:after {
@@ -715,12 +723,19 @@ button.b-btn_medium, input.b-btn_medium {
 		}
 
 		.b-reviews__thubm__text {
-			height: 140px;
+			display: block;
+			height: 146px;
 			font-size: 12px;
 			line-height: 1.4em;
 			font-weight: 100;
 			color: #464646;
-			padding: 19px 24px;
+			padding: 19px 24px 0 24px;
+			margin-bottom: 19px;
+			overflow: hidden;
+			text-overflow: ellipsis;
+			-webkit-line-clamp: 9;
+			-webkit-box-orient: vertical;
+			display: -webkit-box;
 		}
 
 		.b-reviews__thumb__author {

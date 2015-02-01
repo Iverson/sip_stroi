@@ -1,8 +1,10 @@
 class Project < ActiveRecord::Base
   has_many :pictures, class_name: 'ProjectPicture', :dependent => :destroy
+  has_many :plans, class_name: 'ProjectPlan', :dependent => :destroy
   has_many :instances, class_name: 'ProjectInstance', :dependent => :destroy
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true
+  accepts_nested_attributes_for :plans, :allow_destroy => true
   accepts_nested_attributes_for :instances, :allow_destroy => true
 
   has_attached_file :cover_image, :styles => { :medium => "240x154#" }
@@ -19,9 +21,9 @@ class Project < ActiveRecord::Base
     end
   end
 
-  def thumb_price
+  def default_price
     if instances.first
-      instances.first.price.round(0)
+      instances.default.sum(:price).round(0)
     else
       0
     end
