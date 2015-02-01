@@ -347,6 +347,10 @@ button.b-btn_medium, input.b-btn_medium {
 		margin-bottom: 16px;
 	}
 
+.b-projects {
+	margin-right: -30px;
+}
+
 .b-projects-gallery {
 	padding: 38px 0 68px 0;
 }
@@ -719,6 +723,7 @@ button.b-btn_medium, input.b-btn_medium {
 
 		.b-reviews__thumb__pic {
 			width: 100%;
+			height: 168px;
 			display: block;
 		}
 
