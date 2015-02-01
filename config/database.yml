@@ -25,13 +25,13 @@ test:
 staging:
   <<: *default
   host: postgresql2.locum.ru
-  database: siphomeb_sip-s34
-  username: siphomeb_sip-s34
+  database: siphomeb_sip_d45
+  username: siphomeb_sip_d45
   password: 5J036DL6f9
 
 production:
   <<: *default
   host: postgresql2.locum.ru
-  database: siphomeb_sip-s34
-  username: siphomeb_sip-s34
+  database: siphomeb_sip_d45
+  username: siphomeb_sip_d45
   password: 5J036DL6f9
