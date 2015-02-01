@@ -30,6 +30,7 @@ gem "paperclip", "~> 4.2"
 gem 'russian'
 gem 'airbrake'
 gem "rails-settings-cached", "0.4.1"
+gem 'puma'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
@@ -41,9 +42,10 @@ gem 'unicorn'
 # gem 'capistrano-rails', group: :development
 
 group :development do
-  gem "capistrano"
-  gem 'capistrano-ext'
-  gem "rvm-capistrano"
+  gem 'capistrano',         require: false
+  gem 'capistrano-rails',   require: false
+  gem 'capistrano-bundler', require: false
+  gem 'capistrano3-puma',   require: false
   gem "letter_opener"
   gem "pry"
 end

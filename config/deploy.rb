@@ -1,75 +1,70 @@
-require 'bundler/capistrano'
+# Change these
+server '127.0.0.1', port: 2222, roles: [:web, :app, :db], primary: true
 
-## Чтобы не хранить database.yml в системе контроля версий, поместите
-## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
-## следующие строки.
+set :application, 'railsapp'
+set :repo_url, 'git@github.com:Iverson/sip_stroi.git'
+set :deploy_to, '/projects/railsapp'
+set :log_level, :debug
+set :linked_files, %w{config/database.yml}
+set :linked_dirs, %w{tmp/sockets log config/puma public/railsapp}
+set :sockets_path, Pathname.new("#{fetch(:deploy_to)}/shared/tmp/sockets/")
 
-# after "deploy:update_code", :copy_database_config
-# task :copy_database_config, roles => :app do
-#   db_config = "#{shared_path}/database.yml"
-#   run "cp #{db_config} #{release_path}/config/database.yml"
-# end
+# These puma settings are only here because capistrano-puma is borked.
+# See issue #4.
+set :puma_roles, :app
+set :puma_socket, "unix://#{fetch(:sockets_path).join('puma_' + fetch(:application) + '.sock')}"
+set :pumactl_socket, "unix://#{fetch(:sockets_path).join('pumactl_' + fetch(:application) + '.sock')}"
+set :puma_state, fetch(:sockets_path).join('puma.state') 
+set :puma_log, -> { shared_path.join("log/puma-#{fetch(:stage )}.log") }
+set :puma_flags, nil 
 
-# Если вы не используете авторизацию SSH по ключам И ssh-agent,
-# закомментируйте эту опцию.
-ssh_options[:forward_agent] = true
+set :bundle_flags, '--deployment'
 
-# Имя вашего проекта в панели управления.
-# Не меняйте это значение без необходимости, оно используется дальше.
-set :application,     "sip-stroy"
-
-# Сервер размещения проекта.
-set :deploy_server,   "sulfur.locum.ru"
-
-# Не включать в поставку разработческие инструменты и пакеты тестирования.
-set :bundle_without,  [:development, :test]
-
-set :user,            "hosting_siphomebuild"
-set :login,           "siphomebuild"
-set :use_sudo,        false
-set :deploy_to,       "/home/#{user}/projects/#{application}"
-set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
-set :unicorn_pid,     "/var/run/unicorn/#{user}/#{application}.#{login}.pid"
-set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
-role :web,            deploy_server
-role :app,            deploy_server
-role :db,             deploy_server, :primary => true
-
-set :rvm_ruby_string, "2.1.5"
-set :rake,            "rvm use #{rvm_ruby_string} do bundle exec rake" 
-set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
-
-set :scm,             :git
-set :repository,      "https://github.com/Iverson/sip_stroi.git"
-set :branch, "develop"
-
-before 'deploy:finalize_update', 'set_current_release'
-task :set_current_release, :roles => :app do
-    set :current_release, latest_release
-end
-
-after "deploy:update_code", "deploy:migrate"
-after "deploy", "deploy:cleanup"
-
-set :unicorn_start_cmd, "(cd #{deploy_to}/current; rvm use #{rvm_ruby_string} do bundle exec unicorn -Dc #{unicorn_conf})"
-
-# - for unicorn - #
 namespace :deploy do
-  desc "Start application"
-  task :start, :roles => :app do
-    run unicorn_start_cmd
-  end
-
-  desc "Stop application"
-  task :stop, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -QUIT `cat #{unicorn_pid}`"
-  end
-
-  desc "Restart Application"
-  task :restart, :roles => :app do
-    run "[ -f #{unicorn_pid} ] && kill -USR2 `cat #{unicorn_pid}` || #{unicorn_start_cmd}"
+  task :restart do
+    invoke 'puma:restart'
   end
 end
 
-require './config/boot'
-require 'airbrake/capistrano'
+namespace :spree_sample do
+  task :load do
+    on roles(:app) do
+      within release_path do
+        ask(:confirm, "Are you sure you want to delete everything and start again? Type 'yes'")
+        if fetch(:confirm) == "yes"
+          execute :rake, "db:reset AUTO_ACCEPT=true"
+          execute :rake, "spree_sample:load"
+        end
+      end
+    end
+  end
+end
+
+namespace :puma do
+  desc "Restart puma instance for this application"
+  task :restart do
+    on roles fetch(:puma_roles) do
+      within release_path do
+        execute :bundle, "exec pumactl -S #{fetch(:puma_state)} restart"
+      end
+    end
+  end
+
+  desc "Show status of puma for this application"
+  task :status do
+    on roles fetch(:puma_roles) do
+      within release_path do
+        execute :bundle, "exec pumactl -S #{fetch(:puma_state)} stats"
+      end
+    end
+  end
+
+  desc "Show status of puma for all applications"
+  task :overview do
+    on roles fetch(:puma_roles) do
+      within release_path do
+        execute :bundle, "exec puma status"
+      end
+    end
+  end
+end
