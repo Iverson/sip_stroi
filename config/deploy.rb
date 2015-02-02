@@ -1,8 +1,7 @@
 # Change these
-server '127.0.0.1', port: 2222, roles: [:web, :app, :db], primary: true
 
 set :application, 'railsapp'
-set :repo_url, 'git@github.com:Iverson/sip_stroi.git'
+set :repo_url, 'https://github.com/Iverson/sip_stroi.git'
 set :deploy_to, '/projects/railsapp'
 set :log_level, :debug
 set :linked_files, %w{config/database.yml}
@@ -23,20 +22,6 @@ set :bundle_flags, '--deployment'
 namespace :deploy do
   task :restart do
     invoke 'puma:restart'
-  end
-end
-
-namespace :spree_sample do
-  task :load do
-    on roles(:app) do
-      within release_path do
-        ask(:confirm, "Are you sure you want to delete everything and start again? Type 'yes'")
-        if fetch(:confirm) == "yes"
-          execute :rake, "db:reset AUTO_ACCEPT=true"
-          execute :rake, "spree_sample:load"
-        end
-      end
-    end
   end
 end
 
