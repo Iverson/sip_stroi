@@ -87,6 +87,8 @@ ru:
         description: "Описание"
         image: "Картинка"
         text: "Текст"
+        photos: 
+          title: "Фото"
         clients: 
           title: "Клиенты"
           form:

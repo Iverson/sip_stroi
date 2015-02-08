@@ -7,7 +7,7 @@ $(function() {
     nextEffect  : 'none',
     helpers : {
       title : {
-        type: 'outside'
+        type: 'over'
       },
       thumbs  : {
         width : 50,

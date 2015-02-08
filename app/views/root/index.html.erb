@@ -1,6 +1,6 @@
         <div class="b-promo">
             <div class="b-promo__l">
-                <p class="b-promo__t"><%= c('index.title') %></p>
+                <div class="b-promo__t"><%= c('index.title', :text) %></div>
                 <a class="b-btn b-btn_big b-btn_orange" href="#">отправить заявку</a>
             </div>
         </div>
@@ -217,6 +217,7 @@
             </div>
         </div>
 
+        <% unless @photos.empty? %>
         <div class="b-photogallery">
             <div class="l-center">
                 <h2 class="h2 h2_center">Фотогалерея</h2>
@@ -227,18 +228,12 @@
                         <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div> -->
 
                         <div class="b-carousel__slider">
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/0.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/0.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/1.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/1.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/2.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/2.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/3.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/3.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/4.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/4.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/0.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/0.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/1.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/1.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/2.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/2.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/3.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/3.jpg') %>" alt="" class="pic" /></a>
-                            <a href="<%= asset_path('tmp/photogallery/thumbs/4.jpg') %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= asset_path('tmp/photogallery/thumbs/4.jpg') %>" alt="" class="pic" /></a>
+                            <%= @photos.each do |photo| %>
+                            <a title="<%= photo.name %>" href="<%= photo.image.url(:large) %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= photo.image.url(:thumb) %>" alt="<%= photo.name %>" class="pic" /></a>
+                            <% end %>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+        <% end %>

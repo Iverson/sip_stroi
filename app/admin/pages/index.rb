@@ -12,7 +12,9 @@ ActiveAdmin.register_page "Index" do
           ol do
             li do
               label I18n.t('active_admin.index.title')
-              f.input :name => "data[index.title]", :type => 'text', :value => SiteSettings['index.title']
+              f.textarea :name => "data[index.title]" do
+                SiteSettings['index.title']
+              end
             end
           end
         end
