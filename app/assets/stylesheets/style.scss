@@ -1526,7 +1526,6 @@ button.b-btn_medium, input.b-btn_medium {
 	left: 50%;
 	top: 50%;
 	margin: -247px 0 0 -384px;
-	overflow: hidden;
 	background: #fff;
 	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 	z-index: 7;
@@ -1564,7 +1563,6 @@ button.b-btn_medium, input.b-btn_medium {
 		}
 
 	.b-popup__left {
-		float: left;
 		width: 364px;
 		padding: 30px 30px;
 		position: relative;
