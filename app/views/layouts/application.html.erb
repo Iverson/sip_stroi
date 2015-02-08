@@ -1,13 +1,15 @@
 <%= render "layouts/head" %>
 <body>
   <div class="l-page">
-        <%= render "shared/header" %>
-		
-		<div class="b-content">
-        	<%= yield %>
-		</div>
-
-        <%= render "shared/footer" %>
+    <%= render "shared/header" %>
+    
+    <div class="b-content">
+      <%= yield %>
     </div>
+
+    <%= render "shared/footer" %>
+
+    <div class="popup-placeholder"></div>
+  </div>
 </body>
 </html>

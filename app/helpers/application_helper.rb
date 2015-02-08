@@ -5,7 +5,7 @@ module ApplicationHelper
 
   def phone(number, css_class="orange")
     number.gsub!(" ", "")
-    html = "#{number[0]} <span class=\"#{css_class}\">#{number.slice(1..3)}</span> #{number.slice(4..-1)}"
+    html = "<span class=\"country\">#{number[0]}</span> <span class=\"city #{css_class}\">#{number.slice(1..3)}</span> #{number.slice(4..-1)}"
     html.html_safe
   end
 

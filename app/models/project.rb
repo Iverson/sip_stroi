@@ -13,6 +13,16 @@ class Project < ActiveRecord::Base
   validates :area, presence: true
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
+  scope :sorted, -> { order(:id) }
+
+  def prev
+    @prev ||= self.class.where("id < ?", id).last
+  end
+
+  def next
+    @next ||= self.class.where("id > ?", id).first
+  end
+
   def cover
     if cover_image?
       cover_image.url(:medium)

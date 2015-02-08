@@ -87,8 +87,17 @@ ru:
         description: "Описание"
         image: "Картинка"
         text: "Текст"
+        offers: 
+          title: "Акции"
         photos: 
           title: "Фото"
+        panels:
+          title: "Панели"
+          size: "Размер (мм)"
+          material1: "ОСП"
+          material2: "Пенополистирол"
+          material3: "ОСП"
+          materials: "Материалы (мм)"
         clients: 
           title: "Клиенты"
           form:
@@ -140,6 +149,7 @@ ru:
           questions: "Вопросы?"
         project_details:
           individual: "Индивидуальный расчет"
+          add_jobs: "Дополнительные услуги"
         dashboard_title: "Доска"
         dashboard_welcome:
           welcome: "Добро пожаловать в Active Admin. Это стандартная страница управления сайтом."

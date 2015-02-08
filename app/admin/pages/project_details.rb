@@ -16,6 +16,12 @@ ActiveAdmin.register_page "ProjectDetails" do
                 SiteSettings['project_details.individual']
               end
             end
+            li do
+              label I18n.t('active_admin.project_details.add_jobs')
+              f.textarea :name => "data[project_details.add_jobs]" do
+                SiteSettings['project_details.add_jobs']
+              end
+            end
           end
         end
       end

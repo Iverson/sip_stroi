@@ -20,6 +20,7 @@ Rails.application.routes.draw do
     resources :projects, only: [:index, :show]
     resources :feedbacks, only: [:create]
     resources :reviews, only: [:index]
+    resources :panels, only: [:index]
 
   # Example resource route with options:
   #   resources :products do

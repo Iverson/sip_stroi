@@ -1,0 +1,27 @@
+<form class="b-form">
+  <p class="b-form__error ta-center">Не все поля заполнены.</p>
+
+  <div class="b-input b-input_sh">
+    <label for="name">Имя</label>
+    <input name="name" type="text" id="name" />
+  </div>
+  <div class="b-input b-input_sh">
+    <label for="phone">Телефон</label>
+    <input name="phone" type="text" id="phone" />
+  </div>
+  <div class="b-input b-input_sh">
+    <label for="message">Комментарий</label>
+    <textarea name="message" type="text" id="message"></textarea>
+  </div>
+
+  <div class="b-form__actions b-form__actions_center">
+    <button type="submit" class="b-btn b-btn_medium b-btn_grenn js-submit">отправить</button>
+  </div>
+  
+  <div class="ta-center">
+    <span class="b-phone b-phone_medium b-phone_orange">
+      <i class="b-icon i-callcenter"></i>
+      <span class="b-phone__number"><%= phone(settings[:phone] ) %></span>
+    </span>
+  </div>
+</form>

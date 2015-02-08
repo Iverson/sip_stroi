@@ -1,6 +1,19 @@
-<h1 class="h2 h2_center"><%= @project.name %></h1>
+<% if @project.prev %>
+	<%= link_to @project.prev, 'class' => "b-prev-link" do %>
+		<span class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></span>
+		«<%= @project.prev.name %>»
+	<% end %>
+<% end %>
+<% if @project.next %>
+	<%= link_to @project.next, 'class' => "b-next-link" do %>
+		«<%= @project.next.name %>»
+		<span class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></span>
+	<% end %>
+<% end %>
 
-<table>
+<h1 class="h2 h2_center">«<%= @project.name %>»</h1>
+
+<table class="tb-fixed b-project-details">
 	<tr>
 		<td width="500">
 			<% @project.pictures.each_with_index do |picture, index| %>
@@ -9,54 +22,87 @@
 				<% end %>
 			<% end %>
 		</td>
-		<td width="30"></td>
-		<td width="190">
-			<p>Общая площадь</p>
-			<p><%= @project.area %>м2</p><br>
-
-			<p>Этажей</p>
-			<p><%= @project.floors %></p>
-		</td>
+		<td width="25"></td>
 		<td>
-			<p>Стоимость проекта:</p>
-			<p><%= number_with_delimiter(@project.default_price) %></p>
+			<dl>
+				<dt>Общая площадь</dt>
+				<dd><%= @project.area.round(0) %> м2</dd>
+			</dl>
+			<dl>
+				<dt>Этажей</dt>
+				<dd><%= @project.floors %></dd>
+			</dl>
+		</td>
+		<td width="279" class="b-project-details__order">
+			<dl>
+				<dt>Стоимость проекта:</dt>
+				<dd class="b-project-details__price"><span rel="project-sum"><%= number_with_delimiter(@project.default_price) %></span><span class="postfix">. –</span></dd>
+			</dl>
+
+			<div class="b-order-btn">
+				<a href="#" class="b-btn b-btn_big b-btn_block b-btn_gray">Заказать</a>
+
+				<span class="b-phone b-phone_medium b-phone_white">
+					<i class="b-icon i-callcenter-white"></i>
+					<span class="b-phone__number"><%= phone(settings[:phone] ) %></span>
+				</span>
+
+				<a href="#" class="dotted"><span>Индивидуальный проект</span></a>
+			</div>
+
 		</td>
 	</tr>
 </table>
-<br><br>
+<br>
 
 <h3 class="h3">Комплектация</h3><br>
 
 <table class="b-table js-projectComplectation">
-	<tr>
-		<th width="50"></th>
-		<th width="200">Наименование этапа</th>
-		<th>Описание</th>
-		<th width="100">Стимость</th>
-	</tr>
-
 	<% @project.instances.each do |instance| %>
-	<tr>
-		<td class=""><%= check_box_tag "instance[#{instance.id}].default", 1, instance.default, 'data-type' => 'isInstanceDefault', 'data-price' => instance.price %></td>
-		<td><%= instance.name %></td>
-		<td><%= instance.description %></td>
-		<td><%= number_with_delimiter(instance.price.to_i) %></td>
+	<tr class="row <%= instance.default ? 'selected' : '' %>">
+		<td class="checkbox">
+			<label for="<%= instance.id %>" class="b-checkbox">
+				<%= check_box_tag "instance[#{instance.id}].default", 1, instance.default, 'data-type' => 'isInstanceDefault', 'data-price' => instance.price, 'id' => instance.id %>
+				<i></i>
+			</label>
+		</td>
+		<td class="name"><%= instance.name %></td>
+		<td class="desc"><%= instance.description %></td>
+		<td class="price"><%= number_with_delimiter(instance.price.to_i) %>. –</td>
 	</tr>
 	<% end %>
+</table>
 
-	<tr>
-		<td colspan="2"></td>
-		<td class="ta-right"><b>Итого: &nbsp;&nbsp;</b></td>
-		<td rel="sum"><%= number_with_delimiter(@project.default_price) %></td>
+<table class="b-table b-table_total">
+	<tr class="">
+		<td class="checkbox"></td>
+		<td class="">
+			<a href="#" class="b-btn b-btn_big b-btn_orange">Заказать</a>
+			<p><a href="#" class="dotted"><span>Индивидуальный проект</span></a></p>
+		</td>
+		<td></td>
+		<td width="280">
+			<p class="label">Итоговая сумма: </p>
+			<p class="sum"><span rel="project-sum"><%= number_with_delimiter(@project.default_price) %></span> руб.</p>
+		</td>
 	</tr>
 </table>
 
-<p><%= c('project_details.individual') %></p><br>
+<p class="b-project-details__hint"><%= c('project_details.individual') %></p>
 
-<h3 class="h3">Планировка</h3><br>
+<br><br>
+<h3 class="h3">Дополнительные услуги:</h3>
 
-<% @project.plans.each do |plan| %>
-	<%= link_to plan.image.url, class: "js-fancybox", rel: "project-plans" do %>
-		<%= image_tag plan.image.url(:medium) %> &nbsp;&nbsp;&nbsp;&nbsp;
+<div class="b-list">
+	<%= c('project_details.add_jobs', :text) %>
+</div>
+
+<div class="b-project-details__plans">
+	<h2 class="h2 h2_center">Планировка</h2><br>
+
+	<% @project.plans.each do |plan| %>
+		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-plans" do %>
+			<%= image_tag plan.image.url(:medium), class: 'img' %>
+		<% end %>
 	<% end %>
-<% end %>
+</div>

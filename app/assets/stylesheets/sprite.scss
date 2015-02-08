@@ -15,19 +15,19 @@
   background-position: -79px 0px;
 }
 
-.b-icon.i-fire-protect {
+.b-icon.i-water-protect {
   width: 68px;
   height: 68px;
   background-position: 0px -78px;
 }
 
-.b-icon.i-long-life {
+.b-icon.i-fire-protect {
   width: 68px;
   height: 68px;
   background-position: -68px -78px;
 }
 
-.b-icon.i-water-protect {
+.b-icon.i-long-life {
   width: 68px;
   height: 68px;
   background-position: -158px 0px;
@@ -39,20 +39,32 @@
   background-position: -158px -68px;
 }
 
-.b-icon.i-callcenter-green {
+.b-icon.i-checked {
   width: 24px;
   height: 24px;
   background-position: 0px -146px;
 }
 
-.b-icon.i-callcenter {
+.b-icon.i-callcenter-white {
   width: 24px;
   height: 24px;
   background-position: -24px -146px;
 }
 
-.b-icon.i-larr-white {
-  width: 16px;
+.b-icon.i-callcenter-green {
+  width: 24px;
+  height: 24px;
+  background-position: -48px -146px;
+}
+
+.b-icon.i-callcenter {
+  width: 24px;
+  height: 24px;
+  background-position: -72px -146px;
+}
+
+.b-icon.i-close {
+  width: 18px;
   height: 18px;
   background-position: -136px -78px;
 }
@@ -61,5 +73,23 @@
   width: 16px;
   height: 18px;
   background-position: -136px -96px;
+}
+
+.b-icon.i-larr-white {
+  width: 16px;
+  height: 18px;
+  background-position: -136px -114px;
+}
+
+.b-icon.i-minus {
+  width: 17px;
+  height: 17px;
+  background-position: -96px -146px;
+}
+
+.b-icon.i-plus {
+  width: 17px;
+  height: 17px;
+  background-position: -113px -146px;
 }
 
