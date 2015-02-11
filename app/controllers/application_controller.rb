@@ -8,6 +8,7 @@ class ApplicationController < ActionController::Base
 
   def init_feedback
   	@feedback = ::Feedback.new
+    @feedback.build_user_info
   end
 
   def require_http_basic_auth

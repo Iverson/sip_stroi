@@ -42,9 +42,18 @@
     submit: function() {
       var form = this._form.serializeObject();
 
-      if (form.name && form.phone) {
-        form.orderItems = this.order.orderItems;
+      if (form.user_info_attributes.name && form.user_info_attributes.phone) {
+        form.items_attributes = this.order.orderItems;
         this.hideFormErrors();
+
+        $.ajax({
+          type: "POST",
+          url: "/panels_orders",
+          data: {panels_order: form},
+          success: function(data) {
+            console.log(data);
+          }
+        });
       } else {
         this.showFormErrors();
       }

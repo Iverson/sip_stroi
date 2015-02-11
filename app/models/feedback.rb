@@ -1,7 +1,6 @@
 class Feedback < ActiveRecord::Base
-  belongs_to :feedbackable, :polymorphic => true
+  has_one :user_info, as: :userable
+  accepts_nested_attributes_for :user_info
 
-  validates :name, presence: true
-  validates :phone, presence: true
   validates :message, presence: true
 end

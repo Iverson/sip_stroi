@@ -28,14 +28,17 @@
                 <p class="b-form__success green"><%= flash[:feedback_success] %></p>
                 <% end %>
 
-                <div class="b-input">
-                    <%= f.label :name %>
-                    <%= f.text_field :name %>
-                </div>
-                <div class="b-input">
-                    <%= f.label :phone %>
-                    <%= f.text_field :phone %>
-                </div>
+                <%= f.fields_for :user_info do |user_info_form| %>
+                    <div class="b-input">
+                        <%= user_info_form.label :name %>
+                        <%= user_info_form.text_field :name %>
+                    </div>
+                    <div class="b-input">
+                        <%= user_info_form.label :phone %>
+                        <%= user_info_form.text_field :phone %>
+                    </div>
+                <% end %>
+
                 <div class="b-input">
                     <%= f.label :message %>
                     <%= f.text_area :message %>

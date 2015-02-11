@@ -19,9 +19,10 @@ ru:
         feedback_error: "Необходимо заполнить все поля"
       attributes:
         feedback:
+          message: "Комментарий"
+        user_info:
           name: "Имя"
           phone: "Телефон"
-          message: "Комментарий"
 
       state_machines:
         order:
@@ -112,6 +113,9 @@ ru:
             text: "Текст"
         feedback:
           title: "Обратная связь"
+        user_info:
+          title: "Клиент"
+          name: "Имя"
         projects:
           title: "Проекты"
           instances:

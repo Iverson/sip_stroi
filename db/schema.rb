@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150208151752) do
+ActiveRecord::Schema.define(version: 20150211215904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,8 +65,6 @@ ActiveRecord::Schema.define(version: 20150208151752) do
   end
 
   create_table "feedbacks", force: :cascade do |t|
-    t.string   "name"
-    t.string   "phone"
     t.text     "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -83,6 +81,13 @@ ActiveRecord::Schema.define(version: 20150208151752) do
     t.datetime "updated_at",         null: false
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "state"
+    t.string   "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "panels", force: :cascade do |t|
     t.string   "size"
     t.string   "material1"
@@ -92,6 +97,18 @@ ActiveRecord::Schema.define(version: 20150208151752) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
+
+  create_table "panels_order_items", force: :cascade do |t|
+    t.string   "size"
+    t.string   "material"
+    t.integer  "count",           default: 0
+    t.float    "price"
+    t.integer  "panels_order_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+  end
+
+  add_index "panels_order_items", ["panels_order_id"], name: "index_panels_order_items_on_panels_order_id", using: :btree
 
   create_table "photos", force: :cascade do |t|
     t.string   "name"
@@ -175,5 +192,16 @@ ActiveRecord::Schema.define(version: 20150208151752) do
   end
 
   add_index "settings", ["thing_type", "thing_id", "var"], name: "index_settings_on_thing_type_and_thing_id_and_var", unique: true, using: :btree
+
+  create_table "user_infos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.integer  "userable_id"
+    t.string   "userable_type"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
+
+  add_index "user_infos", ["userable_type", "userable_id"], name: "index_user_infos_on_userable_type_and_userable_id", using: :btree
 
 end

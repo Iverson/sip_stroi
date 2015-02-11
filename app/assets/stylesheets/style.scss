@@ -1352,7 +1352,6 @@ button.b-btn_medium, input.b-btn_medium {
 		font-size: 18px;
 		line-height: 1.3em;
 		font-weight: 300;
-		color: #000;
 	}
 
 	.b-table .price {
@@ -1360,7 +1359,6 @@ button.b-btn_medium, input.b-btn_medium {
 		text-align: right;
 		font-size: 30px;
 		font-weight: 300;
-		color: #000;
 	}
 
 	.b-table td {
@@ -1380,8 +1378,12 @@ button.b-btn_medium, input.b-btn_medium {
 		background: #fde8d4;
 	}
 
-		.b-table .selected td {
+		.b-table .selected .price {
 			color: #dc7010;
+		}
+
+		.b-table .selected .name {
+			color: #000;
 		}
 	
 	.b-table_total {
@@ -1419,13 +1421,13 @@ button.b-btn_medium, input.b-btn_medium {
 
 		.b-table_order td {
 			padding: 0;
+			color: #898989;
 		}
 
 		.b-table_order .name {
 			font-size: 18px;
 			line-height: 1.3em;
 			font-weight: 100;
-			color: #000;
 			padding-bottom: 10px;
 		}
 
@@ -1435,7 +1437,6 @@ button.b-btn_medium, input.b-btn_medium {
 			font-size: 18px;
 			line-height: 1.3em;
 			font-weight: 300;
-			color: #dc7010;
 		}
 
 .b-counter {
