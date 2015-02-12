@@ -26,7 +26,7 @@
     </tr>
 
     <% @panels.each do |panel| %>
-    <tr class="b-table_panels__row" data-json="<%= panel.to_json(:only => [:size, :price ], :methods => :material) %>">
+    <tr class="b-table_panels__row" data-json="<%= panel.to_json(:only => [:id, :size, :price ], :methods => :material) %>">
       <td class=""><%= panel.size %></td>
       <td class=""><%= panel.material %></td>
       <td class=""><%= number_with_delimiter(panel.price.to_i) %></td>

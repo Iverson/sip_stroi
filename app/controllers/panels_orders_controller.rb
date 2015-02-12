@@ -1,6 +1,11 @@
 class PanelsOrdersController < ApplicationController
   def create
-    @panels_order = PanelsOrder.new(panels_order_params)
+    params = panels_order_params
+    panels_params = params["panels"]
+    params.delete("panels")
+
+    @panels_order = PanelsOrder.new(params)
+    @panels_order.add_panels(panels_params)
 
     respond_to do |format|
       if @panels_order.save
@@ -12,6 +17,6 @@ class PanelsOrdersController < ApplicationController
   end
 
   def panels_order_params
-    params.require(:panels_order).permit(:message, items_attributes: [:size, :material, :count, :price], user_info_attributes: [:name, :phone])
+    params.require(:panels_order).permit(:message, panels: [:id, :count, :size, :price, :material], user_info_attributes: [:name, :phone])
   end
 end

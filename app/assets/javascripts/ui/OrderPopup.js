@@ -43,7 +43,7 @@
       var form = this._form.serializeObject();
 
       if (form.user_info_attributes.name && form.user_info_attributes.phone) {
-        form.items_attributes = this.order.orderItems;
+        form.panels = this.order.orderItems;
         this.hideFormErrors();
 
         $.ajax({

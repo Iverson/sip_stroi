@@ -6,4 +6,13 @@ class PanelsOrder < Order
   def total_price
     @items_prices_sum ||= self.items.select('sum(panels_order_items.price * panels_order_items.count) as total_price')[0][:total_price].to_i
   end
+
+  def add_panels(panels_params)
+    panels_params.each do |item|
+      panel = Panel.find(item[1]["id"].to_i).as_json(:only => [:size, :price ], :methods => :material)
+      panel["count"] = item[1]["count"]
+
+      items.build(panel)
+    end
+  end
 end

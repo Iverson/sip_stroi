@@ -34,6 +34,44 @@ ActiveAdmin.register PanelsOrder do
     actions
   end
 
+  show do |order|
+    attributes_table do
+      row t('active_admin.orders.state') do
+        order.aasm.human_state
+      end
+      row "Заказчик" do
+        order.user_info.name
+      end
+      row t('active_admin.user_info.phone') do
+        order.user_info.phone
+      end
+      row "Комментарий заказчика" do
+        order.message
+      end
+    end
+
+    panel t("active_admin.panels.title") do
+      table_for(order.items) do
+        column "Размер" do |item| 
+          item.size
+        end
+        column t("active_admin.panels.material") do |item| 
+          item.material
+        end
+        column t("active_admin.price") do |item| 
+          item.price
+        end
+        column t("active_admin.count") do |item| 
+          item.count
+        end
+      end
+      para "Итого: #{order.total_price}"
+      para "<div class='print-css'><br /></div>".html_safe
+    end
+    
+    # active_admin_comments
+  end
+
   form do |f|
     inputs t("active_admin.order") do
       f.input :state, :label => t('active_admin.orders.state'), :as => :select, :collection => f.object.aasm.states(:permitted => true).map{|s| [s.human_name , s.name]}, :include_blank => f.object.aasm.human_state
@@ -51,7 +89,6 @@ ActiveAdmin.register PanelsOrder do
       f.has_many :items, heading: t("active_admin.panels.title"), allow_destroy: true do |p|
         p.input :size, label: t("active_admin.panels.size")
         p.input :material, label: t("active_admin.panels.material")
-        p.input :price, label: t('active_admin.price')
         p.input :count, label: t('active_admin.count')
       end
     end

@@ -26,7 +26,7 @@ ActiveAdmin.register_page "ProjectDetails" do
         end
       end
 
-      f.input :type => 'submit', :value => 'Сохранить'
+      f.input :type => 'submit', :value => I18n.t('active_admin.save')
     end
   end
 
