@@ -30,7 +30,7 @@ gem "paperclip", "~> 4.2"
 gem 'russian'
 gem 'airbrake'
 gem "rails-settings-cached", "0.4.1"
-gem 'state_machine'
+gem 'aasm'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

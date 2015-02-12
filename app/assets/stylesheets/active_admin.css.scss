@@ -15,3 +15,12 @@
 // For example, to change the default status-tag color:
 //
 .active_admin textarea { height: 100px }
+
+form fieldset > ol > li fieldset:not(.has_many_fields) ol {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+form fieldset > ol > li fieldset:not(.has_many_fields) ol li {
+	margin: 10px 0;
+}

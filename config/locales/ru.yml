@@ -20,24 +20,22 @@ ru:
       attributes:
         feedback:
           message: "Комментарий"
+        order:
+          state: "Статус"
+          state/recived: "Получен"
+          state/confirmed: "Подтвержден"
+          state/paid: "Оплачен"
+          state/canceled: "Отменен"
         user_info:
           name: "Имя"
           phone: "Телефон"
 
-      state_machines:
-        order:
-          state:
-            states:
-              created: "Создан"
-              recived: "Получен"
-              confirmed: "Подтвержден"
-              paid: "Оплачен"
-              canceled: "Отменен"
+
         errors:
           # The values :model, :attribute and :value are always available for interpolation
           # The value :count is available when applicable. Can be used for pluralization.
           #
-          # You can use ^-prefixed messages as well to get rid of human attribute name appearing 
+          # You can use ^-prefixed messages as well to get rid of human attribute name appearing
           # before your message in validation messages.
           messages:
             inclusion: "имеет непредусмотренное значение"
@@ -81,16 +79,18 @@ ru:
     active_admin:
         title: "Заголовок"
         phone: "Телефон"
+        date: "Дата"
         city: "Город"
         email: "Email"
         name: "Название"
+        order: "Заказ"
         price: "Цена"
         description: "Описание"
         image: "Картинка"
         text: "Текст"
-        offers: 
+        offers:
           title: "Акции"
-        photos: 
+        photos:
           title: "Фото"
         panels:
           title: "Панели"
@@ -99,13 +99,13 @@ ru:
           material2: "Пенополистирол"
           material3: "ОСП"
           materials: "Материалы (мм)"
-        clients: 
+        clients:
           title: "Клиенты"
           form:
             name: "ФИО"
             first_name: "Имя"
             last_name: "Фамилия"
-        reviews: 
+        reviews:
           title: "Отзывы"
           form:
             client: "Клиент"
@@ -116,6 +116,7 @@ ru:
         user_info:
           title: "Клиент"
           name: "Имя"
+          phone: "Телефон"
         projects:
           title: "Проекты"
           instances:
@@ -138,7 +139,13 @@ ru:
         products: "Товары"
         sections: "Категории"
         deliveries: "Доставка"
-        orders: "Заказы"
+        panels_orders:
+          title: "Заказы панелей"
+        orders:
+          title: "Заказы"
+          type: "Тип"
+          sum: "Сумма"
+          state: "Статус"
         users: "Заказчики"
         promo: "Акции"
         site_configuration: "Настройки сайта"
@@ -208,7 +215,7 @@ ru:
           action_label: "%{title} выбранное"
           labels:
             destroy: "Удалить"
-        comments:    
+        comments:
           body: "Текст"
           author: "Автор"
           title: "Комментарий"
