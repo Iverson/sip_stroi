@@ -1,6 +1,6 @@
 ActiveAdmin.register Project do
   title = I18n.t("active_admin.projects.title")
-  menu :priority => 5, :label => title
+  menu :priority => 5, :label => title, :parent => I18n.t("active_admin.catalog")
 
   permit_params :name, :floors, :area, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :default, :_destroy]
 

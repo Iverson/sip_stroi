@@ -21,7 +21,9 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create]
     resources :reviews, only: [:index]
     resources :panels, only: [:index]
+    
     resources :panels_orders, only: [:create]
+    resources :projects_orders, only: [:create]
 
   # Example resource route with options:
   #   resources :products do

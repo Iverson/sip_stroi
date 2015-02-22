@@ -13,6 +13,7 @@
 //= require jquery/dist/jquery
 //= require jquery-serialize-object
 //= require lodash
+//= require q/q
 //= require fancybox/source/jquery.fancybox
 //= require fancybox/source/helpers/jquery.fancybox-thumbs
 //= require_tree ./ui

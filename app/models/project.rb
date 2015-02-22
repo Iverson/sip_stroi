@@ -31,6 +31,14 @@ class Project < ActiveRecord::Base
     end
   end
 
+  def order_cover
+    unless pictures.empty?
+      pictures.first.image.url(:medium)
+    else
+      "/images/project_nophoto.png"
+    end
+  end
+
   def default_price
     if instances.first
       instances.default.sum(:price).round(0)

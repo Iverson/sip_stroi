@@ -70,19 +70,21 @@
     </div>
 
     <div class="b-popup__left">
-      <p class="b-popup__t">Ваш заказ:</p>
+      <div class="b-popup__left__l">
+        <p class="b-popup__t">Ваш заказ:</p>
 
-      <p class="b-popup__t2">Sip панели</p>
+        <p class="b-popup__t2">Sip панели</p>
 
-      <table class="b-table b-table_order">
-        <%% _.each(orderItems, function(item) { %>
-        <tr>
-          <td class="name"><%%= item.size %> мм <br /><%%= item.material %></td>
-          <td width="30"></td>
-          <td class="price"><%%= item.count %> х <%%= item.price %>. –</td>
-        </tr>
-        <%% }); %>
-      </table>
+        <table class="b-table b-table_order">
+          <%% _.each(orderItems, function(item) { %>
+          <tr>
+            <td class="name"><%%= item.size %> мм <br /><%%= item.material %></td>
+            <td width="30"></td>
+            <td class="price"><%%= item.count %> х <%%= item.price %>. –</td>
+          </tr>
+          <%% }); %>
+        </table>
+      </div>
     </div>
     <div class="b-popup__right">
       <div class="b-popup__right__l">

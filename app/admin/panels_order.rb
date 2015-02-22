@@ -1,6 +1,6 @@
 ActiveAdmin.register PanelsOrder do
   title = I18n.t("active_admin.panels_orders.title")
-  menu :priority => 6, :label => title, :parent => I18n.t("active_admin.orders.title")
+  menu :priority => 6, :label => title, :parent => I18n.t("active_admin.requests")
 
   permit_params :message, :state, :items_attributes, user_info_attributes: [:id, :name, :phone, :_destroy]
 

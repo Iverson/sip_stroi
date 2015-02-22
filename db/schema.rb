@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150211215904) do
+ActiveRecord::Schema.define(version: 20150222170714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -86,6 +86,8 @@ ActiveRecord::Schema.define(version: 20150211215904) do
     t.string   "message"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string   "type"
+    t.string   "name"
   end
 
   create_table "panels", force: :cascade do |t|
@@ -168,6 +170,17 @@ ActiveRecord::Schema.define(version: 20150211215904) do
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
   end
+
+  create_table "projects_order_items", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.float    "price"
+    t.integer  "projects_order_id"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+  end
+
+  add_index "projects_order_items", ["projects_order_id"], name: "index_projects_order_items_on_projects_order_id", using: :btree
 
   create_table "reviews", force: :cascade do |t|
     t.text     "text"

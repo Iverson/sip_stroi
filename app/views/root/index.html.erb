@@ -1,7 +1,7 @@
         <div class="b-promo">
             <div class="b-promo__l">
                 <div class="b-promo__t"><%= c('index.title', :text) %></div>
-                <a class="b-btn b-btn_big b-btn_orange" href="#">отправить заявку</a>
+                <a class="b-btn b-btn_big b-btn_orange js-feedbackPopup" href="#">отправить заявку</a>
             </div>
         </div>
 
@@ -93,7 +93,7 @@
                 <div class="b-personal-project__text">
                     <%= c('index.individual.text', :text) %>
                 </div>
-                <a href="#" class="b-btn b-btn_big">Отправить заявку</a>
+                <a href="#" class="b-btn b-btn_big js-feedbackPopup">Отправить заявку</a>
             </div>
         </div>
 
@@ -154,7 +154,7 @@
                     <%= c('index.panels.text') %>
                 </div>
                 <a href="#" class="b-btn b-btn_big b-btn_gray">Скачать прайс лист</a>
-                <a href="#" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
+                <a href="<%= panels_path %>" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
             </div>
         </div>
 

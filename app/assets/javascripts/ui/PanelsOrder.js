@@ -43,10 +43,25 @@ PanelsOrder.prototype = {
 
   openOrderForm: function() {
     if (this.order.length > 0) {
-      OrderPopup.render({orderItems: this.order, totalSum: this.state.totalSum});
+      OrderPopup
+        .render({orderItems: this.order, totalSum: this.state.totalSum}, _.template($('#order_popup_template').html()))
+        .then(function(form) {
+          form.panels = this.order;
+          this.sendOrder(form);
+        }.bind(this));
     }
     
     return false;
+  },
+
+  sendOrder: function(data) {
+    $.ajax({
+      type: "POST",
+      url: "/panels_orders",
+      data: {panels_order: data},
+      success: function(data) {
+      }
+    });
   }
   
 };

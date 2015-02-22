@@ -1531,6 +1531,15 @@ button.b-btn_medium, input.b-btn_medium {
 	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 	z-index: 7;
 }
+
+.b-popup_feedback {
+	width: 400px;
+	margin: -250px 0 0 -200px;
+}
+
+	.b-popup__l {
+		padding: 34px 52px 38px 54px;
+	}
  
  	.b-popup__t {
  		font-size: 24px;
@@ -1563,12 +1572,21 @@ button.b-btn_medium, input.b-btn_medium {
 			margin: 11px 0 0 -2px;
 		}
 
+	.b-popup__pic {
+		width: 100%;
+		display: block;
+		margin-bottom: -10px;
+	}
+
 	.b-popup__left {
-		width: 364px;
-		padding: 30px 30px;
+		width: 424px;
 		position: relative;
 		margin-bottom: 70px;
 	}
+
+		.b-popup__left__l {
+			padding: 30px 30px;
+		}
 
 		.b-popup__total {
 			position: absolute;
@@ -1592,8 +1610,12 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-popup__right__l {
-		padding: 82px 39px 0 34px;
+		padding: 26px 39px 0 34px;
 	}
+
+		.b-popup__right .b-popup__t {
+			margin-bottom: 35px;
+		}
 
 		.b-popup__right .b-phone {
 			margin: 40px auto 0 auto;
@@ -1601,10 +1623,12 @@ button.b-btn_medium, input.b-btn_medium {
 		}
 
 		.b-popup__right .b-form__error {
-			height: 20px;
-			margin: -20px 0 0 0;
-			position: relative;
-			top: -20px;
+			float: right;
+			margin-bottom: -5px;
+			display: none;
+		}
+
+		.b-popup .b-form__error {
 			display: none;
 		}
 

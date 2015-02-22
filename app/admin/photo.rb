@@ -1,6 +1,6 @@
 ActiveAdmin.register Photo do
   title = I18n.t("active_admin.photos.title")
-  menu :priority => 6, :label => title
+  menu :priority => 6, :label => title, :parent => I18n.t("active_admin.catalog")
 
   permit_params :name, :image
 

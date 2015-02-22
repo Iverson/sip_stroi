@@ -1,10 +1,11 @@
 (function() {
 
   var OrderPopup = function(options) {
-    this._template    = _.template($('#order_popup_template').html());
+    this._template    = null;
     this._placeholder = $('.popup-placeholder');
 
     this.order = {};
+    this.deferred = null;
 
     this.initialize();
   };
@@ -14,13 +15,17 @@
     initialize: function() {
     },
 
-    render: function(options) {
+    render: function(options, template) {
       var self = this;
+
+      this.deferred = Q.defer();
       this.order = options;
 
-      this._placeholder.empty().append(this._template(options)).ready(function() {
+      this._placeholder.empty().append(template(options)).ready(function() {
         self.onRender();
       });
+
+      return this.deferred.promise;
     },
 
     onRender: function() {
@@ -30,30 +35,29 @@
       this._form      = this.$el.find('.b-form');
       this._formError = this.$el.find('.b-form__error');
 
-      this._close.on('click', this.destroy.bind(this));
-      this._overlay.on('click', this.destroy.bind(this));
-      this._form.on('submit', this.submit.bind(this))
+      this._close.on('click', this.close.bind(this));
+      this._overlay.on('click', this.close.bind(this));
+      this._form.on('submit', this.submit.bind(this));
+
+      this.$el.css({top: $(window).scrollTop() + document.documentElement.clientHeight/2 + 'px'});
     },
 
     destroy: function() {
       this._placeholder.empty();
     },
 
+    close: function() {
+      this.destroy();
+      this.deferred.reject();
+    },
+
     submit: function() {
       var form = this._form.serializeObject();
 
       if (form.user_info_attributes.name && form.user_info_attributes.phone) {
-        form.panels = this.order.orderItems;
         this.hideFormErrors();
-
-        $.ajax({
-          type: "POST",
-          url: "/panels_orders",
-          data: {panels_order: form},
-          success: function(data) {
-            console.log(data);
-          }
-        });
+        this.deferred.resolve(form);
+        this.destroy();
       } else {
         this.showFormErrors();
       }

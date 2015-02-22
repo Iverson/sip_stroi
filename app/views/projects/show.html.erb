@@ -40,7 +40,7 @@
 			</dl>
 
 			<div class="b-order-btn">
-				<a href="#" class="b-btn b-btn_big b-btn_block b-btn_gray">Заказать</a>
+				<a href="#" class="b-btn b-btn_big b-btn_block b-btn_gray js-orderButton">Заказать</a>
 
 				<span class="b-phone b-phone_medium b-phone_white">
 					<i class="b-icon i-callcenter-white"></i>
@@ -57,9 +57,9 @@
 
 <h3 class="h3">Комплектация</h3><br>
 
-<table class="b-table js-projectComplectation">
+<table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name], :methods => :order_cover) %>">
 	<% @project.instances.each do |instance| %>
-	<tr class="row <%= instance.default ? 'selected' : '' %>">
+	<tr class="row <%= instance.default ? 'selected' : '' %>" data-json="<%= instance.to_json(:only => [:id, :name, :price ]) %>">
 		<td class="checkbox">
 			<label for="<%= instance.id %>" class="b-checkbox">
 				<%= check_box_tag "instance[#{instance.id}].default", 1, instance.default, 'data-type' => 'isInstanceDefault', 'data-price' => instance.price, 'id' => instance.id %>
@@ -77,7 +77,7 @@
 	<tr class="">
 		<td class="checkbox"></td>
 		<td class="">
-			<a href="#" class="b-btn b-btn_big b-btn_orange">Заказать</a>
+			<a href="#" class="b-btn b-btn_big b-btn_orange js-orderButton">Заказать</a>
 			<p><a href="#" class="dotted"><span>Индивидуальный проект</span></a></p>
 		</td>
 		<td></td>
@@ -106,3 +106,36 @@
 		<% end %>
 	<% end %>
 </div>
+<script id="project_order_popup" type="text/template">
+  <div class="b-overlay"></div>
+  <div class="b-popup b-popup_order">
+    <i class="b-popup__close"><i class="b-icon i-close"></i></i>
+
+    <div class="b-popup__total">
+    Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>. –
+    </div>
+
+    <div class="b-popup__left">
+      <img src="<%%= order.project.order_cover %>" alt="" class="b-popup__pic" />
+
+      <div class="b-popup__left__l">
+        <p class="b-popup__t">«<%%= order.project.name %>»</p>
+
+        <table class="b-table b-table_order">
+          <%% _.each(order.items, function(item) { %>
+          <tr>
+            <td class="name"><%%= item.name %></td>
+            <td width="30"></td>
+            <td class="price"><%%= item.count %><%%= item.price %>. –</td>
+          </tr>
+          <%% }); %>
+        </table>
+      </div>
+    </div>
+    <div class="b-popup__right">
+      <div class="b-popup__right__l">
+        <%= render "shared/order_form" %>
+      </div>
+    </div>
+  </div>
+</script>

@@ -1,6 +1,6 @@
 ActiveAdmin.register Panel do
   title = I18n.t("active_admin.panels.title")
-  menu :priority => 6, :label => title
+  menu :priority => 6, :label => title, :parent => I18n.t("active_admin.catalog")
 
   permit_params :size, :material1, :material2, :material3, :price
 
