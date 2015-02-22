@@ -1055,6 +1055,13 @@ button.b-btn_medium, input.b-btn_medium {
 	border-color: #e38d40;
 }
 
+	.b-project-thumb__blik {
+		position: absolute;
+		left: 30px;
+		top: 20px;
+		z-index: 1;
+	}
+
 	.b-project-thumb:hover:after {
 		opacity: 1;
 	}
@@ -1097,6 +1104,19 @@ button.b-btn_medium, input.b-btn_medium {
 		height: 144px;
 		display: block;
 		margin: 20px auto 0 auto;
+	}
+
+	.b-project-thumb__pic {
+		-webkit-filter: grayscale(100%);
+		filter: grayscale(100%);
+		filter: gray;
+		filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+	}
+
+	.b-project-thumb:hover .b-project-thumb__pic {
+		-webkit-filter: grayscale(0%);
+		filter: grayscale(0%);
+		filter: none;
 	}
 
 	.b-project-thumb__t {
