@@ -11,18 +11,18 @@
 
             <%= f.fields_for :user_info do |user_info_form| %>
                 <div class="b-input b-input_sh">
-                    <%= user_info_form.label :name %>
-                    <%= user_info_form.text_field :name %>
+                    <%= user_info_form.label :name, for: "feedback_popup_name" %>
+                    <%= user_info_form.text_field :name, id: "feedback_popup_name" %>
                 </div>
                 <div class="b-input b-input_sh">
-                    <%= user_info_form.label :phone %>
-                    <%= user_info_form.text_field :phone %>
+                    <%= user_info_form.label :phone, for: "feedback_popup_phone" %>
+                    <%= user_info_form.text_field :phone, id: "feedback_popup_phone" %>
                 </div>
             <% end %>
 
             <div class="b-input b-input_sh">
-                <%= f.label :message %>
-                <%= f.text_area :message %>
+                <%= f.label :message, for: "feedback_popup_message" %>
+                <%= f.text_area :message, id: "feedback_popup_message" %>
             </div>
 
             <div class="b-form__actions b-form__actions_center">
