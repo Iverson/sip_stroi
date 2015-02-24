@@ -95,5 +95,26 @@ ActiveAdmin.register_page "Dashboard" do
         end
       end
     end
+
+    para content_tag(:h2, I18n.t("active_admin.feedback.title"), :class => "h2")
+
+    columns do
+      column do
+        panel '' do
+          table_for Feedback.all do |f|
+            f.column :id
+            column t('active_admin.user_info.name') do |p|
+              link_to p.user_info.name, edit_admin_feedback_path(p)
+            end
+            column t('active_admin.phone') do |p|
+              link_to p.user_info.phone, edit_admin_feedback_path(p)
+            end
+            column t('active_admin.message'), :message
+
+            f.column t('active_admin.date'), :created_at
+          end
+        end
+      end
+    end
   end # content
 end

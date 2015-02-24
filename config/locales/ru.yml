@@ -82,6 +82,7 @@ ru:
       save: "Сохранить"
       title: "Заголовок"
       phone: "Телефон"
+      message: "Комментарий"
       date: "Дата"
       city: "Город"
       email: "Email"

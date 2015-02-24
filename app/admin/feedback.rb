@@ -17,13 +17,13 @@ ActiveAdmin.register Feedback do
 
   index do
     selectable_column
-    column t('active_admin.name') do |p|
+    column t('active_admin.user_info.name') do |p|
       link_to p.user_info.name, edit_admin_feedback_path(p)
     end
     column t('active_admin.phone') do |p|
       link_to p.user_info.phone, edit_admin_feedback_path(p)
     end
-    column :message
+    column t('active_admin.message'), :message
 
     actions
   end
@@ -39,7 +39,7 @@ ActiveAdmin.register Feedback do
 
       user_info.actions
     end
-    
+
 
     f.actions
   end

@@ -2,7 +2,7 @@ ActiveAdmin.register PanelsOrder do
   title = I18n.t("active_admin.panels_orders.title")
   menu :priority => 6, :label => title, :parent => I18n.t("active_admin.requests")
 
-  permit_params :message, :state, :items_attributes, user_info_attributes: [:id, :name, :phone, :_destroy]
+  permit_params :message, :state, items_attributes: [:id, :size, :material, :count, :price, :_destroy], user_info_attributes: [:id, :name, :phone, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -52,23 +52,23 @@ ActiveAdmin.register PanelsOrder do
 
     panel t("active_admin.panels.title") do
       table_for(order.items) do
-        column "Размер" do |item| 
+        column "Размер" do |item|
           item.size
         end
-        column t("active_admin.panels.material") do |item| 
+        column t("active_admin.panels.material") do |item|
           item.material
         end
-        column t("active_admin.price") do |item| 
+        column t("active_admin.price") do |item|
           item.price
         end
-        column t("active_admin.count") do |item| 
+        column t("active_admin.count") do |item|
           item.count
         end
       end
       para "Итого: #{order.total_price}"
       para "<div class='print-css'><br /></div>".html_safe
     end
-    
+
     # active_admin_comments
   end
 
@@ -90,6 +90,7 @@ ActiveAdmin.register PanelsOrder do
         p.input :size, label: t("active_admin.panels.size")
         p.input :material, label: t("active_admin.panels.material")
         p.input :count, label: t('active_admin.count')
+        p.input :price, label: t('active_admin.price')
       end
     end
 

@@ -2,7 +2,7 @@ ActiveAdmin.register ProjectsOrder do
   title = I18n.t("active_admin.projects_orders.title")
   menu :priority => 6, :label => title, :parent => I18n.t("active_admin.requests")
 
-  permit_params :message, :state, :items_attributes, user_info_attributes: [:id, :name, :phone, :_destroy]
+  permit_params :message, :state, items_attributes: [:id, :name, :description, :price, :_destroy], user_info_attributes: [:id, :name, :phone, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -55,20 +55,20 @@ ActiveAdmin.register ProjectsOrder do
 
     panel t("active_admin.projects.instances.type") do
       table_for(order.items) do
-        column t("active_admin.name") do |item| 
+        column t("active_admin.name") do |item|
           item.name
         end
-        column t("active_admin.description") do |item| 
+        column t("active_admin.description") do |item|
           item.description
         end
-        column t("active_admin.price") do |item| 
+        column t("active_admin.price") do |item|
           item.price
         end
       end
       para "Итого: #{order.total_price}"
       para "<div class='print-css'><br /></div>".html_safe
     end
-    
+
     # active_admin_comments
   end
 
