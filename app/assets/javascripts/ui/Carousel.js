@@ -39,7 +39,7 @@ Carousel.prototype = {
 
     this.state.margin       = parseInt(thumbs_margin);
     this.state.thumbWidth   = thumb.width();
-    this.state.slides_count = Math.ceil(this._slider.width()/(this._container.width()+this.state.margin));
+    this.state.slides_count = Math.ceil((this._slider.width()-5)/(this._container.width()+this.state.margin));
 
     this.renderPaginator();
   },

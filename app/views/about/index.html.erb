@@ -1,0 +1,95 @@
+<h1 class="h2 h2_center">О компании</h1>
+
+<div class="b-volumes">
+  <div class="l-center">
+    <dl class="b-volumes__item">
+      <dt>8</dt>
+      <dd>лет на рынке</dd>
+    </dl>
+    <dl class="b-volumes__item">
+      <dt>1 000</dt>
+      <dd>и более <br> довольных клиентов</dd>
+    </dl>
+    <dl class="b-volumes__item">
+      <dt>6 000</dt>
+      <dd>SIP-панелей в месяц производит наш завод</dd>
+    </dl>
+    <dl class="b-volumes__item">
+      <dt>2 000</dt>
+      <dd>м<sup>2</sup><br /> площадь завода</dd>
+    </dl>
+
+    <div class="b-volumes__text">
+      Коллектив производственно-строительной компании «СипМонтажСтрой» не новичок на рынке строительства качественного жилья! Более 8 лет мы успешно производим и продаём СИП-панели по всей России и уже более 6 лет активно занимаемся застройкой по каркасно-панельной технологии (SIP) в Москве, а также в Московской и прилегающих областях.
+    </div>
+  </div>
+</div>
+
+<br /><br /><br /><br />
+
+<div class="b-certificates">
+  <h2 class="h2 h2_center">Наши сертификаты</h2>
+
+  <div class="b-carousel" scroll-thumbs="4">
+
+    <div class="b-carousel__l">
+      <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+      <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+      <div class="b-carousel__overflow">
+        <div class="b-carousel__slider">
+          <a href="<%= asset_path("tmp/sertificats/1.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/1.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/2.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/2.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/3.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/3.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/4.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/4.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/1.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/1.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/2.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/2.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/3.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/3.jpg")) %></a>
+          <a href="<%= asset_path("tmp/sertificats/4.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/4.jpg")) %></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-carousel__paginator"></div>
+  </div>
+</div>
+
+<br /><br />
+<% unless @reviews.empty? %>
+<div class="b-reviews">
+  <div class="l-center">
+    <h2 class="h2 h2_center">Отзывы</h2>
+
+    <div class="b-carousel">
+      <div class="b-carousel__overflow">
+        <div class="b-carousel__slider">
+          <%= render(partial: "shared/review", collection: @reviews, as: :review) %>
+        </div>
+      </div>
+
+      <div class="b-carousel__paginator"></div>
+    </div>
+  </div>
+</div>
+<% end %>
+
+<h2 class="h2 h2_center">Партнеры</h2>
+<ul class="b-companies">
+  <li>
+    <%= image_tag asset_path "partners/rehau.png", class: "pic" %>
+    <p>Rehau</p>
+  </li>
+  <li>
+    <%= image_tag asset_path "partners/glunz.png", class: "pic" %>
+    <p>Glunz</p>
+  </li>
+  <li>
+    <%= image_tag asset_path "partners/green_board.png", class: "pic" %>
+    <p>Green Board</p>
+  </li>
+  <li>
+    <%= image_tag asset_path "partners/knauf.png", class: "pic" %>
+    <p>Knauf</p>
+  </li>
+</ul>
+<br><br>
