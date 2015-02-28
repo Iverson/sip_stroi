@@ -60,6 +60,7 @@ PanelsOrder.prototype = {
       url: "/panels_orders",
       data: {panels_order: data},
       success: function(data) {
+        OrderPopup.showSuccessMessage();
       }
     });
   }

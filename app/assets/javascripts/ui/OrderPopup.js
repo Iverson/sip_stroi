@@ -57,7 +57,6 @@
       if (form.user_info_attributes.name && form.user_info_attributes.phone) {
         this.hideFormErrors();
         this.deferred.resolve(form);
-        this.destroy();
       } else {
         this.showFormErrors();
       }
@@ -71,6 +70,10 @@
 
     hideFormErrors: function() {
       this._formError.hide();
+    },
+
+    showSuccessMessage: function() {
+      this.$el.addClass('success');
     }
     
   };

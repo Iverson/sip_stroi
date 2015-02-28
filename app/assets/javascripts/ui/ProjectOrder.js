@@ -90,6 +90,7 @@ ProjectOrder.prototype = {
       url: "/projects_orders",
       data: {projects_order: data},
       success: function(data) {
+        OrderPopup.showSuccessMessage();
       }
     });
   }

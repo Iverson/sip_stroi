@@ -7,35 +7,34 @@
         <%= form_for @feedback, html: { class: "b-form" } do |f| %>
             <p class="b-popup__t ta-center">Напишите нам</p>
 
-            <p class="b-form__error ta-center">Не все поля заполнены.</p>
+            <div class="default">
+                <p class="b-form__error ta-center">Не все поля заполнены.</p>
 
-            <%= f.fields_for :user_info do |user_info_form| %>
+                <%= f.fields_for :user_info do |user_info_form| %>
+                    <div class="b-input b-input_sh">
+                        <%= user_info_form.label :name, for: "feedback_popup_name" %>
+                        <%= user_info_form.text_field :name, id: "feedback_popup_name" %>
+                    </div>
+                    <div class="b-input b-input_sh">
+                        <%= user_info_form.label :phone, for: "feedback_popup_phone" %>
+                        <%= user_info_form.text_field :phone, id: "feedback_popup_phone" %>
+                    </div>
+                <% end %>
+
                 <div class="b-input b-input_sh">
-                    <%= user_info_form.label :name, for: "feedback_popup_name" %>
-                    <%= user_info_form.text_field :name, id: "feedback_popup_name" %>
+                    <%= f.label :message, for: "feedback_popup_message" %>
+                    <%= f.text_area :message, id: "feedback_popup_message" %>
                 </div>
-                <div class="b-input b-input_sh">
-                    <%= user_info_form.label :phone, for: "feedback_popup_phone" %>
-                    <%= user_info_form.text_field :phone, id: "feedback_popup_phone" %>
+
+                <div class="b-form__actions b-form__actions_center">
+                    <button type="submit" class="b-btn b-btn_medium b-btn_grenn js-submit">отправить</button>
                 </div>
-            <% end %>
-
-            <div class="b-input b-input_sh">
-                <%= f.label :message, for: "feedback_popup_message" %>
-                <%= f.text_area :message, id: "feedback_popup_message" %>
             </div>
-
-            <div class="b-form__actions b-form__actions_center">
-                <button type="submit" class="b-btn b-btn_medium b-btn_grenn js-submit">отправить</button>
+            <div class="success ta-center">
+                <div class="b-label">Сообщение отправлено</div>
+                <p>Мы свяжемся с вами по указанному телефону в ближайшее время .</p>
             </div>
-            <br><br><br>
-
-            <div class="ta-center">
-                <span class="b-phone b-phone_medium b-phone_orange">
-                  <i class="b-icon i-callcenter"></i>
-                  <span class="b-phone__number"><%= phone(settings[:phone] ) %></span>
-                </span>
-            </div>
+            
         <% end %>
     </div>
 </div>

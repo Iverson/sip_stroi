@@ -203,8 +203,17 @@ button:focus {
 
 	.b-header__contacts {
 		float: right;
-		padding: 23px 15px 0 0;
+		padding: 17px 15px 0 0;
 	}
+
+		.b-phones {
+			display: inline-block;
+			vertical-align: middle;
+		}
+
+		.b-phones_medium {
+			font-size: 22px;
+		}
 
 		.b-header__contacts .phone {
 			vertical-align: middle;
@@ -1263,6 +1272,11 @@ button.b-btn_medium, input.b-btn_medium {
 		margin-bottom: 5px;
 	}
 
+		.b-footer__phone__item {
+			vertical-align: middle;
+			margin-right: 37px;
+		}
+
 	.b-footer__phone .b-icon {
 		margin-right: 3px;
 		position: relative;
@@ -1632,10 +1646,41 @@ button.b-btn_medium, input.b-btn_medium {
 	z-index: 7;
 }
 
+	.b-popup .success, .b-popup.success .default {
+		display: none;
+	}
+
+	.b-popup.success .success {
+		display: block;
+	}
+
+.b-label {
+	height: 42px;
+	line-height: 42px;
+	color: #fff;
+	background: #75b312;
+	padding: 0 20px;
+	display: inline-block;
+	margin-bottom: 15px;
+	font-size: 18px;
+	font-weight: 300;
+}
+
+.b-popup .success {
+	font-size: 18px;
+	line-height: 1.2em;
+}
+
 .b-popup_feedback {
 	width: 400px;
+	min-height: 0;
 	margin: -250px 0 0 -200px;
 }
+
+	.b-popup_feedback .success {
+		margin-bottom: -10px;
+		font-size: 16px;
+	}
 
 	.b-popup__l {
 		padding: 34px 52px 38px 54px;

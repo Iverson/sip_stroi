@@ -56,11 +56,29 @@
       var form = this._form.serializeObject().feedback;
 
       if (form.user_info_attributes.name && form.user_info_attributes.phone && form.message) {
-        this.hideFormErrors();
+        this.sendFeedback(form);
       } else {
         this.showFormErrors();
-        return false;
       }
+
+      return false;
+    },
+
+    sendFeedback: function(data) {
+      var self = this;
+
+      $.ajax({
+        type: "POST",
+        url: "/feedbacks",
+        data: {feedback: data},
+        success: function(data) {
+          self.showSuccessMessage();
+        }
+      });
+    },
+
+    showSuccessMessage: function() {
+      this.$el.addClass('success');
     },
 
     showFormErrors: function() {

@@ -10,7 +10,10 @@
 
     <div class="b-header__contacts">
       <i class="b-icon i-callcenter"></i>
-      <span class="phone"><%= phone(settings[:phone]) %></span>
+      <span class="b-phones">
+        <span class="phone"><%= phone(settings[:phone1]) %></span><br />
+        <span class="phone"><%= phone(settings[:phone2]) %></span>
+      </span>
 
       <a href="#" class="b-btn b-btn_orange js-feedbackPopup">написать нам</a>
     </div>
