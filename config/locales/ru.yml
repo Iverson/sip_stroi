@@ -137,6 +137,7 @@ ru:
           cover: "Заглавная картинка"
       pages:
         title: "Страницы"
+        about: "О компании"
         index: "Главная"
         project_details: "Страница проекта"
       statistics: "Отчеты"
