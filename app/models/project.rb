@@ -14,6 +14,7 @@ class Project < ActiveRecord::Base
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
   scope :sorted, -> { order(:id) }
+  scope :sorted_by_area, -> { order(:area) }
 
   def prev
     @prev ||= self.class.where("id < ?", id).last
