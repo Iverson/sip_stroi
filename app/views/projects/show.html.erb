@@ -58,7 +58,8 @@
 </table>
 <br>
 
-<h3 class="h3">Комплектация</h3><br>
+<!-- <h3 class="h3">Комплектация</h3> -->
+<br />
 
 <table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name], :methods => :order_cover) %>">
 	<% @project.instances.each do |instance| %>

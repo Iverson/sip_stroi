@@ -17,11 +17,11 @@ class Project < ActiveRecord::Base
   scope :sorted_by_area, -> { order(:area) }
 
   def prev
-    @prev ||= self.class.where("id < ?", id).last
+    @prev ||= self.class.sorted_by_area.where("area < ?", area).last
   end
 
   def next
-    @next ||= self.class.where("id > ?", id).first
+    @next ||= self.class.sorted_by_area.where("area > ?", area).first
   end
 
   def cover
