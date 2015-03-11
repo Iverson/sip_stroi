@@ -43,8 +43,8 @@ ActiveAdmin.register Project do
       f.object.instances.build()
     end
 
-    panel t("active_admin.projects.instances.label") do
-      f.has_many :instances, heading: '', allow_destroy: true do |p|
+    panel "#{t("active_admin.projects.instances.label")} (#{f.object.instances.count})" do
+      f.has_many :instances, for: [:instances, f.object.instances.order_by_id], heading: '', allow_destroy: true do |p|
         p.input :name, label: t("active_admin.projects.instances.type")
         p.input :price, label: t('active_admin.price')
         p.input :description, label: t('active_admin.description')
@@ -59,7 +59,7 @@ ActiveAdmin.register Project do
     panel t("active_admin.projects.pictures") do
     	f.has_many :pictures, heading: '', allow_destroy: true do |p|
     		p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:thumb)) : ''
-    	end 
+    	end
     end
 
     if f.object.new_record?
@@ -69,7 +69,7 @@ ActiveAdmin.register Project do
     panel t("active_admin.projects.plans") do
       f.has_many :plans, heading: '', allow_destroy: true do |p|
         p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
-      end 
+      end
     end
 
     actions

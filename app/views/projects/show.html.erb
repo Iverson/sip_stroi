@@ -62,7 +62,7 @@
 <br />
 
 <table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name], :methods => :order_cover) %>">
-	<% @project.instances.each do |instance| %>
+	<% @project.instances.order_by_id.each do |instance| %>
 	<tr class="row <%= instance.default ? 'selected' : '' %>" data-json="<%= instance.to_json(:only => [:id, :name, :price ]) %>">
 		<td class="checkbox">
 			<label for="<%= instance.id %>" class="b-checkbox">
