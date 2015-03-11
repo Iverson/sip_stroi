@@ -24,4 +24,11 @@ namespace :import do
       %x(rsync --progress -zvr #{server_user}@#{server_host}:#{server_app_path}/shared/system/ public/system/)
       puts "Done!"
   end
+
+  desc "Import prodution log"
+  task :log do
+      puts "Rsync..."
+      %x(rsync --progress -zvr #{server_user}@#{server_host}:#{server_app_path}/shared/log/production.log tmp/production.log)
+      puts "Done!"
+  end
 end
