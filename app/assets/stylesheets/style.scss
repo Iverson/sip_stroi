@@ -706,7 +706,7 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-volumes__text {
-		width: 700px;
+		width: 800px;
 		font-size: 16px;
 		line-height: 1.5em;
 		font-weight: 300;
@@ -1776,6 +1776,10 @@ button.b-btn_medium, input.b-btn_medium {
 		.b-popup .b-form__error {
 			display: none;
 		}
+
+.b-text p {
+	margin-bottom: 1.2em;
+}
 
 /* vendor */
 

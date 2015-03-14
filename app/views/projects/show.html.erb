@@ -105,7 +105,7 @@
 	<h2 class="h2 h2_center">Планировка</h2><br>
 
 	<% @project.plans.each do |plan| %>
-		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-plans" do %>
+		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-pictures" do %>
 			<%= image_tag plan.image.url(:medium), class: 'img' %>
 		<% end %>
 	<% end %>
