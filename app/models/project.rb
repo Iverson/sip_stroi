@@ -5,7 +5,7 @@ class Project < ActiveRecord::Base
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true
   accepts_nested_attributes_for :plans, :allow_destroy => true
-  accepts_nested_attributes_for :instances, :allow_destroy => true
+  accepts_nested_attributes_for :instances, :allow_destroy => true, reject_if: :all_blank
 
   has_attached_file :cover_image, :styles => { :medium => "240x154#" }
 
