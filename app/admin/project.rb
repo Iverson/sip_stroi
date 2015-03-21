@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :default, :_destroy]
+  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :default, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -26,6 +26,7 @@ ActiveAdmin.register Project do
     end
     column t('active_admin.projects.form.area'), :area
     column t('active_admin.projects.form.floors'), :floors
+    column t('active_admin.published'), :published
 
     actions
   end
@@ -37,6 +38,7 @@ ActiveAdmin.register Project do
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
       input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.cover_image.exists? ? image_tag(object.cover_image.url(:medium)) : ''
+      input :published, label: t('active_admin.published')
     end
 
     if f.object.new_record? && f.object.errors.empty?

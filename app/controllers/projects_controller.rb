@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.sorted_by_area
+    @projects = Project.published.sorted_by_area
   end
 
   def show

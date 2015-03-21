@@ -13,15 +13,16 @@ class Project < ActiveRecord::Base
   validates :area, presence: true
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
+  scope :published, -> { where(published: true) }
   scope :sorted, -> { order(:id) }
   scope :sorted_by_area, -> { order(:area) }
 
   def prev
-    @prev ||= self.class.sorted_by_area.where("area < ?", area).last
+    @prev ||= self.class.published.sorted_by_area.where("area < ?", area).last
   end
 
   def next
-    @next ||= self.class.sorted_by_area.where("area > ?", area).first
+    @next ||= self.class.published.sorted_by_area.where("area > ?", area).first
   end
 
   def cover
