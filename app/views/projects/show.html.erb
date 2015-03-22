@@ -71,7 +71,7 @@
 			</label>
 		</td>
 		<td class="name"><%= instance.name %></td>
-		<td class="desc"><%= instance.description %></td>
+		<td class="desc"><%= simple_format instance.description %></td>
 		<td class="price"><%= number_with_delimiter(instance.price.to_i) %>. –</td>
 	</tr>
 	<% end %>

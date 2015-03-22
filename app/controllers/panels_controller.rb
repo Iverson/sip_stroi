@@ -1,5 +1,5 @@
 class PanelsController < ApplicationController
   def index
-    @panels = Panel.all
+    @panels = Panel.published
   end
 end

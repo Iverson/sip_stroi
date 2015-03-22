@@ -2,7 +2,7 @@ ActiveAdmin.register Panel do
   title = I18n.t("active_admin.panels.title")
   menu :priority => 6, :label => title, :parent => I18n.t("active_admin.catalog")
 
-  permit_params :size, :material1, :material2, :material3, :price
+  permit_params :size, :material1, :material2, :material3, :price, :published
 
   controller do
     before_filter { @page_title = title }
@@ -23,6 +23,7 @@ ActiveAdmin.register Panel do
       p.material
     end
     column t('active_admin.price'), :price
+    column t('active_admin.published'), :published
 
     actions
   end
@@ -31,6 +32,7 @@ ActiveAdmin.register Panel do
     inputs do
       input :size, label: t('active_admin.panels.size')
       input :price, label: t('active_admin.price')
+      input :published, label: t('active_admin.published')
     end
 
     inputs t('active_admin.panels.materials') do

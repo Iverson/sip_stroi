@@ -5,6 +5,8 @@ class Panel < ActiveRecord::Base
   validates :material3, presence: true
   validates :price, presence: true
 
+  scope :published, -> { where(published: true) }
+
   def material
     "#{material1} — #{material2} — #{material3}"
   end
