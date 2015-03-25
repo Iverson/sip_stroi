@@ -89,6 +89,7 @@ ru:
       name: "Название"
       order: "Заказ"
       price: "Цена"
+      position: "Позиция"
       count: "Количество"
       description: "Описание"
       image: "Картинка"

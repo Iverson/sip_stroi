@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :default, :_destroy]
+  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -46,7 +46,7 @@ ActiveAdmin.register Project do
     end
 
     panel "#{t("active_admin.projects.instances.label")} (#{f.object.instances.count})" do
-      f.has_many :instances, for: [:instances, f.object.instances.order_by_id], heading: '', allow_destroy: true do |p|
+      f.has_many :instances, for: [:instances, f.object.instances.positioned], sortable: :position, heading: '', allow_destroy: true do |p|
         p.input :name, label: t("active_admin.projects.instances.type")
         p.input :price, label: t('active_admin.price')
         p.input :description, label: t('active_admin.description')
