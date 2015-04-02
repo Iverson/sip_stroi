@@ -1,10 +1,12 @@
 class Project < ActiveRecord::Base
   has_many :pictures, class_name: 'ProjectPicture', :dependent => :destroy
   has_many :plans, class_name: 'ProjectPlan', :dependent => :destroy
+  has_many :building_photos, class_name: 'ProjectBuildingPhoto', :dependent => :destroy
   has_many :instances, class_name: 'ProjectInstance', :dependent => :destroy
 
   accepts_nested_attributes_for :pictures, :allow_destroy => true
   accepts_nested_attributes_for :plans, :allow_destroy => true
+  accepts_nested_attributes_for :building_photos, :allow_destroy => true
   accepts_nested_attributes_for :instances, :allow_destroy => true, reject_if: :all_blank
 
   has_attached_file :cover_image, :styles => { :medium => "240x154#" }

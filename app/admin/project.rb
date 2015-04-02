@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy]
+  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], building_photos_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -70,6 +70,16 @@ ActiveAdmin.register Project do
 
     panel t("active_admin.projects.plans") do
       f.has_many :plans, heading: '', allow_destroy: true do |p|
+        p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
+      end
+    end
+
+    if f.object.new_record?
+      f.object.building_photos.build()
+    end
+
+    panel t("active_admin.projects.building_photos") do
+      f.has_many :building_photos, heading: '', allow_destroy: true do |p|
         p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
       end
     end
