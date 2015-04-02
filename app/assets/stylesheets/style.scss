@@ -1322,10 +1322,15 @@ button.b-btn_medium, input.b-btn_medium {
 	font-weight: 300;
 	text-decoration: none;
 	margin-top: 20px;
+	position: absolute;
+}
+
+.b-prev-link {
+	left: 0;
 }
 
 .b-next-link {
-	float: right;
+	right: 0;
 }
 
 .b-prev-link .b-carousel__arr, .b-next-link .b-carousel__arr {
@@ -1371,7 +1376,7 @@ button.b-btn_medium, input.b-btn_medium {
 		padding: 10px 25px;
 	}
 
-	.b-project-details__plans {
+	.b-project-details__plans, .b-project-details__photos {
 		margin-top: 50px;
 		margin-bottom: 30px;
 	}
@@ -1379,6 +1384,11 @@ button.b-btn_medium, input.b-btn_medium {
 	.b-project-details__plans .img {
 		height: 350px;
 		margin: 0 20px;
+	}
+
+	.b-project-details__photos .img {
+		margin: 0 15px 15px 0;
+		height: 200px;
 	}
 
 
@@ -1780,6 +1790,15 @@ button.b-btn_medium, input.b-btn_medium {
 .b-text p {
 	margin-bottom: 1.2em;
 }
+
+.b-photos {
+	padding-left: 20px;
+}
+
+	.b-photos .img {
+		height: 220px;
+		margin: 0 25px 25px 0;
+	}
 
 /* vendor */
 

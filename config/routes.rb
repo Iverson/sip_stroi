@@ -22,6 +22,7 @@ Rails.application.routes.draw do
     resources :reviews,   only: [:index]
     resources :panels,    only: [:index]
     resources :about,     only: [:index]
+    resources :photos,    only: [:index]
     
     resources :panels_orders, only: [:create]
     resources :projects_orders, only: [:create]

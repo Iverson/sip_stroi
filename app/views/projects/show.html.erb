@@ -111,15 +111,17 @@
 	<% end %>
 </div>
 
-<div class="b-project-details__plans">
+<% unless @project.building_photos.empty? %>
+<div class="b-project-details__photos">
 	<h2 class="h2 h2_center">Этапы строительства</h2><br>
 
 	<% @project.building_photos.each do |plan| %>
 		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-pictures" do %>
 			<%= image_tag plan.image.url(:medium), class: 'img' %>
 		<% end %>
-	<% end %>
+  <% end %>
 </div>
+<% end %>
 
 <script id="project_order_popup" type="text/template">
   <div class="b-overlay"></div>

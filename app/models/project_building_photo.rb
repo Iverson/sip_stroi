@@ -1,7 +1,7 @@
 class ProjectBuildingPhoto < ActiveRecord::Base
 	belongs_to :project
 
-  has_attached_file :image, :styles => { :medium => "440x380>" }, :default_url => "/images/:style/missing.png"
+  has_attached_file :image, :styles => { :medium => "320x240>" }, :default_url => "/images/:style/missing.png"
 
   validates :image, :attachment_presence => true
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
