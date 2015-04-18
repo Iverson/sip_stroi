@@ -95,6 +95,8 @@ ru:
       image: "Картинка"
       text: "Текст"
       published: "Опубликован на сайте"
+      certificates:
+        title: "Сертификаты"
       offers:
         title: "Акции"
       photos:

@@ -1,5 +1,5 @@
 class AboutController < ApplicationController
   def index
-    @reviews  = Review.all
+    @certificates  = Certificate.all
   end
 end

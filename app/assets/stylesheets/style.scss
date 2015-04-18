@@ -601,6 +601,11 @@ button.b-btn_medium, input.b-btn_medium {
 		font-size: 0;
 	}
 
+	.b-carousel__slider_center {
+		min-width: 100%;
+		text-align: center;
+	}
+
 .b-personal-project {
 	background: #dc7010;
 	padding: 19px 0 46px 0;

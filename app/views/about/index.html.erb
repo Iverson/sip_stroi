@@ -25,9 +25,10 @@
   </div>
 </div>
 
-<br />
+<br /><br /><br />
 
-<!-- <div class="b-certificates">
+<% unless @certificates.empty? %>
+<div class="b-certificates">
   <h2 class="h2 h2_center">Наши сертификаты</h2>
 
   <div class="b-carousel" scroll-thumbs="4">
@@ -37,15 +38,8 @@
       <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
 
       <div class="b-carousel__overflow">
-        <div class="b-carousel__slider">
-          <a href="<%= asset_path("tmp/sertificats/1.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/1.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/2.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/2.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/3.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/3.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/4.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/4.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/1.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/1.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/2.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/2.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/3.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/3.jpg")) %></a>
-          <a href="<%= asset_path("tmp/sertificats/4.jpg") %>" class="js-fancybox b-certificates__item" rel="certificates"><%= image_tag(asset_path("tmp/sertificats/4.jpg")) %></a>
+        <div class="b-carousel__slider b-carousel__slider_center">
+          <%= render(partial: "shared/certificate", collection: @certificates, as: :certificate) %>
         </div>
       </div>
     </div>
@@ -54,23 +48,7 @@
   </div>
 </div>
 
-<br /><br /> -->
-<% unless @reviews.empty? %>
-<div class="b-reviews">
-  <div class="l-center">
-    <h2 class="h2 h2_center">Отзывы</h2>
-
-    <div class="b-carousel">
-      <div class="b-carousel__overflow">
-        <div class="b-carousel__slider">
-          <%= render(partial: "shared/review", collection: @reviews, as: :review) %>
-        </div>
-      </div>
-
-      <div class="b-carousel__paginator"></div>
-    </div>
-  </div>
-</div>
+<br /><br /><br />
 <% end %>
 
 <h2 class="h2 h2_center">Партнеры</h2>

@@ -1,6 +1,6 @@
 ActiveAdmin.register Offer do
   title = I18n.t("active_admin.offers.title")
-  menu :priority => 6, :label => title
+  menu :priority => 14, :label => title
 
   permit_params :name, :image, :description
 
