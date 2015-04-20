@@ -55,3 +55,7 @@
         <div class="clearer"></div>
     </div>
 </footer>
+
+<% if Rails.env == 'production' %>
+    <%= render 'shared/counter' %>
+<% end %>
