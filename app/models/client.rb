@@ -1,4 +1,7 @@
 class Client < ActiveRecord::Base
+  has_one :review, class_name: 'Review', :dependent => :destroy
+  accepts_nested_attributes_for :review, :allow_destroy => true
+  
   has_attached_file :photo, :styles => { :small => "58x58#", :medium => "150x150#" }
 
   validates :first_name, presence: true
