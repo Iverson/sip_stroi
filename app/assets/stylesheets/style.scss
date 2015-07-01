@@ -206,19 +206,39 @@ button:focus {
 		padding: 17px 15px 0 0;
 	}
 
+		.b-header__contacts .b-btn {
+			margin-left: 12px;
+			padding: 0 10px;
+			font-size: 12px;
+		}
+
 		.b-phones {
 			display: inline-block;
 			vertical-align: middle;
 		}
 
+			.b-phones .location {
+				font-size: 11px;
+				vertical-align: middle;
+				margin: 0 0 0 3px;
+			}
+
 		.b-phones_medium {
 			font-size: 22px;
+			text-align: left;
 		}
+
+			.b-phones_medium .location {
+				display: inline-block;
+				vertical-align: middle;
+				font-size: 18px;
+				width: 75px;
+			}
 
 		.b-header__contacts .phone {
 			vertical-align: middle;
-			font-size: 18px;
-			margin: 0 32px 0 7px;
+			font-size: 13px;
+			margin: 0 0 0 7px;
 		}
 
 		.b-header__contacts .b-icon {
@@ -1277,9 +1297,14 @@ button.b-btn_medium, input.b-btn_medium {
 		margin-bottom: 5px;
 	}
 
+		.b-footer__phone__t {
+			display: inline-block;
+			width: 90px;
+		}
+
 		.b-footer__phone__item {
 			vertical-align: middle;
-			margin-right: 37px;
+			margin-left: 10px;
 		}
 
 	.b-footer__phone .b-icon {
@@ -1293,14 +1318,33 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 .b-order-btn {
-	padding: 23px 42px 0 42px;
-	height: 130px;
+	padding: 23px 25px 0 25px;
+	height: 144px;
 	position: relative;
 	background-image: -webkit-linear-gradient(#ffb71a, #e57511);
 	background-image: -o-linear-gradient(#ffb71a, #e57511);
 	background-image: linear-gradient(#ffb71a, #e57511);
 	margin-bottom: 44px;
+	white-space: nowrap;
 }
+
+	.b-order-btn .b-phone__number {
+		font-size: 15px;
+		line-height: 1.3em;
+	}
+
+	.b-order-btn .b-phones {
+		text-align: left;
+	}
+
+	.b-order-btn .location {
+		display: block;
+		font-size: 13px;
+		line-height: 1.2em;
+		margin-bottom: 3px;
+		color: #fff;
+		text-align: center;
+	}
 
 .b-order-btn:before {
 	position: absolute;
@@ -1409,7 +1453,7 @@ button.b-btn_medium, input.b-btn_medium {
 		}
 
 			.b-project-details__order .b-order-btn .b-phone {
-				padding-top: 16px;
+				padding-top: 18px;
 				margin-bottom: 13px;
 			}
 

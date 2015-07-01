@@ -10,12 +10,20 @@ ActiveAdmin.register_page "Settings" do
         fieldset do
           ol do
             li do
-              label 'Телефон 1'
+              label 'Телефон 1 (Москва)'
               f.input :name => "data[phone1]", :type => 'text', :value => SiteSettings.phone1
             end
             li do
-              label 'Телефон 2'
+              label 'Телефон 2 (Москва)'
               f.input :name => "data[phone2]", :type => 'text', :value => SiteSettings.phone2
+            end
+            li do
+              label 'Телефон 1 (Псков)'
+              f.input :name => "data[phone3]", :type => 'text', :value => SiteSettings.phone3
+            end
+            li do
+              label 'Телефон 2 (Псков)'
+              f.input :name => "data[phone4]", :type => 'text', :value => SiteSettings.phone4
             end
             li do
               label 'Title'

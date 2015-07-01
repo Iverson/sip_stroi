@@ -1,5 +1,7 @@
 SiteSettings.defaults[:phone1] = '8 800 775-47-58'
 SiteSettings.defaults[:phone2] = '8 926 547-87-21'
+SiteSettings.defaults[:phone3] = '8 911 887-09-55'
+SiteSettings.defaults[:phone4] = '8 900 99-64-11'
 SiteSettings.defaults[:site_title] = 'Sip Stroi...'
 SiteSettings.defaults['index.title'] = 'Свой загородный дом всего за 441 000 рублей'
 

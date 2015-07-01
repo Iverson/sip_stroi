@@ -43,11 +43,15 @@
 				<a href="#" class="b-btn b-btn_big b-btn_block b-btn_gray js-orderButton">Заказать</a>
 
 				<span class="b-phone b-phone_medium b-phone_white">
-					<i class="b-icon i-callcenter-white"></i>
-          <span class="b-phones">
-            <span class="b-phone__number"><%= phone(settings[:phone1] ) %></span><br />
-            <span class="b-phone__number"><%= phone(settings[:phone2] ) %></span>
-          </span>
+					<!-- <i class="b-icon i-callcenter-white"></i> -->
+					<span class="b-phones">
+						<span class="location">Москва</span>
+						<span class="b-phone__number"><%= phone(settings[:phone1] ) %><br /><%= phone(settings[:phone2] ) %></span> <br />
+					</span>
+					<span class="b-phones">
+						<span class="location">Псков</span>
+						<span class="b-phone__number"><%= phone(settings[:phone3] ) %><br /><%= phone(settings[:phone4] ) %> </span>
+					</span>
 				</span>
 
 				<!-- <a href="#" class="dotted"><span>Индивидуальный проект</span></a> -->
