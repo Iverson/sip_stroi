@@ -3,7 +3,7 @@
 namespace :import do
   server_user     = "hosting_siphomebuild"
   server_host     = "sulfur.locum.ru"
-  dump_path       = "tmp/prod.sql"
+  dump_path       = "tmp/prod.dump"
   server_app_path = "~/projects/sip-stroy"
   db_config       = YAML::load(IO.read("config/database.yml"))
   db_config_prod  = db_config["production"]
@@ -14,7 +14,7 @@ namespace :import do
     puts "Drop local DB..."
     %x(rake db:drop && rake db:create)
     puts "Making dump production DB, rsync and import to local DB..."
-    %x(cap invoke COMMAND="pg_dump -h #{db_config_prod["host"]} -U #{db_config_prod["username"]} #{db_config_prod["database"]} > #{server_app_path}/current/#{dump_path}" && rsync -avz #{server_user}@#{server_host}:#{server_app_path}/current/#{dump_path} #{dump_path} && psql #{db_config_dev["database"]} < #{dump_path})
+    %x(pg_dump --host #{db_config_prod["host"]} --username #{db_config_prod["username"]} --verbose --clean --no-owner --no-acl --format=c #{db_config_prod["database"]} > #{Rails.root}/#{dump_path})
     puts "Done!"
   end
 

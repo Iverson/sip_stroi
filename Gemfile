@@ -44,7 +44,7 @@ gem 'unicorn'
 group :development do
   gem "capistrano"
   gem 'capistrano-ext'
-  gem "rvm-capistrano"
+  gem "rvm-capistrano", require: false
   gem "letter_opener"
   gem "pry"
 end
