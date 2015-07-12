@@ -1,3 +1,5 @@
+Rack::Utils.multipart_part_limit = 0
+
 ActiveAdmin.setup do |config|
   # == Site Title
   #
