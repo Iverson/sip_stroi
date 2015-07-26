@@ -5,5 +5,7 @@ class ProjectsController < ApplicationController
 
   def show
     @project = Project.published.where(:uri => params[:id]).first
+
+    set_meta @project.meta.attributes if @project.meta
   end
 end

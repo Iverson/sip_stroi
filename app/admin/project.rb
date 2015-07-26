@@ -4,22 +4,16 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], building_photos_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy]
+  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], building_photos_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
 
   controller do
     before_filter { @page_title = title }
 
+    defaults :finder => :find_by_uri
+
     def update
       update! do |format|
         format.html { redirect_to edit_admin_project_path }
-      end
-    end
-  end
-
-  before_filter do
-    Project.class_eval do
-      def to_param
-        id.to_s
       end
     end
   end
@@ -91,6 +85,18 @@ ActiveAdmin.register Project do
       f.has_many :building_photos, heading: '', allow_destroy: true do |p|
         p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
       end
+    end
+
+    if f.object.new_record? && f.object.errors.empty?
+      f.object.build_meta()
+    end
+
+    f.inputs t('active_admin.meta'), for: [:meta, f.object.meta] do |meta|
+      meta.input :title
+      meta.input :description
+      meta.input :keywords
+
+      meta.actions
     end
 
     actions

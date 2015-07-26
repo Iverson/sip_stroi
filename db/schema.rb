@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150726101402) do
+ActiveRecord::Schema.define(version: 20150726121233) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -80,6 +80,18 @@ ActiveRecord::Schema.define(version: 20150726101402) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "meta", force: :cascade do |t|
+    t.string   "title"
+    t.text     "description"
+    t.string   "keywords"
+    t.integer  "metable_id"
+    t.string   "metable_type"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+  end
+
+  add_index "meta", ["metable_type", "metable_id"], name: "index_meta_on_metable_type_and_metable_id", using: :btree
+
   create_table "offers", force: :cascade do |t|
     t.string   "name"
     t.string   "image_file_name"
@@ -98,6 +110,13 @@ ActiveRecord::Schema.define(version: 20150726101402) do
     t.datetime "updated_at", null: false
     t.string   "type"
     t.string   "name"
+  end
+
+  create_table "pages", force: :cascade do |t|
+    t.string   "name",       null: false
+    t.string   "uri",        null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "panels", force: :cascade do |t|

@@ -4,9 +4,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
 
   before_filter :init_feedback
+  before_filter :check_meta
 
   def init_feedback
-  	@feedback = ::Feedback.new
+    @feedback = ::Feedback.new
     @feedback.build_user_info
+  end
+
+  def check_meta
+    if request.method == 'GET'
+      page = Page.where(uri: request.path).first
+      
+      set_meta page.meta.attributes if page
+    end
+  end
+
+  def set_meta(params={})
+    set_meta_tags title: params['title'], description: params['description'], keywords: params['keywords']
   end
 end

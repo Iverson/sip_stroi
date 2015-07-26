@@ -87,6 +87,8 @@ ru:
       city: "Город"
       email: "Email"
       name: "Название"
+      uri: "Uri"
+      meta: "Meta"
       order: "Заказ"
       price: "Цена"
       position: "Позиция"
@@ -141,7 +143,8 @@ ru:
           area: "Площадь"
           cover: "Заглавная картинка"
       pages:
-        title: "Страницы"
+        seo: "SEO"
+        title: "Контент"
         about: "О компании"
         index: "Главная"
         project_details: "Страница проекта"

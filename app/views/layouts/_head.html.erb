@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title><%= settings[:site_title] %></title>
+  <%= display_meta_tags :site => settings[:site_title] %>
+  
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
