@@ -23,6 +23,7 @@ Rails.application.routes.draw do
     resources :panels,    only: [:index]
     resources :about,     only: [:index]
     resources :photos,    only: [:index]
+    resources :articles,  only: [:index, :show]
     
     resources :panels_orders, only: [:create]
     resources :projects_orders, only: [:create]

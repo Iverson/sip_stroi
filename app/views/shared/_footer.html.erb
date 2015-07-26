@@ -21,11 +21,19 @@
             </p>
             <p>г. Псков, Набережная реки Великой, дом 6 офис 6 (здание Псковгражданпроект)</p>
 
+            <nav class="b-footer__menu">
+              <a class="b-footer__menu__item" href="<%= about_index_path %>">О компании</a>
+              <a class="b-footer__menu__item" href="<%= projects_path %>">Проекты</a>
+              <a class="b-footer__menu__item" href="<%= panels_path %>">Панели</a>
+              <a class="b-footer__menu__item" href="<%= photos_path %>">Фото</a>
+              <a class="b-footer__menu__item" href="<%= reviews_path %>">Отзывы</a>
+              <a class="b-footer__menu__item" href="<%= articles_path %>">Статьи</a>
+            </nav>
+
             <p class="b-footer__copyright">
                 © 2014  ООО «СИПМОНТАЖСТРОЙ» <br />
                 Дома. Проектирование и строительство СИП домов по всей России.
             </p>
-
         </div>
         <div class="b-footer__right">
             <%= form_for @feedback do |f| %>
