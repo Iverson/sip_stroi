@@ -16,6 +16,14 @@ ActiveAdmin.register Project do
     end
   end
 
+  before_filter do
+    Project.class_eval do
+      def to_param
+        id.to_s
+      end
+    end
+  end
+
   index do
     selectable_column
     column t('active_admin.image') do |p|
@@ -35,6 +43,7 @@ ActiveAdmin.register Project do
     f.semantic_errors *f.object.errors.keys
     inputs do
       input :name, label: t('active_admin.name')
+      input :uri
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
       input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.cover_image.exists? ? image_tag(object.cover_image.url(:medium)) : ''

@@ -4,6 +4,6 @@ class ProjectsController < ApplicationController
   end
 
   def show
-    @project = Project.find(params[:id])
+    @project = Project.published.where(:uri => params[:id]).first
   end
 end

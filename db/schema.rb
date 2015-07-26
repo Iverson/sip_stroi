@@ -11,10 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150418182835) do
+ActiveRecord::Schema.define(version: 20150726101402) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+  enable_extension "plperl"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -193,6 +194,7 @@ ActiveRecord::Schema.define(version: 20150418182835) do
     t.integer  "cover_image_file_size"
     t.datetime "cover_image_updated_at"
     t.boolean  "published",                default: true
+    t.string   "uri"
   end
 
   create_table "projects_order_items", force: :cascade do |t|

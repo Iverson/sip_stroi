@@ -13,11 +13,18 @@ class Project < ActiveRecord::Base
 
   validates :name, presence: true
   validates :area, presence: true
+  validates :uri, uniqueness: true
   validates_attachment_content_type :cover_image, :content_type => /\Aimage\/.*\Z/
 
   scope :published, -> { where(published: true) }
   scope :sorted, -> { order(:id) }
   scope :sorted_by_area, -> { order(:area) }
+
+  before_save() do
+    if self.uri.empty?
+      self.uri = "#{self.name}".parameterize
+    end
+  end
 
   def prev
     @prev ||= self.class.published.sorted_by_area.where("area < ?", area).last
@@ -49,5 +56,9 @@ class Project < ActiveRecord::Base
     else
       0
     end
+  end
+
+  def to_param
+    "#{uri}"
   end
 end
