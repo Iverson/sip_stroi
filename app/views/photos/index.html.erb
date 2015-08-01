@@ -2,8 +2,11 @@
 
 <div class="b-photos">
   <% @photos.each do |plan| %>
+    <figure>
     <%= link_to plan.image.url, class: "js-fancybox", rel: "photos" do %>
-      <%= image_tag plan.image.url(:thumb), class: 'img' %>
+      <%= image_tag plan.image.url(:thumb), class: 'img', alt: plan.name %>
     <% end %>
+    <figcaption><%= plan.description.html_safe if plan.description? %></figcaption>
+    </figure>
   <% end %>
 </div>

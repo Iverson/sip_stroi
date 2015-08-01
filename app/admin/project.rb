@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :published, :description, :cover_image, pictures_attributes: [:id, :image, :_destroy], plans_attributes: [:id, :image, :_destroy], building_photos_attributes: [:id, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
+  permit_params :name, :floors, :area, :published, :description, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -41,6 +41,7 @@ ActiveAdmin.register Project do
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
       input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.cover_image.exists? ? image_tag(object.cover_image.url(:medium)) : ''
+      input :cover_alt
       input :published, label: t('active_admin.published')
     end
 
@@ -64,6 +65,7 @@ ActiveAdmin.register Project do
     panel t("active_admin.projects.pictures") do
     	f.has_many :pictures, heading: '', allow_destroy: true do |p|
     		p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:thumb)) : ''
+        p.input :name, :label => 'Alt'
     	end
     end
 
@@ -74,6 +76,7 @@ ActiveAdmin.register Project do
     panel t("active_admin.projects.plans") do
       f.has_many :plans, heading: '', allow_destroy: true do |p|
         p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
+        p.input :name, :label => 'Alt'
       end
     end
 
@@ -84,6 +87,7 @@ ActiveAdmin.register Project do
     panel t("active_admin.projects.building_photos") do
       f.has_many :building_photos, heading: '', allow_destroy: true do |p|
         p.input :image, :as => :file, :label => t('active_admin.image'), :hint => p.object.image.exists? ? p.template.image_tag(p.object.image.url(:medium), height: 150) : ''
+        p.input :name, :label => 'Alt'
       end
     end
 

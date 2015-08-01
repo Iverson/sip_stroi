@@ -18,7 +18,7 @@
 		<td width="500">
 			<% @project.pictures.each_with_index do |picture, index| %>
 				<%= link_to picture.image.url(:large), class: "js-fancybox", rel: "project-pictures" do %>
-					<%= image_tag picture.image.url(:medium) if index == 0 %>
+					<%= image_tag picture.image.url(:medium), alt: picture.name if index == 0 %>
 				<% end %>
 			<% end %>
 		</td>
@@ -110,7 +110,7 @@
 
 	<% @project.plans.each do |plan| %>
 		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-pictures" do %>
-			<%= image_tag plan.image.url(:medium), class: 'img' %>
+			<%= image_tag plan.image.url(:medium), class: 'img', alt: plan.name %>
 		<% end %>
 	<% end %>
 </div>
@@ -121,7 +121,7 @@
 
 	<% @project.building_photos.each do |plan| %>
 		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-pictures" do %>
-			<%= image_tag plan.image.url(:medium), class: 'img' %>
+			<%= image_tag plan.image.url(:medium), class: 'img', alt: plan.name %>
 		<% end %>
   <% end %>
 </div>

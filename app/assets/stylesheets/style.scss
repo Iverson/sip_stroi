@@ -1896,9 +1896,17 @@ button.b-btn_medium, input.b-btn_medium {
 	padding-left: 20px;
 }
 
-	.b-photos .img {
-		height: 220px;
+  .b-photos figure {
+    display: inline-block;
+    vertical-align: top;
 		margin: 0 25px 25px 0;
+    font-size: 11px;
+    color: #999;
+  }
+
+  .b-photos .img {
+    height: 220px;
+    margin-bottom: 5px;
 	}
 
 .b-article {

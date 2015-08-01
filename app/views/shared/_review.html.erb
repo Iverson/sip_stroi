@@ -1,5 +1,5 @@
 <div class="b-reviews__thumb">
-	<%= image_tag review.image.url(:medium), class: "b-reviews__thumb__pic" %>
+	<%= image_tag review.image.url(:medium), class: "b-reviews__thumb__pic", alt: review.image_alt %>
 	<div class="b-reviews__thubm__text">
 		<div class="l"><%= review.text %></div>
 	</div>

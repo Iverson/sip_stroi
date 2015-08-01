@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150801143607) do
+ActiveRecord::Schema.define(version: 20150801160150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -178,6 +178,7 @@ ActiveRecord::Schema.define(version: 20150801143607) do
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.text     "description"
   end
 
   create_table "project_building_photos", force: :cascade do |t|
@@ -188,6 +189,7 @@ ActiveRecord::Schema.define(version: 20150801143607) do
     t.integer  "project_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "name"
   end
 
   add_index "project_building_photos", ["project_id"], name: "index_project_building_photos_on_project_id", using: :btree
@@ -225,6 +227,7 @@ ActiveRecord::Schema.define(version: 20150801143607) do
     t.integer  "project_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "name"
   end
 
   add_index "project_plans", ["project_id"], name: "index_project_plans_on_project_id", using: :btree
@@ -242,6 +245,7 @@ ActiveRecord::Schema.define(version: 20150801143607) do
     t.datetime "cover_image_updated_at"
     t.boolean  "published",                default: true
     t.string   "uri"
+    t.string   "cover_alt"
   end
 
   create_table "projects_order_items", force: :cascade do |t|
@@ -264,6 +268,7 @@ ActiveRecord::Schema.define(version: 20150801143607) do
     t.integer  "client_id"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+    t.string   "image_alt"
   end
 
   add_index "reviews", ["client_id"], name: "index_reviews_on_client_id", using: :btree

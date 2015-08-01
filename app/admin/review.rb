@@ -2,7 +2,7 @@ ActiveAdmin.register Review do
   title = I18n.t("active_admin.reviews.title")
   menu :priority => 6, :label => title, :parent => I18n.t("active_admin.clients.title")
 
-  permit_params :text, :client_id, :image
+  permit_params :text, :client_id, :image, :image_alt
 
   controller do
     before_filter { @page_title = title }
@@ -35,6 +35,7 @@ ActiveAdmin.register Review do
     inputs do
       input :client_id, :as => :select, :multiple => false, :collection => Client.all.map { |a| [ a.select_title, a.id ]}
       input :image, :required => false, :as => :file, label: t('active_admin.reviews.form.image'), hint: object.new_record? ? '' : image_tag(object.image.url(:medium))
+      input :image_alt
       input :text, label: t('active_admin.reviews.form.text')
     end
 
