@@ -8,6 +8,10 @@ body {
 	min-width: 1000px;
 }
 
+a {
+  color: #dc7010;
+}
+
 a:hover {
 	text-decoration: none;
 }
@@ -1951,6 +1955,21 @@ button.b-btn_medium, input.b-btn_medium {
   font-weight: 300;
   line-height: 1.3em;
   margin-bottom: 15px;
+}
+
+.b-breadcrumbs {
+  font-size: 11px;
+  line-height: 1.2em;
+  margin: -30px 0 30px 0;
+  color: #999
+}
+
+.b-breadcrumbs a, .b-breadcrumbs span {
+  margin: 0 5px;
+}
+
+.b-breadcrumbs a:first-child {
+  margin-left: 0;
 }
 
 /* vendor */

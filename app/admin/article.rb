@@ -2,7 +2,7 @@ ActiveAdmin.register Article do
   title = I18n.t("active_admin.articles.title")
   menu :priority => 11, :label => title
 
-  permit_params :id, :name, :content, :image, :uri
+  permit_params :id, :name, :content, :image, :uri, :delete_image
 
   controller do
     before_filter { @page_title = title }
@@ -36,6 +36,9 @@ ActiveAdmin.register Article do
       f.input :name
       input :uri
       input :image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.image.exists? ? image_tag(object.image.url(:medium)) : ''
+      if object.image.exists?
+        input :delete_image, as: :boolean, required: :false, label: 'Удалить'
+      end
       f.input :content, :as => :ckeditor
     end
 
