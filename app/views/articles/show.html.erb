@@ -1,0 +1,9 @@
+
+
+<div class="b-article">
+  <p class="b-article__date"><%= I18n.l @article.created_at, :format => :long %></p>
+  <h1 class="b-article-title"><%= @article.name %></h1>
+
+  <!-- <%= image_tag @article.image.url(:medium), class: "b-article__pic" %> -->
+  <div class="b-article__text"><%= @article.full_text.html_safe %></div>
+</div>

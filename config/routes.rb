@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  mount Ckeditor::Engine => '/ckeditor'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
@@ -23,6 +24,7 @@ Rails.application.routes.draw do
     resources :panels,    only: [:index]
     resources :about,     only: [:index]
     resources :photos,    only: [:index]
+    resources :articles,  only: [:index, :show]
     
     resources :panels_orders, only: [:create]
     resources :projects_orders, only: [:create]

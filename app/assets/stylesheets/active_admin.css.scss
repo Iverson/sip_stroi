@@ -24,3 +24,7 @@ form fieldset > ol > li fieldset:not(.has_many_fields) ol {
 form fieldset > ol > li fieldset:not(.has_many_fields) ol li {
 	margin: 10px 0;
 }
+
+form .cke {
+  margin-left: 20%;
+}

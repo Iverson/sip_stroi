@@ -1,4 +1,5 @@
 #= require active_admin/base
+#= require ckeditor/init
 
 # jQuery.fn.swapWith = (to) ->
 #   copy_to = to.clone(true)

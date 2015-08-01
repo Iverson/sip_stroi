@@ -1,0 +1,14 @@
+<h1 class="h2 h2_center">Статьи</h1>
+
+<% @articles.each do |article| %>
+<div class="b-article">
+  <p class="b-article__date"><%= I18n.l article.created_at, :format => :long %></p>
+  <div class="b-article__t"><%= link_to article.name, article %></div>
+  <%= link_to article do %>
+    <%= image_tag article.image.url(:thumb), class: "b-article__pic" %>
+  <% end %>
+  <div class="b-article__text"><%= article.announce_text %></div>
+
+  <%= link_to "Читать полностью", article, class: "b-article__more" %>
+</div>
+<% end %>
