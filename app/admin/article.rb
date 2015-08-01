@@ -36,7 +36,7 @@ ActiveAdmin.register Article do
       f.input :name
       input :uri
       input :image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.image.exists? ? image_tag(object.image.url(:medium)) : ''
-      f.input :content
+      f.input :content, :as => :ckeditor
     end
 
     f.actions

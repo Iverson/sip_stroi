@@ -32,6 +32,7 @@ gem 'airbrake'
 gem "rails-settings-cached", "0.4.1"
 gem 'aasm'
 gem 'meta-tags'
+gem 'ckeditor'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

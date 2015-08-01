@@ -1,0 +1,24 @@
+.cke_editable {
+    font-size: 12px;
+    line-height: 1.6em;
+    margin-bottom: 10px;
+    font-family: Roboto, Arial, Helvetica, sans-serif;
+  }
+
+  .cke_editable a {
+    color: #dc7010;
+  }
+
+  .cke_editable p {
+    margin-bottom: 1.6em;
+  }
+
+  .cke_editable .img-left {
+    float: left;
+    margin: 5px 20px 5px 0;
+  }
+
+  .cke_editable .img-right {
+    float: right;
+    margin: 5px 0 5px 20px;
+  }

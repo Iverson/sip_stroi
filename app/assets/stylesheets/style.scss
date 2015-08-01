@@ -1909,9 +1909,14 @@ button.b-btn_medium, input.b-btn_medium {
     color: #999;
   }
 
-  .b-article__pic {
+  .b-article__pic, .b-article__text .img-left {
     float: left;
     margin: 5px 20px 5px 0;
+  }
+
+  .b-article__text .img-right {
+    float: right;
+    margin: 5px 0 5px 20px;
   }
 
   .b-article__t {
@@ -1929,9 +1934,17 @@ button.b-btn_medium, input.b-btn_medium {
 
   .b-article__text {
     font-size: 12px;
-    line-height: 1.5em;
+    line-height: 1.6em;
     margin-bottom: 10px;
   }
+
+    .b-article__text a {
+      color: #dc7010;
+    }
+
+    .b-article__text p {
+      margin-bottom: 1.6em;
+    }
 
 .b-article-title {
   font-size: 24px;
