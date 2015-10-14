@@ -21,3 +21,4 @@ node_modules
 public/system
 public/ckeditor_assets
 .capistrano/
+.locum
