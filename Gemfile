@@ -26,7 +26,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'pg'
 gem 'devise'
 gem 'activeadmin', github: 'activeadmin'
-gem "paperclip", "~> 4.2"
+gem "paperclip", "~> 4.3"
 gem 'russian'
 gem 'airbrake'
 gem "rails-settings-cached", "0.4.1"
