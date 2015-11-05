@@ -95,6 +95,7 @@ ru:
     city: "Город"
     email: "Email"
     name: "Название"
+    section: "Категория"
     uri: "Uri"
     meta: "Meta"
     order: "Заказ"
@@ -140,6 +141,8 @@ ru:
       name: "Имя"
       phone: "Телефон"
     projects:
+      scopes:
+        typical: "Типовые"
       title: "Проекты"
       instances:
         label: "Этапы работ"

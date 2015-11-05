@@ -21,6 +21,8 @@ class Project < ActiveRecord::Base
   scope :published, -> { where(published: true) }
   scope :sorted, -> { order(:id) }
   scope :sorted_by_area, -> { order(:area) }
+  scope :typical, -> { where(section: :typical) }
+  scope :individual, -> { where(section: :individual) }
 
   before_save() do
     if self.uri.empty?

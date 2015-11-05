@@ -1991,7 +1991,7 @@ button.b-btn_medium, input.b-btn_medium {
 }
 
 #fancybox-loading div {
-	background: asset-urlurl('fancybox/source/fancybox_loading.gif') center center no-repeat;
+	background: asset-url('fancybox/source/fancybox_loading.gif') center center no-repeat;
 }
 
 /*Retina graphics!*/
@@ -2006,4 +2006,23 @@ button.b-btn_medium, input.b-btn_medium {
 	#fancybox-loading div {
 		background-image: asset-url('fancybox/source/fancybox_loading@2x.gif');
 	}
+}
+
+.b-filter {
+  font-size: 16px;
+  margin: -10px 0 20px 0;
+
+  &_right {
+    float: right;
+  }
+
+  &__item {
+    margin-left: 15px;
+
+    &.active {
+      color: #666;
+      text-decoration: none;
+    }
+  }
+
 }

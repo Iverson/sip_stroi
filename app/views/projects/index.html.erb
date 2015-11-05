@@ -1,4 +1,11 @@
-<h1 class="h2 h2_center">Типовые проекты</h1>
+
+<h1 class="h2 h2_center">Проекты</h1>
+
+<div class="b-filter b-filter_right">
+  <%= link_to "Типовые", projects_path(section: :typical), class: "b-filter__item #{'active' unless current_page? projects_path(section: :individual)}" %>
+  <%= link_to "Индивидуальные", projects_path(section: :individual), class: "b-filter__item #{'active' if current_page? projects_path(section: :individual)}" %>
+</div>
+<div class="clearer"></div>
 
 <div class="b-projects">
   

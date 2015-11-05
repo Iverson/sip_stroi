@@ -4,7 +4,10 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :floors, :area, :published, :description, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
+  permit_params :name, :section, :floors, :area, :published, :description, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
+
+  scope "Типовые", :typical, :default => true
+  scope "Индивидуальные", :individual
 
   controller do
     before_filter { @page_title = title }
@@ -37,6 +40,7 @@ ActiveAdmin.register Project do
     f.semantic_errors *f.object.errors.keys
     inputs do
       input :name, label: t('active_admin.name')
+      input :section, label: t('active_admin.section'), :as => :select, include_blank: false, :multiple => false, :collection => [["Типовые", "typical"], ["Индивидуальные", "individual"]]
       input :uri
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
