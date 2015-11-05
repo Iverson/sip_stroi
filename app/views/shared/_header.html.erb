@@ -9,12 +9,15 @@
       <a class="b-mainmenu__item" href="<%= reviews_path %>">Отзывы</a>
     </nav>
 
-    <div class="b-header__contacts">
+    <div class="b-header__contacts" style="padding-top: 23px;">
       <!-- <i class="b-icon i-callcenter"></i> -->
       <span class="b-phones">
         <span class="phone"><%= phone(settings[:phone1]) %></span> <span class="phone"><%= phone(settings[:phone2]) %></span> <span class="location">(Москва)</span><br />
+<%
+=begin %>
         <span class="phone"><%= phone(settings[:phone3]) %></span> <span class="phone"><%= phone(settings[:phone4]) %></span> <span class="location">&nbsp;&nbsp;&nbsp;(Псков)</span>
-        
+<%
+=end %>     
       </span>
 
       <a href="#" class="b-btn b-btn_orange js-feedbackPopup">написать нам</a>
