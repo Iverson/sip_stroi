@@ -25,7 +25,7 @@ class Project < ActiveRecord::Base
   scope :individual, -> { where(section: :individual) }
 
   before_save() do
-    if self.uri.empty?
+    unless self.uri?
       self.uri = "#{self.name}".parameterize
     end
   end
