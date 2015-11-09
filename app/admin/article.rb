@@ -2,7 +2,7 @@ ActiveAdmin.register Article do
   title = I18n.t("active_admin.articles.title")
   menu :priority => 11, :label => title
 
-  permit_params :id, :name, :content, :image, :uri, :delete_image
+  permit_params :id, :name, :content, :image, :uri, :delete_image, meta_attributes: [:title, :description, :keywords, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -40,6 +40,18 @@ ActiveAdmin.register Article do
         input :delete_image, as: :boolean, required: :false, label: 'Удалить'
       end
       f.input :content, :as => :ckeditor
+    end
+
+    if (f.object.new_record? || !f.object.meta) && f.object.errors.empty?
+      f.object.build_meta()
+    end
+
+    f.inputs t('active_admin.meta'), for: [:meta, f.object.meta] do |meta|
+      meta.input :title
+      meta.input :description
+      meta.input :keywords
+
+      meta.actions
     end
 
     f.actions

@@ -1,4 +1,7 @@
 class Article < ActiveRecord::Base
+  has_one :meta, as: :metable
+  accepts_nested_attributes_for :meta
+  
   attr_accessor :delete_image
   validates :name, presence: true
   validates :content, presence: true
