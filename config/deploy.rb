@@ -31,6 +31,7 @@ set :deploy_to,       "/home/#{user}/projects/#{application}"
 set :unicorn_conf,    "/etc/unicorn/#{application}.#{login}.rb"
 set :unicorn_pid,     "/var/run/unicorn/#{user}/#{application}.#{login}.pid"
 set :bundle_dir,      File.join(fetch(:shared_path), 'gems')
+set :shared_children, shared_children + %w{public/ckeditor_assets}
 role :web,            deploy_server
 role :app,            deploy_server
 role :db,             deploy_server, :primary => true
