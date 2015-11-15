@@ -32,6 +32,18 @@
 				<dt>Этажей</dt>
 				<dd><%= @project.floors %></dd>
 			</dl>
+      <% if @project.dimensions %>
+      <dl>
+        <dt>Габариты</dt>
+        <dd><%= @project.dimensions %> м</dd>
+      </dl>
+      <% end %>
+      <% if @project.ceiling_height %>
+      <dl>
+        <dt>Высота потолков</dt>
+        <dd><%= @project.ceiling_height.round(1) %> м</dd>
+      </dl>
+      <% end %>
 		</td>
 		<td width="279" class="b-project-details__order">
 			<dl>

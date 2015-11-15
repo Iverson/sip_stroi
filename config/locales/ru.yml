@@ -159,6 +159,8 @@ ru:
         floors: "Колличество этажей"
         area: "Площадь"
         cover: "Заглавная картинка"
+        dimensions: "Габариты"
+        ceiling_height: "Высота потолков"
     pages:
       seo: "SEO"
       title: "Контент"

@@ -4,7 +4,7 @@ ActiveAdmin.register Project do
 
   config.sort_order = 'area_asc'
 
-  permit_params :name, :section, :floors, :area, :published, :description, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
+  permit_params :name, :section, :floors, :area, :dimensions, :ceiling_height, :published, :description, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
 
   scope "Типовые", :typical, :default => true
   scope "Индивидуальные", :individual
@@ -44,6 +44,8 @@ ActiveAdmin.register Project do
       input :uri
       input :floors, label: t('active_admin.projects.form.floors')
       input :area, label: t('active_admin.projects.form.area')
+      input :dimensions, label: t('active_admin.projects.form.dimensions')
+      input :ceiling_height, label: t('active_admin.projects.form.ceiling_height')
       input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.cover_image.exists? ? image_tag(object.cover_image.url(:medium)) : ''
       input :cover_alt
       input :published, label: t('active_admin.published')
