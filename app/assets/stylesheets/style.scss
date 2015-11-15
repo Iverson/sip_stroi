@@ -258,15 +258,57 @@ button:focus {
 	padding-left: 20px;
 }
 
-	.b-mainmenu__item {
-		color: #000;
-		margin-right: 14px;
-		text-decoration: none;
-	}
+  .b-mainmenu__item {
+    margin-right: 14px;
+    display: inline-block;
+    position: relative;
+    vertical-align: top;
 
-	.b-mainmenu__item:hover {
-		text-decoration: underline;
-	}
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+
+    a:hover {
+      color: #000;
+      text-decoration: underline;
+    }
+
+    &:hover {
+      ul {
+        display: block;
+      }
+    }
+
+    ul {
+      position: absolute;
+      left: -10px;
+      top: 100%;
+      margin-top: -28px;
+      padding: 10px;
+      background: #fff;
+      // border: 1px solid #ddd;
+      display: none;
+      box-shadow: 4px 4px 0 rgba(0, 0, 0, 0.1);
+      z-index: 2;
+
+      li {
+        display: block;
+        font-size: 12px;
+        line-height: 18px;
+        white-space: nowrap;
+        margin: 4px 0 0 0;
+
+        &:first-child {
+          margin-top: 0;
+        }
+
+        a {
+          color: #dc7010;
+        }
+      }
+    }
+  }
 
 .b-btn {
 	height: 28px;
@@ -1276,13 +1318,17 @@ button.b-btn_medium, input.b-btn_medium {
 		filter: none;
 	}
 
-	.b-project-thumb__t {
-		font-size: 30px;
-		font-weight: normal;
-		line-height: 1.1em;
-		color: #000;
-		margin-top: -4px;
-	}
+  .b-project-thumb__t {
+    font-size: 30px;
+    font-weight: normal;
+    line-height: 1.1em;
+    color: #000;
+    margin-top: -4px;
+  }
+
+	  .b-project-thumb__t .from {
+      font-size: 18px;
+    }
 
 		.b-project-thumb__t .price {
 			font-size: 18px;

@@ -3,6 +3,10 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 ru:
+  projects:
+    index:
+      typical: Типовые проекты
+      individual: Индивидуальные проекты
   date:
     formats:
       # Use the strftime parameters for formats.

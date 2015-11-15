@@ -56,7 +56,7 @@ class Project < ActiveRecord::Base
 
   def default_price
     if instances.first
-      instances.default.sum(:price).round(0)
+      instances.positioned.first.price.round(0)
     else
       0
     end
