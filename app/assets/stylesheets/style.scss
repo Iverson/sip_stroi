@@ -10,7 +10,7 @@ body {
 
 a {
   color: #dc7010;
-}
+}                                 
 
 a:hover {
 	text-decoration: none;
@@ -26,6 +26,9 @@ a:hover {
 
 /* Basic */
 
+.nowrap {
+  white-space: nowrap;
+}
 
 .hidden {
 	display: none;
