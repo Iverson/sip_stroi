@@ -16,6 +16,14 @@ a:hover {
 	text-decoration: none;
 }
 
+.bold {
+  font-weight: bold;
+}
+
+.orange {
+  color: #dc7010 !important;
+}
+
 /* Basic */
 
 
@@ -1269,7 +1277,7 @@ button.b-btn_medium, input.b-btn_medium {
 		width: 92px;
 		height: 24px;
 		text-align: center;
-		font-size: 18px;
+		font-size: 16px;
 		line-height: 26px;
 		color: #fff;
 		position: absolute;
@@ -1347,6 +1355,16 @@ button.b-btn_medium, input.b-btn_medium {
 		.b-project-thumb__t .price a {
 			color: #dc7010;
 		}
+
+  .b-project-thumb__discount {
+    position: absolute;
+    right: 0;
+    top: 0;
+    font-size: 12px;
+    color: #fff;
+    line-height: 1.2em;
+    background: #ff0000;
+  }
 
 .b-footer {
 	background: #dddddd;
@@ -1543,6 +1561,16 @@ button.b-btn_medium, input.b-btn_medium {
 			margin-right: -1.1em;
 		}
 
+    .b-project-details__price .old {
+      display: block;
+      margin: 0 0 0 0;
+      font-size: 24px;
+      line-height: 1.0em;
+      color: #999;
+      font-weight: normal;
+      text-decoration: line-through;
+    }
+
 	.b-project-details__order {
 		text-align: center;
 	}
@@ -1679,14 +1707,18 @@ button.b-btn_medium, input.b-btn_medium {
 			font-weight: 300;
 		}
 
-		.b-table_total .sum {
+		.b-table_total .sum, .b-table_total .discount {
 			font-size: 36px;
 			line-height: 1.2em;
-			color: #000;
 			font-weight: 300;
 			// margin-top: 6px;
 			color: #dc7010;
 		}
+
+    .b-table_total .discount {
+      // font-size: 24px;
+      // color: #000;
+    }
 
 	.b-table_order {}
 

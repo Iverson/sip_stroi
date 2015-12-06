@@ -48,7 +48,12 @@
 		<td width="279" class="b-project-details__order">
 			<dl>
 				<dt>Стоимость проекта от:</dt>
-				<dd class="b-project-details__price"><span><%= number_with_delimiter(@project.default_price) %></span><span class="postfix">. –</span></dd>
+				<dd class="b-project-details__price">
+          <% if @project.discount %>
+          <span class="old"><%= discount(@project.default_price + @project.discount) %>.</span>
+          <% end %>
+          <span><%= number_with_delimiter(@project.default_price) %></span><span class="postfix">. –</span>
+        </dd>
 			</dl>
 
 			<div class="b-order-btn">
@@ -81,7 +86,7 @@
 <!-- <h3 class="h3">Комплектация</h3> -->
 <br />
 
-<table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name], :methods => :order_cover) %>">
+<table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name, :discount], :methods => :order_cover) %>">
 	<% @project.instances.positioned.each do |instance| %>
 	<tr class="row <%= instance.default ? 'selected' : '' %>" data-json="<%= instance.to_json(:only => [:id, :name, :price ]) %>">
 		<td class="checkbox">
@@ -104,8 +109,13 @@
 			<a href="#" class="b-btn b-btn_big b-btn_orange js-orderButton">Заказать</a>
 			<p><a href="#" class="dotted js-feedbackPopup"><span>Индивидуальный проект</span></a></p>
 		</td>
-		<td></td>
-		<td width="280">
+		<td width="240">
+      <% if @project.discount? %>
+      <p class="label">Скидка: </p>
+      <p class="discount"><span>-<%= discount(@project.discount) %></span> руб.</p>  
+      <% end %>
+    </td>
+    <td width="280">
 			<p class="label">Итоговая сумма: </p>
 			<p class="sum"><span rel="project-sum"><%= number_with_delimiter(@project.default_price) %></span> руб.</p>
 		</td>
@@ -149,7 +159,7 @@
     <i class="b-popup__close"><i class="b-icon i-close"></i></i>
 
     <div class="b-popup__total">
-    Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>. –
+      Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>. –
     </div>
 
     <div class="b-popup__left">
@@ -166,6 +176,13 @@
             <td class="price"><%%= item.count %><%%= item.price %>. –</td>
           </tr>
           <%% }); %>
+          <% if @project.discount? %>
+          <tr>
+            <td class="name orange">Скидка</td>
+            <td width="30"></td>
+            <td class="price orange">-<%= discount(@project.discount) %>. –</td>
+          </tr>
+          <% end %>
         </table>
       </div>
     </div>

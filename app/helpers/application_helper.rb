@@ -17,5 +17,9 @@ module ApplicationHelper
     end
   end
 
+  def discount(value)
+    number_with_delimiter(value.round(0))
+  end
+
   alias :c :content
 end

@@ -2,7 +2,7 @@ ActiveAdmin.register ProjectsOrder do
   title = I18n.t("active_admin.projects_orders.title")
   menu :priority => 6, :label => title, :parent => I18n.t("active_admin.requests")
 
-  permit_params :message, :state, items_attributes: [:id, :name, :description, :price, :_destroy], user_info_attributes: [:id, :name, :phone, :_destroy]
+  permit_params :message, :state, :discount, items_attributes: [:id, :name, :description, :price, :_destroy], user_info_attributes: [:id, :name, :phone, :_destroy]
 
   controller do
     before_filter { @page_title = title }
@@ -76,6 +76,7 @@ ActiveAdmin.register ProjectsOrder do
     inputs t("active_admin.order") do
       f.input :state, :label => t('active_admin.orders.state'), :as => :select, :collection => f.object.aasm.states(:permitted => true).map{|s| [s.human_name , s.name]}, :include_blank => f.object.aasm.human_state
       f.input :message
+      f.input :discount, label: t('active_admin.projects.form.discount')
 
       f.inputs t('active_admin.user_info.title'), for: [:user_info, f.object.user_info] do |user_info|
         user_info.input :name, label: t('active_admin.user_info.name')

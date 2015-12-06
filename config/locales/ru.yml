@@ -161,6 +161,7 @@ ru:
         cover: "Заглавная картинка"
         dimensions: "Габариты"
         ceiling_height: "Высота потолков"
+        discount: "Скидка"
     pages:
       seo: "SEO"
       title: "Контент"

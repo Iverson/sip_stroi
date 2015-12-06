@@ -55,11 +55,14 @@ class Project < ActiveRecord::Base
   end
 
   def default_price
+    price = 0
+
     if instances.first
-      instances.positioned.first.price.round(0)
-    else
-      0
+      price = instances.positioned.first.price
+      price -= discount if discount?
     end
+
+    price.round(0)
   end
 
   def to_param

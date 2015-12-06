@@ -4,6 +4,8 @@ class ProjectsOrder < Order
 
   def total_price
     @items_prices_sum ||= self.items.select('sum(projects_order_items.price) as total_price')[0][:total_price].to_i
+
+    @items_prices_sum - (discount || 0).to_i
   end
 
   def add_items(items_ids = [])
@@ -18,6 +20,7 @@ class ProjectsOrder < Order
 
   def add_project_params(project_id)
     project = Project.find(project_id)
-    self.name = project.name
+    self.name     = project.name
+    self.discount = project.discount
   end
 end

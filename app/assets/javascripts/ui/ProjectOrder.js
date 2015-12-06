@@ -64,6 +64,10 @@ ProjectOrder.prototype = {
       self.order.sum += parseInt(orderItem.price, 10);
     });
 
+    if (this.order.project.discount > 0) {
+      this.order.sum -= this.order.project.discount;
+    }
+
     this._sum.text(this.order.sum.toLocaleString());
   },
 

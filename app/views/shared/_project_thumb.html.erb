@@ -9,4 +9,10 @@
     <span class="from">от</span> <%= number_with_delimiter(project.default_price) %>. –
 	</p>
 	<%= link_to "посмотреть", project, class: "b-project-thumb__details-link" %>
+
+  <% if project.discount? %>
+    <span class="b-project-thumb__label akcia">
+      -<%= discount(project.discount) %> р.
+    </span>
+  <% end %>
 </div>

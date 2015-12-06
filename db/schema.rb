@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151115193648) do
+ActiveRecord::Schema.define(version: 20151206131540) do
 
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
   enable_extension "plperl"
+  enable_extension "plpgsql"
 
   create_table "active_admin_comments", force: :cascade do |t|
     t.string   "namespace"
@@ -138,6 +138,7 @@ ActiveRecord::Schema.define(version: 20151115193648) do
     t.datetime "updated_at", null: false
     t.string   "type"
     t.string   "name"
+    t.float    "discount"
   end
 
   create_table "pages", force: :cascade do |t|
@@ -249,6 +250,7 @@ ActiveRecord::Schema.define(version: 20151115193648) do
     t.string   "section",                  default: "typical", null: false
     t.string   "dimensions"
     t.float    "ceiling_height"
+    t.float    "discount"
   end
 
   create_table "projects_order_items", force: :cascade do |t|

@@ -18,6 +18,13 @@ namespace :import do
     puts "Done!"
   end
 
+  desc "Import dump from production"
+  task :dump do
+      puts "Rsync..."
+      %x(rsync --progress -zvr #{server_user}@#{server_host}:~/prod.dump tmp/prod.dump)
+      puts "Done!"
+  end
+
   desc "Import Static from production"
   task :static do
       puts "Rsync..."
