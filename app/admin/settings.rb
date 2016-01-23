@@ -18,11 +18,11 @@ ActiveAdmin.register_page "Settings" do
               f.input :name => "data[phone2]", :type => 'text', :value => SiteSettings.phone2
             end
             li do
-              label 'Телефон 1 (Псков)'
+              label 'Телефон 1 (Санкт-Петербург)'
               f.input :name => "data[phone3]", :type => 'text', :value => SiteSettings.phone3
             end
             li do
-              label 'Телефон 2 (Псков)'
+              label 'Телефон 2 (Санкт-Петербург)'
               f.input :name => "data[phone4]", :type => 'text', :value => SiteSettings.phone4
             end
             li do
