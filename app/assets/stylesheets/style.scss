@@ -247,7 +247,9 @@ button:focus {
 				display: inline-block;
 				vertical-align: middle;
 				font-size: 18px;
-				width: 75px;
+				width: 160px;
+        padding-right: 10px;
+        text-align: right;
 			}
 
 		.b-header__contacts .phone {
@@ -1418,7 +1420,7 @@ button.b-btn_medium, input.b-btn_medium {
 
 		.b-footer__phone__t {
 			display: inline-block;
-			width: 90px;
+			margin-right: 10px;
 		}
 
 		.b-footer__phone__item {
@@ -1454,6 +1456,7 @@ button.b-btn_medium, input.b-btn_medium {
 
 	.b-order-btn .b-phones {
 		text-align: left;
+    vertical-align: top;
 	}
 
 	.b-order-btn .location {

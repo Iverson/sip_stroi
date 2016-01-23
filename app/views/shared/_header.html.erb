@@ -17,13 +17,12 @@
 
     <div class="b-header__contacts" style="padding-top: 23px;">
       <!-- <i class="b-icon i-callcenter"></i> -->
-      <span class="b-phones">
-        <span class="phone"><%= phone(settings[:phone1]) %></span> <span class="phone"><%= phone(settings[:phone2]) %></span> <span class="location">(Москва)</span><br />
-<%
-=begin %>
-        <span class="phone"><%= phone(settings[:phone3]) %></span> <span class="phone"><%= phone(settings[:phone4]) %></span> <span class="location">&nbsp;&nbsp;&nbsp;(Псков)</span>
-<%
-=end %>     
+      <span class="b-phones ta-right">
+        <span class="location">(Москва)</span><span class="phone"><%= phone(settings[:phone1]) %></span> <span class="phone"><%= phone(settings[:phone2]) %></span><br />
+        <span class="location">&nbsp;&nbsp;&nbsp;(Санкт-Петербург)</span><span class="phone"><%= phone(settings[:phone3]) %></span>
+        <% if settings[:phone4] != "" %>
+        <span class="phone"><%= phone(settings[:phone4]) %></span>
+        <% end %>
       </span>
 
       <a href="#" class="b-btn b-btn_orange js-feedbackPopup">написать нам</a>
