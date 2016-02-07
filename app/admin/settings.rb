@@ -18,12 +18,20 @@ ActiveAdmin.register_page "Settings" do
               f.input :name => "data[phone2]", :type => 'text', :value => SiteSettings.phone2
             end
             li do
+              label 'Режим работы (Москва)'
+              f.input :name => "data[office1]", :type => 'text', :value => SiteSettings.office1
+            end
+            li do
               label 'Телефон 1 (Санкт-Петербург)'
               f.input :name => "data[phone3]", :type => 'text', :value => SiteSettings.phone3
             end
             li do
               label 'Телефон 2 (Санкт-Петербург)'
               f.input :name => "data[phone4]", :type => 'text', :value => SiteSettings.phone4
+            end
+            li do
+              label 'Режим работы (Санкт-Петербург)'
+              f.input :name => "data[office2]", :type => 'text', :value => SiteSettings.office2
             end
             li do
               label 'Title'

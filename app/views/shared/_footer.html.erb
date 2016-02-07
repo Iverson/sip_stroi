@@ -9,8 +9,7 @@
                 <span class="b-footer__phone__item"><%= phone(settings[:phone1], "green") %></span>
                 <span class="b-footer__phone__item"><%= phone(settings[:phone2], "green") %></span>
             </p>
-            <p>Режим работы — пн.–пт.: с 9:00 до 21:00; сб., вс.:
-экскурсии на объектах (предварительная запись по телефону)</p>
+            <p><%= settings[:office1] %></p>
             <br />
             <br />
             <p class="b-footer__phone">
@@ -19,7 +18,7 @@
                 <span class="b-footer__phone__item"><%= phone(settings[:phone3], "green") %></span>
                 <span class="b-footer__phone__item"><%= phone(settings[:phone4], "green") %></span>
             </p>
-            <!-- <p>г. Псков, Набережная реки Великой, дом 6 офис 6 (здание Псковгражданпроект)</p> -->
+            <p><%= settings[:office2] %></p>
             <nav class="b-footer__menu">
               <a class="b-footer__menu__item" href="<%= about_index_path %>">О компании</a>
               <a class="b-footer__menu__item" href="<%= projects_path %>">Проекты</a>
