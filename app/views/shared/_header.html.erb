@@ -2,7 +2,17 @@
   <div class="l-center">
     <a href="/" class="b-logo"><i class="b-icon i-logo"></i></a>
     <ul class="b-mainmenu">
-      <li class="b-mainmenu__item"><a href="<%= about_index_path %>">О компании</a></li>
+      <li class="b-mainmenu__item">
+        <span>Компания</span>
+        <ul>
+          <li><%= link_to "О нас", about_company_index_path %></li>
+          <li><%= link_to "Сертификаты", certificates_company_index_path %></li>
+          <li><%= link_to "Партнеры", partners_company_index_path %></li>
+          <li><%= link_to "Проектирование", projection_company_index_path %></li>
+          <li><%= link_to "Домокомплекты", domokomplekty_company_index_path %></li>
+          <li><%= link_to "Строительство", building_company_index_path %></li>
+        </ul>
+      </li>
       <li class="b-mainmenu__item">
         <span>Проекты</span>
         <ul>

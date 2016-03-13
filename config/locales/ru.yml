@@ -114,6 +114,8 @@ ru:
       title: "Статьи"
     certificates:
       title: "Сертификаты"
+    partners:
+      title: "Партнеры"
     offers:
       title: "Акции"
     photos:
@@ -166,6 +168,11 @@ ru:
       seo: "SEO"
       title: "Контент"
       about: "О компании"
+      projection: "Проектирование"
+      domokomplekty: "Домокомплекты"
+      building: "Строительство"
+      osp: "ОСП"
+      esp: "ПСБ (EPS)"
       index: "Главная"
       project_details: "Страница проекта"
     statistics: "Отчеты"

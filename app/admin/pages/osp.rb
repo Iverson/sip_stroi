@@ -1,5 +1,5 @@
-ActiveAdmin.register_page "About" do
-  title = I18n.t("active_admin.pages.about")
+ActiveAdmin.register_page "Osp" do
+  title = I18n.t("active_admin.pages.osp")
   menu :label => title, :parent => I18n.t("active_admin.pages.title")
 
   content title: title do
@@ -12,8 +12,8 @@ ActiveAdmin.register_page "About" do
           ol do
             li do
               label I18n.t('active_admin.text')
-              f.textarea :name => "data[about.company.text]", :class => 'ckeditor_input' do
-                SiteSettings['about.company.text']
+              f.textarea :name => "data[about.osp.text]", :class => 'ckeditor_input' do
+                SiteSettings['about.osp.text']
               end
             end
           end

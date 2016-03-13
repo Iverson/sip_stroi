@@ -3,11 +3,6 @@ Rails.application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)
   
-  get 'root/index'
-
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
   # You can have the root of your site routed with "root"
   root 'root#index'
 
@@ -22,12 +17,24 @@ Rails.application.routes.draw do
     resources :feedbacks, only: [:create]
     resources :reviews,   only: [:index]
     resources :panels,    only: [:index]
-    resources :about,     only: [:index]
     resources :photos,    only: [:index]
     resources :articles,  only: [:index, :show]
-    
+
     resources :panels_orders, only: [:create]
     resources :projects_orders, only: [:create]
+
+    resources :company, only: [] do
+      collection do
+        get 'about'
+        get 'certificates'
+        get 'partners'
+        get 'projection'
+        get 'domokomplekty'
+        get 'building'
+        get 'osp'
+        get 'esp'
+      end
+    end
 
   # Example resource route with options:
   #   resources :products do

@@ -1379,6 +1379,7 @@ button.b-btn_medium, input.b-btn_medium {
 
   .b-footer__menu {
     margin: 50px 0 -50px 0;
+    line-height: 2em;
   }
 
     .b-footer__menu__item {
@@ -2005,12 +2006,12 @@ button.b-btn_medium, input.b-btn_medium {
     color: #999;
   }
 
-  .b-article__pic, .b-article__text .img-left {
+  .b-article__pic, .b-article__text .img-left, .b-text .img-left {
     float: left;
     margin: 5px 20px 5px 0;
   }
 
-  .b-article__text .img-right {
+  .b-article__text .img-right, .b-text .img-right {
     float: right;
     margin: 5px 0 5px 20px;
   }

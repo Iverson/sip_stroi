@@ -25,7 +25,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'pg'
 gem 'devise'
+gem 'acts_as_list'
 gem 'activeadmin', github: 'activeadmin'
+gem 'activeadmin-sortable'
 gem "paperclip", "~> 4.3"
 gem 'russian'
 gem 'airbrake'

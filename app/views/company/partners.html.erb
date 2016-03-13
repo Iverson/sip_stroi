@@ -1,0 +1,15 @@
+<h2 class="h2 h2_center">Партнеры</h2>
+<ul class="b-companies">
+  <% @partners.each do |partner| %>
+  <li>
+    <% if partner.url.empty? %>
+      <%= image_tag partner.image.url(:thumb), class: "pic" %>
+    <% else %>
+      <%= link_to partner.url, target: '_blank' do %>
+        <%= image_tag partner.image.url(:thumb), class: "pic" %>
+      <% end %>
+    <% end %>
+    <p><%= partner.name %></p>
+  </li>
+  <% end %>
+</ul>

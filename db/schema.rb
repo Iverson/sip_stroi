@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151206131540) do
+ActiveRecord::Schema.define(version: 20160313144452) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plperl"
@@ -68,8 +68,9 @@ ActiveRecord::Schema.define(version: 20151206131540) do
     t.string   "image_content_type"
     t.integer  "image_file_size"
     t.datetime "image_updated_at"
-    t.datetime "created_at",         null: false
-    t.datetime "updated_at",         null: false
+    t.datetime "created_at",                     null: false
+    t.datetime "updated_at",                     null: false
+    t.integer  "position",           default: 1
   end
 
   create_table "ckeditor_assets", force: :cascade do |t|
@@ -170,6 +171,18 @@ ActiveRecord::Schema.define(version: 20151206131540) do
   end
 
   add_index "panels_order_items", ["panels_order_id"], name: "index_panels_order_items_on_panels_order_id", using: :btree
+
+  create_table "partners", force: :cascade do |t|
+    t.string   "name"
+    t.string   "image_file_name"
+    t.string   "image_content_type"
+    t.integer  "image_file_size"
+    t.datetime "image_updated_at"
+    t.string   "url"
+    t.integer  "position"
+    t.datetime "created_at",         null: false
+    t.datetime "updated_at",         null: false
+  end
 
   create_table "photos", force: :cascade do |t|
     t.string   "name"
