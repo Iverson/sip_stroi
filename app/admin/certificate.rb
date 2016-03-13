@@ -31,7 +31,6 @@ ActiveAdmin.register Certificate do
   form do |f|
     inputs do
       input :image, :required => false, :as => :file, label: t('active_admin.image'), hint: object.new_record? ? '' : image_tag(object.image.url(:thumb))
-      input :position
     end
 
     actions
