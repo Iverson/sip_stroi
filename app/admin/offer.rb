@@ -20,7 +20,7 @@ ActiveAdmin.register Offer do
       link_to(image_tag(p.image.url(:thumb)), edit_admin_offer_path(p))
     end
     column t('active_admin.name') do |p|
-      link_to p.name, edit_admin_offer_path(p)
+      link_to sanitize(p.name), edit_admin_offer_path(p)
     end
     column t('active_admin.description'), :description
 
@@ -29,9 +29,9 @@ ActiveAdmin.register Offer do
 
   form do |f|
     inputs do
-      input :name, label: t('active_admin.name')
-      input :description, label: t('active_admin.description')
-      input :image, :required => false, :as => :file, label: t('active_admin.image'), hint: object.new_record? ? '' : image_tag(object.image.url(:thumb))
+      input :name, label: t('active_admin.name'), :as => :ckeditor
+      input :description, label: t('active_admin.description'), :as => :ckeditor
+      # input :image, :required => false, :as => :file, label: t('active_admin.image'), hint: object.new_record? ? '' : image_tag(object.image.url(:thumb))
     end
 
     actions

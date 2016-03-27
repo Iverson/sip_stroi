@@ -23,6 +23,7 @@ class Project < ActiveRecord::Base
   scope :sorted_by_area, -> { order(:area) }
   scope :typical, -> { where(section: :typical) }
   scope :individual, -> { where(section: :individual) }
+  scope :special, -> { where.not(discount: nil) }
 
   before_save() do
     unless self.uri?

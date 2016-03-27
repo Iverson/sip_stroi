@@ -1,7 +1,8 @@
 class ProjectsController < ApplicationController
   def index
     @section = params["section"] || "typical"
-    @projects = Project.where(section: @section).published.sorted_by_area
+    @scope   = params["scope"]
+    @projects = @scope ? Project.send(@scope) : Project.where(section: @section).published.sorted_by_area
   end
 
   def show

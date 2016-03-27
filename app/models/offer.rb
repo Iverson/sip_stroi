@@ -1,5 +1,5 @@
 class Offer < ActiveRecord::Base
-  has_attached_file :image, :styles => { :thumb => "175x120#" }, :default_url => "/images/offer_nophoto.jpg"
+  has_attached_file :image, :styles => { :thumb => "175x120#" }
 
   validates :name, presence: true
   validates :description, presence: true

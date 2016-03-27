@@ -3,6 +3,7 @@
                 <div class="b-promo__t"><%= c('index.title', :text) %></div>
                 <a class="b-btn b-btn_big b-btn_orange js-feedbackPopup" href="#">отправить заявку</a>
             </div>
+            <a href="#specials" class="b-promo__label">Наши акции</a>
         </div>
 
         <div class="b-projects-gallery">
@@ -172,7 +173,7 @@
         </div>
 
         <% unless @offers.empty? %>
-        <div class="b-actions">
+        <div class="b-actions" id="specials">
             <div class="l-center b-carousel">
                 <h2 class="h2 h2_center">Наши акции</h2>
 

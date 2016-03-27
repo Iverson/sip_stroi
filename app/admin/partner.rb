@@ -22,7 +22,7 @@ ActiveAdmin.register Partner do
     sortable_handle_column
     selectable_column
     column t('active_admin.image') do |p|
-      link_to(image_tag(p.image.url(:thumb), height: 100), edit_admin_partner_path(p))
+      link_to(image_tag(p.image.url(:thumb)), edit_admin_partner_path(p))
     end
 
     actions

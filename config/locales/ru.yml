@@ -7,6 +7,7 @@ ru:
     index:
       typical: Типовые проекты
       individual: Индивидуальные проекты
+      special: Проекты со скидкой
   date:
     formats:
       # Use the strftime parameters for formats.
