@@ -3,8 +3,8 @@
   <img src="<%= offer.image.url(:thumb) %>" class="b-actions__thumb__pic" height="120" width="175" alt="">
   <% end %>
   <div class="b-actions__thumb__text">
-    <p class="t"><%= offer.name.html_safe %></p>
+    <div class="t"><%= offer.name.html_safe %></div>
 
-    <%= offer.description %>
+    <%= offer.description.html_safe %>
   </div>
 </div>

@@ -1,4 +1,5 @@
 require 'bundler/capistrano'
+load 'lib/capistrano/tasks/paperclip.rake'
 
 ## Чтобы не хранить database.yml в системе контроля версий, поместите
 ## dayabase.yml в shared-каталог проекта на сервере и раскомментируйте
