@@ -3,7 +3,9 @@
                 <div class="b-promo__t"><%= c('index.title', :text) %></div>
                 <a class="b-btn b-btn_big b-btn_orange js-feedbackPopup" href="#">отправить заявку</a>
             </div>
+            <% unless @offers.empty? %>
             <a href="#specials" class="b-promo__label">Наши акции</a>
+            <% end %>
         </div>
 
         <div class="b-projects-gallery">
