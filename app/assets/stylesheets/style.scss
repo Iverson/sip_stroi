@@ -457,16 +457,22 @@ button.b-btn_medium, input.b-btn_medium {
 
 	.b-promo__label {
 		position: absolute;
-		right: -35px;
-		top: 22px;
-		width: 150px;
+		right: -55px;
+		top: 35px;
+		width: 240px;
 		text-align: center;
 		color: #fff;
-		font-size: 16px;
-		line-height: 36px;
+		font-size: 24px;
+		line-height: 48px;
 		background: #CB3A01;
-		transform: rotate(45deg);
+		transform: rotate(45deg) translateY(-120px);
 		text-decoration: none;
+		padding-bottom: 2px;
+		transition: transform 1s cubic-bezier(.5,-0.5,.48,1.52);
+
+		&.in {
+			transform: rotate(45deg) translateY(0);
+		}
 	}
 
 	.b-promo__l {
@@ -1578,9 +1584,13 @@ button.b-btn_medium, input.b-btn_medium {
 		margin-bottom: 30px;
 	}
 
+	.b-project-details__plans {
+		margin-left: -40px;
+	}
+
 	.b-project-details__plans .img {
-		height: 350px;
-		margin: 0 20px;
+		margin: 0 0 20px 40px;
+		vertical-align: middle;
 	}
 
 	.b-project-details__photos .img {

@@ -22,4 +22,6 @@ $(function() {
     }
   });
 
+  $('.b-promo__label').addClass('in');
+
 });
