@@ -204,13 +204,16 @@
                     <%= c('index.questions.text') %>
                 </div>
 
-                <span class="b-phone">
-                    <!-- <i class="b-icon i-callcenter"></i> -->
+                <div>
                     <span class="b-phones b-phones_medium">
-                        <span class="location">Москва</span> <i class="b-icon i-callcenter"></i> &nbsp;<span class="b-phone__number"><%= phone(settings[:phone1], "orange") %>&nbsp;&nbsp; <%= phone(settings[:phone2], "orange") %></span><br />
-                        <span class="location">Санкт-Петербург</span> <i class="b-icon i-callcenter"></i> &nbsp;<span class="b-phone__number"><%= phone(settings[:phone3], "orange") %>&nbsp;&nbsp; <%= phone(settings[:phone4], "orange") %></span>
+                        <span class=""><%= @head_office.city %></span> &nbsp;&nbsp;
+                        <i class="b-icon i-callcenter"></i> &nbsp;<span class="b-phone__number"><%= phone(@head_office.phone1, "orange") %>&nbsp;&nbsp; <%= phone(@head_office.phone2, "orange") %></span><br />
                     </span>
-                </span>
+                </div>
+                <br />
+                <div class="b-any-questions__text">
+                    <%= link_to 'Наши представительства', offices_company_index_path, class: 'noudl' %>
+                </div>
                 <a href="#" class="b-btn b-btn_big b-btn_orange js-feedbackPopup">&nbsp;&nbsp; Напишите нам &nbsp;&nbsp;</a>
             </div>
         </div>

@@ -4,21 +4,16 @@
             <p class="b-footer__company">С∙М∙С <span class="green">Сип∙Монтаж∙Строй</span></p>
 
             <p class="b-footer__phone">
-                <span class="b-footer__phone__t">Москва</span>
+                <span class="b-footer__phone__t"><%= @head_office.city %></span>
                 <i class="b-icon i-callcenter-green"></i>
-                <span class="b-footer__phone__item"><%= phone(settings[:phone1], "green") %></span>
-                <span class="b-footer__phone__item"><%= phone(settings[:phone2], "green") %></span>
+                <span class="b-footer__phone__item"><%= phone(@head_office.phone1, "green") %></span>
+                <span class="b-footer__phone__item"><%= phone(@head_office.phone2, "green") %></span>
             </p>
-            <p><%= settings[:office1] %></p>
+            <p><%= @head_office.info %></p>
+            <br />
+            <%= link_to 'Наши представительства', offices_company_index_path, class: 'green' %>
             <br />
             <br />
-            <p class="b-footer__phone">
-                <span class="b-footer__phone__t">Санкт-Петербург</span>
-                <i class="b-icon i-callcenter-green"></i>
-                <span class="b-footer__phone__item"><%= phone(settings[:phone3], "green") %></span>
-                <span class="b-footer__phone__item"><%= phone(settings[:phone4], "green") %></span>
-            </p>
-            <p><%= settings[:office2] %></p>
             <nav class="b-footer__menu">
               <a class="b-footer__menu__item" href="<%= about_company_index_path %>">О компании</a>
               <a class="b-footer__menu__item" href="<%= certificates_company_index_path %>">Сертификаты</a>

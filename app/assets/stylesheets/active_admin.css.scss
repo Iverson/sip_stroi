@@ -29,3 +29,7 @@ form fieldset > ol > li fieldset:not(.has_many_fields) ol li {
 form .cke {
   margin-left: 20%;
 }
+
+iframe .cke_editable p {
+  margin-bottom: 0;
+}

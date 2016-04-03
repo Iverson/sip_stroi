@@ -21,4 +21,8 @@ class CompanyController < ApplicationController
 
   def esp
   end
+
+  def offices
+    @offices = Office.positioned
+  end
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160313144452) do
+ActiveRecord::Schema.define(version: 20160403090146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plperl"
@@ -130,6 +130,17 @@ ActiveRecord::Schema.define(version: 20160313144452) do
     t.text     "description"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
+  end
+
+  create_table "offices", force: :cascade do |t|
+    t.string   "city"
+    t.string   "phone1"
+    t.string   "phone2"
+    t.string   "address"
+    t.text     "info"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+    t.integer  "position",   default: 1
   end
 
   create_table "orders", force: :cascade do |t|

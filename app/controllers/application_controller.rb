@@ -5,10 +5,15 @@ class ApplicationController < ActionController::Base
 
   before_filter :init_feedback
   before_filter :check_meta
+  before_filter :get_office
 
   def init_feedback
     @feedback = ::Feedback.new
     @feedback.build_user_info
+  end
+
+  def get_office
+    @head_office = Office.positioned.first
   end
 
   def check_meta

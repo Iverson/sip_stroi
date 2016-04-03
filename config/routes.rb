@@ -33,6 +33,7 @@ Rails.application.routes.draw do
         get 'building'
         get 'osp'
         get 'esp'
+        get 'offices'
       end
     end
 

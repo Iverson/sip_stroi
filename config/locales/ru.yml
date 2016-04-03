@@ -90,6 +90,7 @@ ru:
         attributes:
           # Overrides model and default messages.
   active_admin:
+    company: "Компания"
     catalog: "Каталог"
     requests: "Заявки"
     save: "Сохранить"
@@ -113,6 +114,8 @@ ru:
     published: "Опубликован на сайте"
     articles:
       title: "Статьи"
+    offices:
+      title: "Представительства"
     certificates:
       title: "Сертификаты"
     partners:

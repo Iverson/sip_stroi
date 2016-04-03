@@ -8,6 +8,7 @@
           <li><%= link_to "О нас", about_company_index_path %></li>
           <li><%= link_to "Сертификаты", certificates_company_index_path %></li>
           <li><%= link_to "Партнеры", partners_company_index_path %></li>
+          <li><%= link_to "Представительства", offices_company_index_path %></li>
           <li><%= link_to "Проектирование", projection_company_index_path %></li>
           <li><%= link_to "Домокомплекты", domokomplekty_company_index_path %></li>
           <li><%= link_to "Строительство", building_company_index_path %></li>
@@ -28,11 +29,9 @@
     <div class="b-header__contacts" style="padding-top: 23px;">
       <!-- <i class="b-icon i-callcenter"></i> -->
       <span class="b-phones ta-right">
-        <span class="location">(Москва)</span><span class="phone"><%= phone(settings[:phone1]) %></span> <span class="phone"><%= phone(settings[:phone2]) %></span><br />
-        <span class="location">&nbsp;&nbsp;&nbsp;(Санкт-Петербург)</span><span class="phone"><%= phone(settings[:phone3]) %></span>
-        <% if settings[:phone4] != "" %>
-        <span class="phone"><%= phone(settings[:phone4]) %></span>
-        <% end %>
+        <span class="location">(<%= @head_office.city %>)</span><span class="phone"><%= phone(@head_office.phone1) %></span> <span class="phone"><%= phone(@head_office.phone2) %></span><br />
+        <span class="location"><%= link_to 'Наши представительства', offices_company_index_path, class: 'noudl' %></span>
+        
       </span>
 
       <a href="#" class="b-btn b-btn_orange js-feedbackPopup">написать нам</a>

@@ -1,6 +1,6 @@
 ActiveAdmin.register Partner do
   title = I18n.t("active_admin.partners.title")
-  menu :priority => 13, :label => title
+  menu :priority => 13, :label => title, :parent => I18n.t("active_admin.company")
 
   config.sort_order = "position_asc"
   config.paginate   = false
