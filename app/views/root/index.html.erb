@@ -3,10 +3,28 @@
                 <div class="b-promo__t"><%= c('index.title', :text) %></div>
                 <a class="b-btn b-btn_big b-btn_orange js-feedbackPopup" href="#">отправить заявку</a>
             </div>
-            <% unless @offers.empty? %>
-            <a href="#specials" class="b-promo__label">Наши акции</a>
-            <% end %>
         </div>
+
+        <% unless @offers.empty? %>
+        <div class="b-actions" id="specials">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Наши акции:</h2>
+
+                <div class="b-carousel">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                        <div class="b-carousel__slider">
+                            <%= render(partial: "shared/offer", collection: @offers, as: :offer) %>
+                        </div>
+                    </div>
+
+                    <!-- <div class="b-carousel__paginator b-carousel__paginator_white"></div> -->
+                </div>
+            </div>
+        </div>
+        <% end %>
 
         <div class="b-projects-gallery">
             <h2 class="h2 light h2_center">Типовые проекты</h2>
@@ -173,25 +191,6 @@
                 <a href="<%= panels_path %>" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
             </div>
         </div>
-
-        <% unless @offers.empty? %>
-        <div class="b-actions" id="specials">
-            <div class="l-center b-carousel">
-                <h2 class="h2 h2_center">Наши акции</h2>
-
-                <div class="b-carousel__overflow">
-                    <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
-                    <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
-
-                    <div class="b-carousel__slider">
-                        <%= render(partial: "shared/offer", collection: @offers, as: :offer) %>
-                    </div>
-                </div>
-
-                <div class="b-carousel__paginator b-carousel__paginator_white"></div>
-            </div>
-        </div>
-        <% end %>
 
         <div class="b-any-questions">
             <div class="l-center">
