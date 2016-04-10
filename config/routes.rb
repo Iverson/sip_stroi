@@ -13,6 +13,7 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
+    get "/projects" => "projects#section", :constraints => lambda { |request| request.params[:section] || request.params[:scope] }
     resources :projects,  only: [:index, :show]
     resources :feedbacks, only: [:create]
     resources :reviews,   only: [:index]
@@ -34,6 +35,7 @@ Rails.application.routes.draw do
         get 'osp'
         get 'esp'
         get 'offices'
+        get 'contacts'
       end
     end
 

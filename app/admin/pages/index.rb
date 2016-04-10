@@ -87,6 +87,87 @@ ActiveAdmin.register_page "Index" do
         end
       end
 
+      panel I18n.t('active_admin.index.seo') do
+        fieldset do
+          ol do
+            li do
+              label I18n.t('active_admin.title')
+              f.input :name => "data[index.building.title]", :type => 'text', :value => SiteSettings['index.building.title']
+            end
+            li do
+              label I18n.t('active_admin.text')
+              f.textarea :name => "data[index.building.text]", :class => 'ckeditor_input' do
+                SiteSettings['index.building.text']
+              end
+            end
+          end
+        end
+
+        para '1)'
+        fieldset do
+          ol do
+            li do
+              label I18n.t('active_admin.title')
+              f.input :name => "data[index.building.feature1.title]", :type => 'text', :value => SiteSettings['index.building.feature1.title']
+            end
+            li do
+              label I18n.t('active_admin.text')
+              f.textarea :name => "data[index.building.feature1.text]" do
+                SiteSettings['index.building.feature1.text']
+              end
+            end
+          end
+        end
+
+        para '2)'
+        fieldset do
+          ol do
+            li do
+              label I18n.t('active_admin.title')
+              f.input :name => "data[index.building.feature2.title]", :type => 'text', :value => SiteSettings['index.building.feature2.title']
+            end
+            li do
+              label I18n.t('active_admin.text')
+              f.textarea :name => "data[index.building.feature2.text]" do
+                SiteSettings['index.building.feature2.text']
+              end
+            end
+          end
+        end
+
+        para '3)'
+        fieldset do
+          ol do
+            li do
+              label I18n.t('active_admin.title')
+              f.input :name => "data[index.building.feature3.title]", :type => 'text', :value => SiteSettings['index.building.feature3.title']
+            end
+            li do
+              label I18n.t('active_admin.text')
+              f.textarea :name => "data[index.building.feature3.text]" do
+                SiteSettings['index.building.feature3.text']
+              end
+            end
+          end
+        end
+
+        para '4)'
+        fieldset do
+          ol do
+            li do
+              label I18n.t('active_admin.title')
+              f.input :name => "data[index.building.feature4.title]", :type => 'text', :value => SiteSettings['index.building.feature4.title']
+            end
+            li do
+              label I18n.t('active_admin.text')
+              f.textarea :name => "data[index.building.feature4.text]" do
+                SiteSettings['index.building.feature4.text']
+              end
+            end
+          end
+        end
+      end
+
       panel I18n.t('active_admin.index.panels') do
         fieldset do
           ol do

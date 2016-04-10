@@ -8,6 +8,7 @@
           <li><%= link_to "О нас", about_company_index_path %></li>
           <li><%= link_to "Сертификаты", certificates_company_index_path %></li>
           <li><%= link_to "Партнеры", partners_company_index_path %></li>
+          <li><%= link_to "Отзывы", reviews_path %></li>
           <li><%= link_to "Представительства", offices_company_index_path %></li>
           <li><%= link_to "Проектирование", projection_company_index_path %></li>
           <li><%= link_to "Домокомплекты", domokomplekty_company_index_path %></li>
@@ -15,15 +16,16 @@
         </ul>
       </li>
       <li class="b-mainmenu__item">
-        <span>Проекты</span>
+        <%= link_to 'Проекты', projects_path %>
         <ul>
           <li><%= link_to t("projects.index.typical"), projects_path(section: :typical) %></li>
           <li><%= link_to t("projects.index.individual"), projects_path(section: :individual) %></li>
+          <li><%= link_to t("projects.index.special"), projects_path(scope: :special) %></li>
         </ul>
       </li>
-      <li class="b-mainmenu__item"><a href="<%= panels_path %>">Панели</a></li>
-      <li class="b-mainmenu__item"><a href="<%= photos_path %>">Фото</a></li>
-      <li class="b-mainmenu__item"><a href="<%= reviews_path %>">Отзывы</a></li>
+      <li class="b-mainmenu__item"><%= link_to "Панели", panels_path %></li>
+      <li class="b-mainmenu__item"><%= link_to "Фото", photos_path %></li>
+      <li class="b-mainmenu__item"><%= link_to "Контакты", contacts_company_index_path %></li>
     </ul>
 
     <div class="b-header__contacts" style="padding-top: 23px;">

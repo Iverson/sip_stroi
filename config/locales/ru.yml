@@ -171,7 +171,8 @@ ru:
     pages:
       seo: "SEO"
       title: "Контент"
-      about: "О компании"
+      contacts: "Контакты"
+      about: "О нас"
       projection: "Проектирование"
       domokomplekty: "Домокомплекты"
       building: "Строительство"
@@ -207,6 +208,7 @@ ru:
       individual: "Индивидуальный проект"
       panels: "Панели"
       features: "Почему  SIP?"
+      seo: "SEO блок"
       questions: "Вопросы?"
     project_details:
       individual: "Индивидуальный расчет"

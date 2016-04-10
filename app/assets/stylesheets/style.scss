@@ -653,7 +653,29 @@ button.b-btn_medium, input.b-btn_medium {
 				margin: 0 auto 18px auto;
 				text-align: center;
 				line-height: 118px;
+				color: #fff;
+				font-size: 42px;
+				font-weight: bold;
 			}
+
+.b-sip-tech_orange {
+
+	.b-sip-tech__h {
+		background: #dc7010;
+		font-size: 50px;
+		box-shadow: none;
+		height: 100px;
+		line-height: 100px;
+
+		&:after {
+			background: image-url('sip_tech_tail_orange.png');
+		}
+	}
+
+	.b-sip-tech__features__item .pic {
+		background: #dc7010;
+	}
+}
 
 .b-carousel {
 	font-size: 0;

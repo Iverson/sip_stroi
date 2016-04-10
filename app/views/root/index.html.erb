@@ -116,6 +116,60 @@
             </ul>
         </div>
 
+        <div class="b-sip-tech b-sip-tech_orange">
+            <div class="b-sip-tech__h"><%= c('index.building.title') %></div>
+
+            <div class="l-center">
+                <div class="b-volumes__text b-text">
+                    <%= c('index.building.text', :text) %>
+                </div>
+                <br><br>
+            </div>
+
+            <ul class="b-sip-tech__features">
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">1</span>
+                    <%= c('index.building.feature1.title') %>
+
+                    <% if c('index.building.feature1.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature1.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">2</span>
+                    <%= c('index.building.feature2.title') %>
+
+                    <% if c('index.building.feature2.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature2.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">3</span>
+                    <%= c('index.building.feature3.title') %>
+
+                    <% if c('index.building.feature3.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature3.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">4</span>
+                    <%= c('index.building.feature4.title') %>
+
+                    <% if c('index.building.feature4.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature4.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+
         <div class="b-personal-project">
             <div class="l-center">
                 <p class="b-personal-project__watermark">
