@@ -9,7 +9,7 @@
                 <span class="b-footer__phone__item"><%= phone(@head_office.phone1, "green") %></span>
                 <span class="b-footer__phone__item"><%= phone(@head_office.phone2, "green") %></span>
             </p>
-            <p><%= @head_office.info %></p>
+            <p><%= @head_office.info.html_safe %></p>
             <br />
             <%= link_to 'Наши представительства', offices_company_index_path, class: 'green' %>
             <br />

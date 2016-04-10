@@ -6,6 +6,7 @@ class ApplicationController < ActionController::Base
   before_filter :init_feedback
   before_filter :check_meta
   before_filter :get_office
+  before_filter :is_offer_exist
 
   def init_feedback
     @feedback = ::Feedback.new
@@ -22,6 +23,10 @@ class ApplicationController < ActionController::Base
       
       set_meta page.meta.attributes if page
     end
+  end
+
+  def is_offer_exist
+    @is_offer_exist = Offer.exists?
   end
 
   def set_meta(params={})

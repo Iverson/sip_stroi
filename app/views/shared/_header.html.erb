@@ -20,7 +20,9 @@
         <ul>
           <li><%= link_to t("projects.index.typical"), projects_path(section: :typical) %></li>
           <li><%= link_to t("projects.index.individual"), projects_path(section: :individual) %></li>
+          <% if @is_offer_exist %>
           <li><%= link_to t("projects.index.special"), projects_path(scope: :special) %></li>
+          <% end %>
         </ul>
       </li>
       <li class="b-mainmenu__item"><%= link_to "Панели", panels_path %></li>
