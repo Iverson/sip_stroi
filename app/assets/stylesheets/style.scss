@@ -949,6 +949,11 @@ button.b-btn_medium, input.b-btn_medium {
 			filter: grayscale(100%);
 			filter: gray;
 			filter: url("data:image/svg+xml;utf8,<svg version='1.1' xmlns='http://www.w3.org/2000/svg' height='0'><filter id='greyscale'><feColorMatrix type='matrix' values='0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0.3333 0.3333 0.3333 0 0 0 0 0 1 0' /></filter></svg>#greyscale");
+
+			&:hover {
+				filter: none;
+				-webkit-filter: none;
+			}
 		}
 
 .b-reviews {
@@ -2047,9 +2052,10 @@ button.b-btn_medium, input.b-btn_medium {
 	margin-bottom: 1.2em;
 }
 
-.b-text ul {
+.b-text ul, .b-article ul {
 	list-style: disc;
 	padding-left: 20px;
+	margin-bottom: 1.4em;
 }
 
 .b-photos {
@@ -2072,6 +2078,14 @@ button.b-btn_medium, input.b-btn_medium {
 .b-article {
   margin: 0 0 30px 0;
   overflow: hidden;
+
+
+  table {
+  	td {
+  		padding: 5px 5px;
+  		border: 1px solid #000;
+  	}
+  }
 }
 
   .b-article__date {

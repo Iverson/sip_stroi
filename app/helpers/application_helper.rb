@@ -13,7 +13,7 @@ module ApplicationHelper
     if mode == :text
       simple_format SiteSettings[key]
     else
-      SiteSettings[key]
+      SiteSettings[key].html_safe
     end
   end
 
