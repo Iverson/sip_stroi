@@ -98,6 +98,7 @@ ru:
     phone: "Телефон"
     message: "Комментарий"
     date: "Дата"
+    published_at: "Дата публикации"
     city: "Город"
     email: "Email"
     name: "Название"

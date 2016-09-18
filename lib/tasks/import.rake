@@ -29,6 +29,7 @@ namespace :import do
   task :static do
       puts "Rsync..."
       %x(rsync --progress -zvr #{server_user}@#{server_host}:#{server_app_path}/shared/system/ public/system/)
+      %x(rsync --progress -zvr #{server_user}@#{server_host}:#{server_app_path}/shared/ckeditor_assets/ public/ckeditor_assets/)
       puts "Done!"
   end
 
