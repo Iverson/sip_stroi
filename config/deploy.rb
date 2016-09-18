@@ -42,7 +42,7 @@ set :bundle_cmd,      "rvm use #{rvm_ruby_string} do bundle"
 
 set :scm,             :git
 set :repository,      "https://github.com/Iverson/sip_stroi.git"
-set :branch, "develop"
+set :branch, "master"
 
 before 'deploy:finalize_update', 'set_current_release'
 task :set_current_release, :roles => :app do
