@@ -11,6 +11,8 @@ class Article < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => /\Aimage\/.*\Z/
   validates_with AttachmentSizeValidator, :attributes => :image, :less_than => 3.megabytes
 
+  scope :published, -> { where("published_at <= ?", Date.today).order(published_at: :desc) }
+
   before_save() do
     unless self.uri?
       self.uri = "#{self.name}".parameterize
