@@ -1,0 +1,75 @@
+<footer class="b-footer">
+    <div class="l-center">
+        <div class="b-footer__left">
+            <p class="b-footer__company">С∙М∙С <span class="green">Сип∙Монтаж∙Строй</span></p>
+
+            <p class="b-footer__phone">
+                <span class="b-footer__phone__t"><%= @head_office.city %></span>
+                <i class="b-icon i-callcenter-green"></i>
+                <span class="b-footer__phone__item"><%= phone(@head_office.phone1, "green") %></span>
+                <span class="b-footer__phone__item"><%= phone(@head_office.phone2, "green") %></span>
+            </p>
+            <p><%= @head_office.info.html_safe %></p>
+            <br />
+            <%= link_to 'Наши представительства', offices_company_index_path, class: 'green' %>
+            <br />
+            <br />
+            <nav class="b-footer__menu">
+              <a class="b-footer__menu__item" href="<%= about_company_index_path %>">О компании</a>
+              <a class="b-footer__menu__item" href="<%= certificates_company_index_path %>">Сертификаты</a>
+              <a class="b-footer__menu__item" href="<%= partners_company_index_path %>">Партнеры</a>
+              <a class="b-footer__menu__item" href="<%= projection_company_index_path %>">Проектирование</a>
+              <a class="b-footer__menu__item" href="<%= building_company_index_path %>">Строительство</a>
+              <a class="b-footer__menu__item" href="<%= projects_path %>">Проекты</a>
+              <a class="b-footer__menu__item" href="<%= panels_path %>">Панели</a>
+              <a class="b-footer__menu__item" href="<%= photos_path %>">Фото</a>
+              <a class="b-footer__menu__item" href="<%= reviews_path %>">Отзывы</a>
+              <a class="b-footer__menu__item" href="<%= articles_path %>">Статьи</a>
+            </nav>
+
+            <p class="b-footer__copyright">
+                © 2014  ООО «СИПМОНТАЖСТРОЙ» <br />
+                Дома. Проектирование и строительство СИП домов по всей России.
+            </p>
+        </div>
+        <div class="b-footer__right">
+            <%= form_for @feedback do |f| %>
+            
+            <div id="feedback" class="b-form">
+                <% if flash[:feedback_error] %>
+                <p class="b-form__error"><%= flash[:feedback_error] %></p>
+                <% end %>
+
+                <% if flash[:feedback_success] %>
+                <p class="b-form__success green"><%= flash[:feedback_success] %></p>
+                <% end %>
+
+                <%= f.fields_for :user_info do |user_info_form| %>
+                    <div class="b-input">
+                        <%= user_info_form.label :name %>
+                        <%= user_info_form.text_field :name %>
+                    </div>
+                    <div class="b-input">
+                        <%= user_info_form.label :phone %>
+                        <%= user_info_form.text_field :phone %>
+                    </div>
+                <% end %>
+
+                <div class="b-input">
+                    <%= f.label :message %>
+                    <%= f.text_area :message %>
+                </div>
+
+                <div class="b-form__actions">
+                    <button type="submit" class="b-btn b-btn_medium">отправить заявку</button>
+                </div>
+            </div>
+            <% end %>
+        </div>
+        <div class="clearer"></div>
+    </div>
+</footer>
+
+<% if Rails.env == 'production' %>
+    <%= render 'shared/counter' %>
+<% end %>

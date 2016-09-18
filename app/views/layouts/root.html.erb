@@ -1,0 +1,14 @@
+<%= render "layouts/head" %>
+<body>
+  <div class="l-page">
+    <%= render "shared/header" %>
+
+    <%= yield %>
+
+    <%= render "shared/footer" %>
+
+    <div class="popup-placeholder"></div>
+    <%= render "shared/feedback_popup" %>
+  </div>
+</body>
+</html>

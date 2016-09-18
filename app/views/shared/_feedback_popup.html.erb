@@ -1,0 +1,41 @@
+<script id="feedback_popup" type="text/template">
+<div class="b-overlay"></div>
+<div class="b-popup b-popup_feedback">
+    <i class="b-popup__close"><i class="b-icon i-close"></i></i>
+
+    <div class="b-popup__l">
+        <%= form_for @feedback, html: { class: "b-form" } do |f| %>
+            <p class="b-popup__t ta-center">Напишите нам</p>
+
+            <div class="default">
+                <p class="b-form__error ta-center">Не все поля заполнены.</p>
+
+                <%= f.fields_for :user_info do |user_info_form| %>
+                    <div class="b-input b-input_sh">
+                        <%= user_info_form.label :name, for: "feedback_popup_name" %>
+                        <%= user_info_form.text_field :name, id: "feedback_popup_name" %>
+                    </div>
+                    <div class="b-input b-input_sh">
+                        <%= user_info_form.label :phone, for: "feedback_popup_phone" %>
+                        <%= user_info_form.text_field :phone, id: "feedback_popup_phone" %>
+                    </div>
+                <% end %>
+
+                <div class="b-input b-input_sh">
+                    <%= f.label :message, for: "feedback_popup_message" %>
+                    <%= f.text_area :message, id: "feedback_popup_message" %>
+                </div>
+
+                <div class="b-form__actions b-form__actions_center">
+                    <button type="submit" class="b-btn b-btn_medium b-btn_grenn js-submit">отправить</button>
+                </div>
+            </div>
+            <div class="success ta-center">
+                <div class="b-label">Сообщение отправлено</div>
+                <p>Мы свяжемся с вами по указанному телефону в ближайшее время .</p>
+            </div>
+            
+        <% end %>
+    </div>
+</div>
+</script>

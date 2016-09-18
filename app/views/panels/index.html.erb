@@ -1,0 +1,95 @@
+<h1 class="h2 h2_center">Каталог панелей</h1>
+
+<div class="b-panels js-panelsOrder">
+
+  <!-- <p class="b-panels__t">СИП панели</p> -->
+
+  <table class="b-table b-table_panels">
+    <tr>
+      <th>
+        Размеры панелей, мм <br />
+        (длина х ширина х толщина)
+      </th>
+      <th>
+        Материалы, мм <br />
+        (ОСП — Пенополистирол — ОСП)
+      </th>
+      <th>
+        Цена за 1 шт, руб
+      </th>
+      <th>
+        Количество, шт
+      </th>
+      <th>
+        Стоимость, руб
+      </th>
+    </tr>
+
+    <% @panels.each do |panel| %>
+    <tr class="b-table_panels__row" data-json="<%= panel.to_json(:only => [:id, :size, :price ], :methods => :material) %>">
+      <td class=""><%= panel.size %></td>
+      <td class=""><%= panel.material %></td>
+      <td class=""><%= number_with_delimiter(panel.price.to_i) %></td>
+      <td class="">
+        <div class="b-input b-input_sh b-counter">
+          <span class="b-counter__btn b-counter__btn_minus"><i class="b-icon i-minus"></i></span>
+          <input type="text" />
+          <span class="b-counter__btn b-counter__btn_plus"><i class="b-icon i-plus"></i></span>
+        </div>
+      </td>
+      <td class="total"></td>
+    </tr>
+    <% end %>
+  </table>
+
+  <table class="b-table b-table_total">
+  <tr class="">
+    <td class="checkbox"></td>
+    <td class="">
+      <a href="#" class="b-btn b-btn_big b-btn_orange js-orderButton">Заказать</a>
+      <!-- <p>&nbsp;&nbsp;&nbsp;<a href="#" class="dotted"><span>Скачать прайс-лист</span></a></p> -->
+    </td>
+    <td></td>
+    <td width="280">
+      <p class="label">Итоговая сумма: </p>
+      <p class="sum"><span rel="order-sum">0</span> руб.</p>
+    </td>
+  </tr>
+</table>
+  
+</div>
+
+
+<script id="order_popup_template" type="text/template">
+  <div class="b-overlay"></div>
+  <div class="b-popup b-popup_order">
+    <i class="b-popup__close"><i class="b-icon i-close"></i></i>
+
+    <div class="b-popup__total">
+    Итого к оплате:&nbsp; <%%= totalSum.toLocaleString() %>. –
+    </div>
+
+    <div class="b-popup__left">
+      <div class="b-popup__left__l">
+        <p class="b-popup__t">Ваш заказ:</p>
+
+        <p class="b-popup__t2">Sip панели</p>
+
+        <table class="b-table b-table_order">
+          <%% _.each(orderItems, function(item) { %>
+          <tr>
+            <td class="name"><%%= item.size %> мм <br /><%%= item.material %></td>
+            <td width="30"></td>
+            <td class="price"><%%= item.count %> х <%%= item.price %>. –</td>
+          </tr>
+          <%% }); %>
+        </table>
+      </div>
+    </div>
+    <div class="b-popup__right">
+      <div class="b-popup__right__l">
+        <%= render "shared/order_form" %>
+      </div>
+    </div>
+  </div>
+</script>

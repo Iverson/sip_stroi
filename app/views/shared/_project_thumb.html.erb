@@ -1,0 +1,18 @@
+<div class="b-project-thumb">
+	<%# <span class="b-project-thumb__label akcia">Акция</span> %>
+	<%= link_to project do %>
+    <i class="b-icon i-thumb-blik b-project-thumb__blik"></i>
+		<%= image_tag project.cover, class: "b-project-thumb__pic", alt: project.cover_alt %>
+	<% end %>
+	<p class="b-project-thumb__t">
+		<span class="price">«<%= link_to project.name, project %>»</span>
+    <span class="from">от</span>&nbsp;<span class="nowrap"><%= number_with_delimiter(project.default_price) %>. –</span>
+	</p>
+	<%= link_to "посмотреть", project, class: "b-project-thumb__details-link" %>
+
+  <% if project.discount? %>
+    <span class="b-project-thumb__label akcia">
+      -<%= discount(project.discount) %> р.
+    </span>
+  <% end %>
+</div>

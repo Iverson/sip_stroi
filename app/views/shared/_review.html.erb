@@ -1,0 +1,18 @@
+<div class="b-reviews__thumb">
+	<%= image_tag review.image.url(:medium), class: "b-reviews__thumb__pic", alt: review.image_alt %>
+	<div class="b-reviews__thubm__text">
+		<div class="l"><%= review.text %></div>
+	</div>
+
+	<% if review.text.length > 320 %>
+	<div class="b-reviews__thumb__toggle">
+		<a class="dotted" href="#"><span class="default">Развернуть</span><span class="expanded">Свернуть</span></a>
+	</div>
+	<% end %>
+
+	<div class="b-reviews__thumb__author">
+		<%= image_tag review.client.photo.url(:small), class: "pic" %>
+		<p class="name"><%= review.client.first_name %></p>
+		<p class="city">г. <%= review.client.city %></p>
+	</div>
+</div>

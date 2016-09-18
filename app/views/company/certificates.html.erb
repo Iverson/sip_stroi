@@ -1,0 +1,21 @@
+<% unless @certificates.empty? %>
+<div class="b-certificates">
+  <h2 class="h2 h2_center">Сертификаты</h2>
+
+  <div class="b-carousel" scroll-thumbs="4">
+
+    <div class="b-carousel__l">
+      <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+      <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+      <div class="b-carousel__overflow">
+        <div class="b-carousel__slider b-carousel__slider_center">
+          <%= render(partial: "shared/certificate", collection: @certificates, as: :certificate) %>
+        </div>
+      </div>
+    </div>
+
+    <div class="b-carousel__paginator"></div>
+  </div>
+</div>
+<% end %>

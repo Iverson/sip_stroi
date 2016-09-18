@@ -1,0 +1,189 @@
+<% if @project.prev %>
+	<%= link_to @project.prev, 'class' => "b-prev-link" do %>
+		<span class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></span>
+		«<%= @project.prev.name %>»
+	<% end %>
+<% end %>
+<% if @project.next %>
+	<%= link_to @project.next, 'class' => "b-next-link" do %>
+		«<%= @project.next.name %>»
+		<span class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></span>
+	<% end %>
+<% end %>
+
+<h1 class="h2 h2_center">«<%= @project.name %>»</h1>
+
+<table class="tb-fixed b-project-details">
+	<tr>
+		<td width="500">
+			<% @project.pictures.each_with_index do |picture, index| %>
+				<%= link_to picture.image.url(:large), class: "js-fancybox", rel: "project-pictures" do %>
+					<%= image_tag picture.image.url(:medium), alt: picture.name if index == 0 %>
+				<% end %>
+			<% end %>
+		</td>
+		<td width="25"></td>
+		<td>
+			<dl>
+				<dt>Общая площадь</dt>
+				<dd><%= @project.area.round(0) %> м2</dd>
+			</dl>
+			<dl>
+				<dt>Этажей</dt>
+				<dd><%= @project.floors %></dd>
+			</dl>
+      <% if @project.dimensions %>
+      <dl>
+        <dt>Габариты</dt>
+        <dd><%= @project.dimensions %> м</dd>
+      </dl>
+      <% end %>
+      <% if @project.ceiling_height %>
+      <dl>
+        <dt>Высота потолков</dt>
+        <dd><%= @project.ceiling_height.round(1) %> м</dd>
+      </dl>
+      <% end %>
+		</td>
+		<td width="279" class="b-project-details__order">
+			<dl>
+				<dt>Стоимость проекта от:</dt>
+				<dd class="b-project-details__price">
+          <% if @project.discount %>
+          <span class="old"><%= discount(@project.default_price + @project.discount) %>.</span>
+          <% end %>
+          <span><%= number_with_delimiter(@project.default_price) %></span><span class="postfix">. –</span>
+        </dd>
+			</dl>
+
+			<div class="b-order-btn">
+				<a href="#" class="b-btn b-btn_big b-btn_block b-btn_gray js-orderButton">Заказать</a>
+
+				<span class="b-phone b-phone_medium b-phone_white">
+					<!-- <i class="b-icon i-callcenter-white"></i> -->
+					<span class="b-phones">
+						<span class="location"><%= @head_office.city %></span>
+						<span class="b-phone__number"><%= phone(@head_office.phone1) %>,&nbsp; <%= phone(@head_office.phone2) %></span> <br />
+					</span>
+					
+				</span>
+        <%= link_to 'Наши представительства', offices_company_index_path, class: 'white' %>
+
+				<!-- <a href="#" class="dotted"><span>Индивидуальный проект</span></a> -->
+			</div>
+
+		</td>
+	</tr>
+</table>
+<br>
+
+<!-- <h3 class="h3">Комплектация</h3> -->
+<br />
+
+<table class="b-table js-projectOrder" data-project="<%= @project.to_json(:only => [:id, :name, :discount], :methods => :order_cover) %>">
+	<% @project.instances.positioned.each do |instance| %>
+	<tr class="row <%= instance.default ? 'selected' : '' %>" data-json="<%= instance.to_json(:only => [:id, :name, :price ]) %>">
+		<td class="checkbox">
+			<label for="<%= instance.id %>" class="b-checkbox">
+				<%= check_box_tag "instance[#{instance.id}].default", 1, instance.default, 'data-type' => 'isInstanceDefault', 'data-price' => instance.price, 'id' => instance.id %>
+				<i></i>
+			</label>
+		</td>
+		<td class="name"><%= instance.name %></td>
+		<td class="desc"><%= simple_format instance.description %></td>
+		<td class="price"><%= number_with_delimiter(instance.price.to_i) %>. –</td>
+	</tr>
+	<% end %>
+</table>
+
+<table class="b-table b-table_total">
+	<tr class="">
+		<td class="checkbox"></td>
+		<td class="">
+			<a href="#" class="b-btn b-btn_big b-btn_orange js-orderButton">Заказать</a>
+			<p><a href="#" class="dotted js-feedbackPopup"><span>Индивидуальный проект</span></a></p>
+		</td>
+		<td width="240">
+      <% if @project.discount? %>
+      <p class="label">Скидка: </p>
+      <p class="discount"><span>-<%= discount(@project.discount) %></span> руб.</p>  
+      <% end %>
+    </td>
+    <td width="280">
+			<p class="label">Итоговая сумма: </p>
+			<p class="sum"><span rel="project-sum"><%= number_with_delimiter(@project.default_price) %></span> руб.</p>
+		</td>
+	</tr>
+</table>
+
+<p class="b-project-details__hint"><%= c('project_details.individual') %></p>
+
+<br><br>
+<h3 class="h3">Дополнительные услуги:</h3>
+
+<div class="b-list">
+	<%= c('project_details.add_jobs', :text) %>
+</div>
+
+<div class="b-project-details__plans">
+	<h2 class="h2 h2_center">Планировка</h2><br>
+
+	<% @project.plans.each do |plan| %>
+		<%= link_to plan.image.url, class: "js-fancybox", rel: "project-pictures" do %>
+			<%= image_tag plan.image.url(:medium), class: 'img', alt: plan.name %>
+		<% end %>
+	<% end %>
+</div>
+
+<% unless @project.building_photos.empty? %>
+<div class="b-project-details__photos">
+	<h2 class="h2 h2_center">Этапы строительства</h2><br>
+
+	<% @project.building_photos.each do |plan| %>
+		<%= link_to plan.image.url(:large), class: "js-fancybox", rel: "project-pictures" do %>
+			<%= image_tag plan.image.url(:medium), class: 'img', alt: plan.name %>
+		<% end %>
+  <% end %>
+</div>
+<% end %>
+
+<script id="project_order_popup" type="text/template">
+  <div class="b-overlay"></div>
+  <div class="b-popup b-popup_order">
+    <i class="b-popup__close"><i class="b-icon i-close"></i></i>
+
+    <div class="b-popup__total">
+      Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>. –
+    </div>
+
+    <div class="b-popup__left">
+      <img src="<%%= order.project.order_cover %>" alt="" class="b-popup__pic" />
+
+      <div class="b-popup__left__l">
+        <p class="b-popup__t">«<%%= order.project.name %>»</p>
+
+        <table class="b-table b-table_order">
+          <%% _.each(order.items, function(item) { %>
+          <tr>
+            <td class="name"><%%= item.name %></td>
+            <td width="30"></td>
+            <td class="price"><%%= item.count %><%%= item.price %>. –</td>
+          </tr>
+          <%% }); %>
+          <% if @project.discount? %>
+          <tr>
+            <td class="name orange">Скидка</td>
+            <td width="30"></td>
+            <td class="price orange">-<%= discount(@project.discount) %>. –</td>
+          </tr>
+          <% end %>
+        </table>
+      </div>
+    </div>
+    <div class="b-popup__right">
+      <div class="b-popup__right__l">
+        <%= render "shared/order_form" %>
+      </div>
+    </div>
+  </div>
+</script>

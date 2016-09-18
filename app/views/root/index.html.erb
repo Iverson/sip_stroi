@@ -1,0 +1,293 @@
+        <div class="b-promo">
+            <div class="b-promo__l">
+                <div class="b-promo__t"><%= c('index.title', :text) %></div>
+                <a class="b-btn b-btn_big b-btn_orange js-feedbackPopup" href="#">отправить заявку</a>
+            </div>
+        </div>
+
+        <% if @is_offer_exist %>
+        <div class="b-actions" id="specials">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Наши акции:</h2>
+
+                <div class="b-carousel">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                        <div class="b-carousel__slider">
+                            <%= render(partial: "shared/offer", collection: @offers, as: :offer) %>
+                        </div>
+                    </div>
+
+                    <!-- <div class="b-carousel__paginator b-carousel__paginator_white"></div> -->
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <div class="b-projects-gallery">
+            <h2 class="h2 light h2_center">Типовые проекты</h2>
+
+            <div class="l-center b-carousel">
+                <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+                <div class="b-carousel__overflow">
+                    <div class="b-carousel__slider">
+                        <%= render(partial: "shared/project_thumb", collection: @projects, as: :project) || content_tag(:div, "В каталоге нет ни одного проекта.", class: "b-carousel__empty") %>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="b-sip-tech">
+            <div class="b-sip-tech__h">Почему СИП технология?</div>
+
+            <div class="l-center b-carousel">
+                <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                <div class="b-carousel__overflow">
+                    <div class="b-carousel__slider">
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center"><%= c('index.features.fast.title') %></h2>
+
+                            <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/quick.jpg') %>" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                <%= c('index.features.fast.text', :text) %>
+                            </div>
+                        </div>
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center"><%= c('index.features.eco.title') %></h2>
+
+                            <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/eco.jpg') %>" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                <%= c('index.features.eco.text', :text) %>
+                            </div>
+                        </div>
+                        <div class="b-sip-tech__slide">
+                            <h2 class="h2 h2_center"><%= c('index.features.tech.title') %></h2>
+
+                            <img class="b-sip-tech__slide__pic" src="<%= asset_path('sip/techno.jpg') %>" alt="" />
+                            <div class="b-sip-tech__slide__right">
+                                <%= c('index.features.tech.text', :text) %>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="b-sip-tech__tabs" rel="tabs">
+                    <a href="#"><%= c('index.features.fast.title') %></a>
+                    <a href="#"><%= c('index.features.eco.title') %></a>
+                    <a href="#"><%= c('index.features.tech.title') %></a>
+                </div>
+            </div>
+
+            <ul class="b-sip-tech__features">
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-termo-protect"></i></span>
+                    тепло
+
+                    <div class="b-sip-tech__features__item__hint">
+                        Герметичность этих домов проверена многочисленными опытами и практикой строительства на Южном полюсе. Стандартная панель толщиной 17,4 см эквивалентна стене из бруса толщиной 40 см или кирпичной стене толщиной почти 2 метра, что позволяет снизить стоимость строительства дома. Даже при отключении отопления температура в доме понижается в среднем на 2 градуса в сутки. Расходы на обогрев такого дома как минимум в 2-3 раза ниже, чем при отоплении дома, из любых других стандартных материалов.
+                    </div>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-water-protect"></i></span>
+                    влагоустойчивость
+                    <div class="b-sip-tech__features__item__hint">
+                        Дома из СИП-панелей выдерживают максимальные снеговые нагрузки. Конструктивно дома в 4 раза прочнее на излом и сжатие, чем обычные деревянно-каркасные дома. В них не образуются трещины. Вертикальная нагрузка 10 тонн, которую выдерживает стандартная панель, в 3 раза больше, чем нужно для строительства 3-х этажного дома.
+                    </div>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-fire-protect"></i></span>
+                    огнестойкость
+                    <div class="b-sip-tech__features__item__hint">
+                        В отличие от чистого ППС, панели, в которых внешний слой составляет ОСП-плита, имеют предел огнестойкости около 1 часа. Реально это означает, что дома из СИП-панелей более пожароустойчивы, чем любые другие деревянные дома. Герметичная плотность стыков панелей не позволяет проникать дыму и препятствует распространению огня. 
+                    </div>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic"><i class="b-icon i-long-life"></i></span>
+                    долговечность
+                    <div class="b-sip-tech__features__item__hint">
+                        Эксперименты показывают, что дома из СИП-панелей  в 3 раза долговечнее деревянных. Это связано с высокими эксплуатационными качествами сердцевины панели — пенополистирола (ППС), который практически не стареет, сохраняет свои геометрические формы и размеры, не гниет. По этим качествам ППС значительно превосходит другие утеплители, например, пенополиуретан и минеральную вату. Оболочка панели сделана из ориентированной стружечной плиты (ОСП), поэтому стены не впитывают влагу, и в доме не бывает сырости и плесени.
+                    </div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="b-sip-tech b-sip-tech_orange" id="building">
+            <div class="b-sip-tech__h"><%= c('index.building.title') %></div>
+
+            <div class="l-center">
+                <div class="b-volumes__text b-text">
+                    <%= c('index.building.text', :text) %>
+                </div>
+                <br><br>
+            </div>
+
+            <ul class="b-sip-tech__features">
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">1</span>
+                    <%= c('index.building.feature1.title') %>
+
+                    <% if c('index.building.feature1.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature1.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">2</span>
+                    <%= c('index.building.feature2.title') %>
+
+                    <% if c('index.building.feature2.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature2.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">3</span>
+                    <%= c('index.building.feature3.title') %>
+
+                    <% if c('index.building.feature3.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature3.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+                <li class="b-sip-tech__features__item">
+                    <span class="pic">4</span>
+                    <%= c('index.building.feature4.title') %>
+
+                    <% if c('index.building.feature4.text') %>
+                    <div class="b-sip-tech__features__item__hint">
+                        <%= c('index.building.feature4.text', :text) %>
+                    </div>
+                    <% end %>
+                </li>
+            </ul>
+        </div>
+
+        <div class="b-personal-project">
+            <div class="l-center">
+                <p class="b-personal-project__watermark">
+                    сипмонтажстрой
+                    <i class="b-icon i-company"></i>
+                </p>
+
+                <div class="b-personal-project__t"><%= c('index.individual.title') %></div>
+                <div class="b-personal-project__text">
+                    <%= c('index.individual.text', :text) %>
+                </div>
+                <a href="#" class="b-btn b-btn_big js-feedbackPopup">Отправить заявку</a>
+            </div>
+        </div>
+
+        <!-- <div class="b-volumes">
+            <div class="l-center">
+                <h2 class="h2">Почему СипМонтажСтрой?</h2>
+
+                <dl class="b-volumes__item">
+                    <dt>8</dt>
+                    <dd>лет на рынке</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>1 000</dt>
+                    <dd>и более <br> довольных клиентов</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>6 000</dt>
+                    <dd>SIP-панелей в месяц производит наш завод</dd>
+                </dl>
+                <dl class="b-volumes__item">
+                    <dt>2 000</dt>
+                    <dd>м<sup>2</sup><br /> площадь завода</dd>
+                </dl>
+
+                <div class="b-volumes__text">
+                    Коллектив производственно-строительной компании «СипМонтажСтрой» не новичок на рынке строительства качественного жилья! Более 8 лет мы успешно производим и продаём СИП-панели по всей России и уже более 6 лет активно занимаемся застройкой по каркасно-панельной технологии (SIP) в Москве, а также в Московской и прилегающих областях.
+                </div>
+            </div>
+        </div> -->
+
+        
+        <% unless @reviews.empty? %>
+        <div class="b-reviews b-reviews_border">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Отзывы</h2>
+
+                <div class="b-carousel">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__slider">
+                            <%= render(partial: "shared/review", collection: @reviews, as: :review) %>
+                        </div>
+                    </div>
+
+                    <div class="b-carousel__paginator"></div>
+                </div>
+            </div>
+        </div>
+        <% end %>
+
+        <div class="b-buy-panels">
+            <div class="l-center">
+                <p class="b-buy-panels__watermark">
+                    сипмонтажстрой
+                    <i class="b-icon i-panels"></i>
+                </p>
+
+                <div class="b-buy-panels__text">
+                    <%= c('index.panels.text') %>
+                </div>
+                <!-- <a href="#" class="b-btn b-btn_big b-btn_gray">Скачать прайс лист</a> -->
+                <a href="<%= panels_path %>" class="b-btn b-btn_big b-btn_orange">Каталог SIP панелей</a>
+            </div>
+        </div>
+
+        <div class="b-any-questions">
+            <div class="l-center">
+                <p class="b-any-questions__watermark">
+                    сипмонтажстрой
+                    <span class="b-icon b-any-questions__pic">?</span>
+                </p>
+
+                <div class="b-any-questions__text">
+                    <%= c('index.questions.text') %>
+                </div>
+
+                <div>
+                    <span class="b-phones b-phones_medium">
+                        <span class=""><%= @head_office.city %></span> &nbsp;&nbsp;
+                        <i class="b-icon i-callcenter"></i> &nbsp;<span class="b-phone__number"><%= phone(@head_office.phone1, "orange") %>&nbsp;&nbsp; <%= phone(@head_office.phone2, "orange") %></span><br />
+                    </span>
+                </div>
+                <br />
+                <div class="b-any-questions__text">
+                    <%= link_to 'Наши представительства', offices_company_index_path, class: 'noudl' %>
+                </div>
+                <a href="#" class="b-btn b-btn_big b-btn_orange js-feedbackPopup">&nbsp;&nbsp; Напишите нам &nbsp;&nbsp;</a>
+            </div>
+        </div>
+
+        <% unless @photos.empty? %>
+        <div class="b-photogallery">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Фотогалерея</h2>
+
+                <div class="b-carousel" scroll-thumbs="3">
+                    <div class="b-carousel__overflow">
+                        <!-- <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div> -->
+
+                        <div class="b-carousel__slider">
+                            <%= @photos.each do |photo| %>
+                            <a title="<%= photo.name %>" href="<%= photo.image.url(:large) %>" class="b-photogallery__item js-fancybox" rel="photogallery-1"><img src="<%= photo.image.url(:thumb) %>" alt="<%= photo.name %>" class="pic" /></a>
+                            <% end %>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <% end %>

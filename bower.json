@@ -1,0 +1,23 @@
+{
+  "name": "sip_stroi",
+  "version": "0.1.0",
+  "authors": [
+    "Alexey Krasman <akrasman@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.1.3",
+    "fancybox": "~2.1.5",
+    "lodash": "~3.1.0",
+    "jquery-serialize-object": "~2.4.5",
+    "q": "~1.0.1"
+  }
+}

@@ -1,0 +1,39 @@
+.cke_editable {
+  font-size: 12px;
+  line-height: 1.6em;
+  margin-bottom: 10px;
+  font-family: Roboto, Arial, Helvetica, sans-serif;
+}
+  .cke_editable table {
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+
+    .cke_editable table td {
+      padding: 5px 5px;
+      border: 1px solid #000;
+    }
+
+  .cke_editable ul {
+    list-style: disc;
+    padding-left: 20px;
+    margin-bottom: 1.4em;
+  }
+
+  .cke_editable a {
+    color: #dc7010;
+  }
+
+  .cke_editable p {
+    margin-bottom: 1.6em;
+  }
+
+  .cke_editable .img-left {
+    float: left;
+    margin: 5px 20px 5px 0;
+  }
+
+  .cke_editable .img-right {
+    float: right;
+    margin: 5px 0 5px 20px;
+  }

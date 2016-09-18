@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
-  # The priority is based upon order of creation: first created -> highest priority.
-  # See how all your routes lay out with "rake routes".
-
+  mount Ckeditor::Engine => '/ckeditor'
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  
   # You can have the root of your site routed with "root"
-  # root 'welcome#index'
+  root 'root#index'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
@@ -12,7 +13,31 @@ Rails.application.routes.draw do
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+    get "/projects" => "projects#section", :constraints => lambda { |request| request.params[:section] || request.params[:scope] }
+    resources :projects,  only: [:index, :show]
+    resources :feedbacks, only: [:create]
+    resources :reviews,   only: [:index]
+    resources :panels,    only: [:index]
+    resources :photos,    only: [:index]
+    resources :articles,  only: [:index, :show]
+
+    resources :panels_orders, only: [:create]
+    resources :projects_orders, only: [:create]
+
+    resources :company, only: [] do
+      collection do
+        get 'about'
+        get 'certificates'
+        get 'partners'
+        get 'projection'
+        get 'domokomplekty'
+        get 'building'
+        get 'osp'
+        get 'esp'
+        get 'offices'
+        get 'contacts'
+      end
+    end
 
   # Example resource route with options:
   #   resources :products do
