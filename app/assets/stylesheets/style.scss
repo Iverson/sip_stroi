@@ -1590,6 +1590,12 @@ button.b-btn_medium, input.b-btn_medium {
 
 .b-project-details {}
 
+	.b-project-details sup {
+		position: relative;
+		top: -12px;
+		font-size: 24px;
+	}
+
 	.b-project-details dt {
 		font-size: 14px;
 		line-height: 1.2em;
@@ -1736,7 +1742,7 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-table .price {
-		width: 180px;
+		width: 130px;
 		text-align: right;
 		font-size: 30px;
 		font-weight: 300;

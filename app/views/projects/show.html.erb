@@ -26,7 +26,7 @@
 		<td>
 			<dl>
 				<dt>Общая площадь</dt>
-				<dd><%= @project.area.round(0) %> м2</dd>
+				<dd><%= @project.area.round(0) %> м<sup>2</sup></dd>
 			</dl>
 			<dl>
 				<dt>Этажей</dt>
@@ -52,7 +52,7 @@
           <% if @project.discount %>
           <span class="old"><%= discount(@project.default_price + @project.discount) %>.</span>
           <% end %>
-          <span><%= number_with_delimiter(@project.default_price) %></span><span class="postfix">. –</span>
+          <span><%= number_with_delimiter(@project.default_price) %></span>
         </dd>
 			</dl>
 
@@ -91,7 +91,7 @@
 		</td>
 		<td class="name"><%= instance.name %></td>
 		<td class="desc"><%= simple_format instance.description %></td>
-		<td class="price"><%= number_with_delimiter(instance.price.to_i) %>. –</td>
+		<td class="price"><%= number_with_delimiter(instance.price.to_i) %></td>
 	</tr>
 	<% end %>
 </table>
@@ -153,7 +153,7 @@
     <i class="b-popup__close"><i class="b-icon i-close"></i></i>
 
     <div class="b-popup__total">
-      Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>. –
+      Итого к оплате:&nbsp; <%%= order.sum.toLocaleString() %>
     </div>
 
     <div class="b-popup__left">
@@ -167,14 +167,14 @@
           <tr>
             <td class="name"><%%= item.name %></td>
             <td width="30"></td>
-            <td class="price"><%%= item.count %><%%= item.price %>. –</td>
+            <td class="price"><%%= item.count %><%%= item.price %></td>
           </tr>
           <%% }); %>
           <% if @project.discount? %>
           <tr>
             <td class="name orange">Скидка</td>
             <td width="30"></td>
-            <td class="price orange">-<%= discount(@project.discount) %>. –</td>
+            <td class="price orange">-<%= discount(@project.discount) %></td>
           </tr>
           <% end %>
         </table>

@@ -6,7 +6,7 @@
 	<% end %>
 	<p class="b-project-thumb__t">
 		<span class="price">«<%= link_to project.name, project %>»</span>
-    <span class="from">от</span>&nbsp;<span class="nowrap"><%= number_with_delimiter(project.default_price) %>. –</span>
+    <span class="from">от</span>&nbsp;<span class="nowrap"><%= number_with_delimiter(project.default_price) %></span>
 	</p>
 	<%= link_to "посмотреть", project, class: "b-project-thumb__details-link" %>
 

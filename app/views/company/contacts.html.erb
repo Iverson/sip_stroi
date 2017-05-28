@@ -3,6 +3,19 @@
 <div class="">
   <div class="l-center">
     <div class="b-volumes__text b-text">
+      <div class="b-offices">
+        <% @offices.each do |office| %>
+        <p class="b-footer__phone">
+          <span class="b-footer__phone__t"><%= office.city %></span>
+          <i class="b-icon i-callcenter-green"></i>
+          <span class="b-footer__phone__item"><%= phone(office.phone1, "green") %></span>
+          <span class="b-footer__phone__item"><%= phone(office.phone2, "green") %></span>
+        </p>
+        <p><%= office.info.html_safe %></p>
+        <% end %>
+      </div>
+    
+      <br /><br />
       <%= c('about.contacts.text', :text) %>
     </div>
   </div>

@@ -27,7 +27,7 @@ PanelsTableRow.prototype = {
       return '';
     }
 
-    return (this.props.count * this.props.price).toLocaleString() + '. –';
+    return (this.props.count * this.props.price).toLocaleString();
   },
 
   setValue: function(val) {

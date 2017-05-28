@@ -10,21 +10,11 @@
           <li><%= link_to "Строительство", '/#building' %></li>
           <li><%= link_to "Домокомплекты", domokomplekty_company_index_path %></li>
           <li><%= link_to "Сертификаты", certificates_company_index_path %></li>
-          <li><%= link_to "Представительства", offices_company_index_path %></li>
           <li><%= link_to "Партнеры", partners_company_index_path %></li>
           <li><%= link_to "Отзывы", reviews_path %></li>
         </ul>
       </li>
-      <li class="b-mainmenu__item">
-        <%= link_to 'Проекты', projects_path %>
-        <ul>
-          <li><%= link_to t("projects.index.typical"), projects_path(anchor: :typical) %></li>
-          <li><%= link_to t("projects.index.individual"), projects_path(anchor: :individual) %></li>
-          <% if @is_offer_exist %>
-          <li><%= link_to t("projects.index.special"), projects_path(anchor: :special) %></li>
-          <% end %>
-        </ul>
-      </li>
+      <li class="b-mainmenu__item"><%= link_to 'Проекты', projects_path %></li>
       <li class="b-mainmenu__item"><%= link_to "Панели", panels_path %></li>
       <li class="b-mainmenu__item"><%= link_to "Фото", photos_path %></li>
       <li class="b-mainmenu__item"><%= link_to "Контакты", contacts_company_index_path %></li>
@@ -33,9 +23,13 @@
     <div class="b-header__contacts" style="padding-top: 23px;">
       <!-- <i class="b-icon i-callcenter"></i> -->
       <span class="b-phones ta-right">
-        <span class="location">(<%= @head_office.city %>)</span><span class="phone"><%= phone(@head_office.phone1) %></span> <span class="phone"><%= phone(@head_office.phone2) %></span><br />
-        <span class="location"><%= link_to 'Наши представительства', offices_company_index_path, class: 'noudl' %></span>
-        
+        <% @offices.each do |o| %>
+        <span class="location">(<%= o.city %>)</span><span class="phone"><%= phone(o.phone1) %></span>
+        <% if !o.phone2.empty? %>
+          <span class="phone"><%= phone(o.phone2) %></span>
+        <% end %>
+        <br />
+        <% end %>
       </span>
 
       <a href="#" class="b-btn b-btn_orange js-feedbackPopup">написать нам</a>

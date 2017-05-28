@@ -3,15 +3,16 @@
         <div class="b-footer__left">
             <p class="b-footer__company">С∙М∙С <span class="green">Сип∙Монтаж∙Строй</span></p>
 
+            <% @offices.each do |o| %>
             <p class="b-footer__phone">
-                <span class="b-footer__phone__t"><%= @head_office.city %></span>
+                <span class="b-footer__phone__t"><%= o.city %></span>
                 <i class="b-icon i-callcenter-green"></i>
-                <span class="b-footer__phone__item"><%= phone(@head_office.phone1, "green") %></span>
-                <span class="b-footer__phone__item"><%= phone(@head_office.phone2, "green") %></span>
+                <span class="b-footer__phone__item"><%= phone(o.phone1, "green") %></span>
+                <span class="b-footer__phone__item"><%= phone(o.phone2, "green") %></span>
             </p>
-            <p><%= @head_office.info.html_safe %></p>
+            <% end %>
+            <p><%#= @head_office.info.html_safe %></p>
             <br />
-            <%= link_to 'Наши представительства', offices_company_index_path, class: 'green' %>
             <br />
             <br />
             <nav class="b-footer__menu">
