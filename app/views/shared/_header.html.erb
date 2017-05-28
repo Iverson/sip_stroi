@@ -23,7 +23,7 @@
     <div class="b-header__contacts" style="padding-top: 23px;">
       <!-- <i class="b-icon i-callcenter"></i> -->
       <span class="b-phones ta-right">
-        <% @offices.each do |o| %>
+        <% @agencies.each do |o| %>
         <span class="location">(<%= o.city %>)</span><span class="phone"><%= phone(o.phone1) %></span>
         <% if !o.phone2.empty? %>
           <span class="phone"><%= phone(o.phone2) %></span>

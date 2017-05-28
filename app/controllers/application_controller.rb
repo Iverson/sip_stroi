@@ -14,8 +14,8 @@ class ApplicationController < ActionController::Base
   end
 
   def get_office
-    @offices = Office.positioned
-    @head_office = @offices.first
+    @agencies    = Office.positioned
+    @head_office = @agencies.first
   end
 
   def check_meta
