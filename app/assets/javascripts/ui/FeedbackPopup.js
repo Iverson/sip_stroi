@@ -73,6 +73,10 @@
         data: {feedback: data},
         success: function(data) {
           self.showSuccessMessage();
+
+          if (_yaCounter) {
+            _yaCounter.reachGoal('apply')
+          }
         }
       });
     },
