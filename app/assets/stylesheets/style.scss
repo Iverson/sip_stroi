@@ -186,6 +186,7 @@ button:focus {
 /* -------- */
 
 .l-page {
+	padding-top: 60px;
 }
 
 .l-center, .b-content {
@@ -199,8 +200,11 @@ button:focus {
 }
 
 .b-header {
-	height: 70px;
-	position: relative;
+	width: 100%;
+	height: 60px;
+	left: 0;
+	top: 0;
+	position: fixed;
 	background: #fff;
 	-webkit-box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
@@ -221,7 +225,7 @@ button:focus {
 	.b-header .b-logo {
 		position: absolute;
 		left: 50%;
-		top: 12px;
+		top: 7px;
 		margin-left: -82px;
 	}
 
@@ -275,7 +279,7 @@ button:focus {
 .b-mainmenu {
 	float: left;
 	font-size: 14px;
-	line-height: 70px;
+	line-height: 60px;
 	font-weight: 300;
 	padding-left: 20px;
 }
@@ -1606,10 +1610,12 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-project-details dd {
-		font-size: 36px;
+		font-size: 32px;
 		line-height: 1.2em;
+		letter-spacing: -0.5px;
 		color: #000000;
 		margin-bottom: 13px;
+		white-space: nowrap;
 	}
 
 	.b-project-details__price {
@@ -1735,7 +1741,7 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-table .name {
-		width: 230px;
+		width: 180px;
 		font-size: 18px;
 		line-height: 1.3em;
 		font-weight: 300;
@@ -2055,8 +2061,8 @@ button.b-btn_medium, input.b-btn_medium {
 			display: none;
 		}
 
-.b-text p {
-	margin-bottom: 1.2em;
+.b-text p, .b-text h1 {
+	margin-bottom: 1.2em !important;
 }
 
 .b-text ul, .b-article ul {
