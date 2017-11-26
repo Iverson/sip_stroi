@@ -3,13 +3,15 @@
   <%= render(partial: "shared/project_thumb", collection: @typical_projects, as: :project) %>
 </div>
 
+<% unless @individual_projects.empty? %>
 <br><br>
 <h2 id="individual" class="h2 h2_center"><%= t("projects.index.individual") %></h2>
 <div class="b-projects">
   <%= render(partial: "shared/project_thumb", collection: @individual_projects, as: :project) %>
 </div>
+<% end %>
 
-<% if @is_offer_exist %>
+<% unless @special_projects.empty? %>
 <br><br>
 <h2 id="special" class="h2 h2_center"><%= t("projects.index.special") %></h2>
 <div class="b-projects">
