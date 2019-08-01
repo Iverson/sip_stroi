@@ -208,7 +208,7 @@ button:focus {
 	background: #fff;
 	-webkit-box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
 	box-shadow: 0 4px 0 rgba(0, 0, 0, 0.1);
-	z-index: 2;
+	z-index: 3;
 }
 
 .b-header:after {
@@ -310,7 +310,7 @@ button:focus {
       position: absolute;
       left: -10px;
       top: 100%;
-      margin-top: -28px;
+      margin-top: -25px;
       padding: 10px;
       background: #fff;
       // border: 1px solid #ddd;
@@ -1015,7 +1015,7 @@ button.b-btn_medium, input.b-btn_medium {
 			text-align: center;
 			position: absolute;
 			right: 30px;
-			bottom: 21px;
+			bottom: 15px;
 			background: #f7f7f7;
 		}
 
@@ -1515,7 +1515,7 @@ button.b-btn_medium, input.b-btn_medium {
 
 .b-order-btn {
 	padding: 23px 25px 0 25px;
-	height: 144px;
+	height: 120px;
 	position: relative;
 	background-image: -webkit-linear-gradient(#ffb71a, #e57511);
 	background-image: -o-linear-gradient(#ffb71a, #e57511);
@@ -1530,8 +1530,8 @@ button.b-btn_medium, input.b-btn_medium {
 	}
 
 	.b-order-btn .b-phones {
-		text-align: left;
-    vertical-align: top;
+		// text-align: left;
+    	vertical-align: top;
 	}
 
 	.b-order-btn .location {
@@ -2218,4 +2218,10 @@ button.b-btn_medium, input.b-btn_medium {
     }
   }
 
+}
+
+.anchor {
+	position: absolute;
+	display: block;
+	margin-top: -80px;
 }

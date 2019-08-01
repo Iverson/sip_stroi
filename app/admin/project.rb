@@ -2,9 +2,11 @@ ActiveAdmin.register Project do
   title = I18n.t("active_admin.projects.title")
   menu :priority => 5, :label => title, :parent => I18n.t("active_admin.catalog")
 
-  config.sort_order = 'area_asc'
+  config.sort_order = "position_asc"
+  config.paginate   = false
+  sortable
 
-  permit_params :name, :section, :floors, :area, :dimensions, :ceiling_height, :published, :description, :discount, :cover_image, :cover_alt, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
+  permit_params :name, :section, :floors, :area, :dimensions, :ceiling_height, :published, :description, :discount, :cover_image, :cover_alt, :position, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
 
   scope "Типовые", :typical, :default => true
   scope "Индивидуальные", :individual
@@ -22,6 +24,7 @@ ActiveAdmin.register Project do
   end
 
   index do
+    sortable_handle_column
     selectable_column
     column t('active_admin.image') do |p|
       link_to(image_tag(p.cover, height: 50), edit_admin_project_path(p))
@@ -32,6 +35,7 @@ ActiveAdmin.register Project do
     column t('active_admin.projects.form.area'), :area
     column t('active_admin.projects.form.floors'), :floors
     column t('active_admin.published'), :published
+    column t('active_admin.position'), :position
 
     actions
   end

@@ -21,6 +21,8 @@ class Project < ActiveRecord::Base
   scope :published, -> { where(published: true) }
   scope :sorted, -> { order(:id) }
   scope :sorted_by_area, -> { order(:area) }
+  scope :positioned, -> { order(:position) }
+  acts_as_list
   scope :typical, -> { where(section: :typical) }
   scope :individual, -> { where(section: :individual) }
   scope :special, -> { where.not(discount: nil) }

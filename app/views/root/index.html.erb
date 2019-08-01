@@ -5,27 +5,6 @@
             </div>
         </div>
 
-        <% if @is_offer_exist %>
-        <div class="b-actions" id="specials">
-            <div class="l-center">
-                <h2 class="h2 h2_center">Наши акции:</h2>
-
-                <div class="b-carousel">
-                    <div class="b-carousel__overflow">
-                        <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
-                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
-
-                        <div class="b-carousel__slider">
-                            <%= render(partial: "shared/offer", collection: @offers, as: :offer) %>
-                        </div>
-                    </div>
-
-                    <!-- <div class="b-carousel__paginator b-carousel__paginator_white"></div> -->
-                </div>
-            </div>
-        </div>
-        <% end %>
-
         <div class="b-projects-gallery">
             <h2 class="h2 light h2_center">Типовые проекты</h2>
 
@@ -246,6 +225,28 @@
             </div>
         </div>
 
+        <a class="anchor" name="specials"></a>
+        <% if @is_offer_exist %>
+        <div class="b-actions">
+            <div class="l-center">
+                <h2 class="h2 h2_center">Наши акции:</h2>
+
+                <div class="b-carousel">
+                    <div class="b-carousel__overflow">
+                        <div class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></div>
+                        <div class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></div>
+
+                        <div class="b-carousel__slider">
+                            <%= render(partial: "shared/offer", collection: @offers, as: :offer) %>
+                        </div>
+                    </div>
+
+                    <!-- <div class="b-carousel__paginator b-carousel__paginator_white"></div> -->
+                </div>
+            </div>
+        </div>
+        <% end %>
+
         <div class="b-any-questions">
             <div class="l-center">
                 <p class="b-any-questions__watermark">
@@ -265,7 +266,6 @@
                 </div>
                 <br />
                 <div class="b-any-questions__text">
-                    <%= link_to 'Наши представительства', offices_company_index_path, class: 'noudl' %>
                 </div>
                 <a href="#" class="b-btn b-btn_big b-btn_orange js-feedbackPopup">&nbsp;&nbsp; Напишите нам &nbsp;&nbsp;</a>
             </div>
