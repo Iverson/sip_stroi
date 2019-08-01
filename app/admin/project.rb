@@ -8,7 +8,8 @@ ActiveAdmin.register Project do
 
   permit_params :name, :section, :floors, :area, :dimensions, :ceiling_height, :published, :description, :discount, :cover_image, :cover_alt, :position, pictures_attributes: [:id, :name, :image, :_destroy], plans_attributes: [:id, :name, :image, :_destroy], building_photos_attributes: [:id, :name, :image, :_destroy], instances_attributes: [:id, :name, :price, :description, :position, :default, :_destroy], meta_attributes: [:title, :description, :keywords, :_destroy]
 
-  scope "Типовые", :typical, :default => true
+  scope "Все", :all, :default => true
+  scope "Типовые", :typical
   scope "Индивидуальные", :individual
 
   controller do
@@ -54,6 +55,7 @@ ActiveAdmin.register Project do
 
       input :cover_image, :required => false, :as => :file, label: t('active_admin.projects.form.cover'), hint: object.cover_image.exists? ? image_tag(object.cover_image.url(:medium)) : ''
       input :cover_alt
+      input :position
       input :published, label: t('active_admin.published')
     end
 
