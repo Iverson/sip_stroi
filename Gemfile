@@ -28,7 +28,7 @@ gem 'devise'
 gem 'acts_as_list'
 gem 'activeadmin', github: 'activeadmin'
 gem 'activeadmin-sortable'
-gem "paperclip", "~> 4.3"
+gem "paperclip", "~> 6.1"
 gem 'russian'
 gem 'airbrake'
 gem "rails-settings-cached", "0.4.1"
