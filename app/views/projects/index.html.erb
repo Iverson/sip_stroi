@@ -1,15 +1,7 @@
-<h2 id="typical" class="h2 h2_center"><%= t("projects.index.typical") %></h2>
+<h2 id="typical" class="h2 h2_center"><%= t("projects.index.title") %></h2>
 <div class="b-projects">
-  <%= render(partial: "shared/project_thumb", collection: @typical_projects, as: :project) %>
+  <%= render(partial: "shared/project_thumb", collection: @all_projects, as: :project) %>
 </div>
-
-<% unless @individual_projects.empty? %>
-<br><br>
-<h2 id="individual" class="h2 h2_center"><%= t("projects.index.individual") %></h2>
-<div class="b-projects">
-  <%= render(partial: "shared/project_thumb", collection: @individual_projects, as: :project) %>
-</div>
-<% end %>
 
 <% unless @special_projects.empty? %>
 <br><br>

@@ -2,7 +2,7 @@
 
 namespace :import do
   server_user     = "hosting_siphomebuild"
-  server_host     = "sulfur.locum.ru"
+  server_host     = "hydrogen.locum.ru"
   dump_path       = "tmp/prod.dump"
   server_app_path = "~/projects/sip-stroy"
   db_config       = YAML::load(IO.read("config/database.yml"))

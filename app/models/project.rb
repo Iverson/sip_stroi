@@ -11,7 +11,7 @@ class Project < ActiveRecord::Base
   accepts_nested_attributes_for :instances, :allow_destroy => true, reject_if: :all_blank
   accepts_nested_attributes_for :meta
 
-  has_attached_file :cover_image, :styles => { :medium => "240x154#" }
+  has_attached_file :cover_image, :styles => { :medium => "240x154>" }
 
   validates :name, presence: true
   validates :area, presence: true
@@ -31,14 +31,6 @@ class Project < ActiveRecord::Base
     unless self.uri?
       self.uri = "#{self.name}".parameterize
     end
-  end
-
-  def prev
-    @prev ||= self.class.published.sorted_by_area.where("area < ?", area).last
-  end
-
-  def next
-    @next ||= self.class.published.sorted_by_area.where("area > ?", area).first
   end
 
   def cover

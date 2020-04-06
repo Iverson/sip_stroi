@@ -1,12 +1,12 @@
-<% if @project.prev %>
-	<%= link_to @project.prev, 'class' => "b-prev-link" do %>
+<% if @prev %>
+	<%= link_to @prev, 'class' => "b-prev-link" do %>
 		<span class="b-carousel__arr b-carousel__arr_left"><i class="b-icon i-larr-white"></i></span>
-		«<%= @project.prev.name %>»
+		«<%= @prev.name %>»
 	<% end %>
 <% end %>
-<% if @project.next %>
-	<%= link_to @project.next, 'class' => "b-next-link" do %>
-		«<%= @project.next.name %>»
+<% if @next %>
+	<%= link_to @next, 'class' => "b-next-link" do %>
+		«<%= @next.name %>»
 		<span class="b-carousel__arr b-carousel__arr_right"><i class="b-icon i-rarr-white"></i></span>
 	<% end %>
 <% end %>
@@ -94,7 +94,10 @@
 		</td>
 		<td class="name"><%= instance.name %></td>
 		<td class="desc"><%= simple_format instance.description %></td>
-		<td class="price"><%= number_with_delimiter(instance.price.to_i) %></td>
+		<td class="price">
+				<%= number_with_delimiter(instance.price.to_i) if instance.price > 0 %>
+			
+		</td>
 	</tr>
 	<% end %>
 </table>
